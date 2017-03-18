@@ -41,11 +41,11 @@ app.use(function(req, res, next) {
 });
 
 
-mongoose.connect(config.MONGODBSERVER, function(err, res) {
+/*mongoose.connect(config.MONGODBSERVER, function(err, res) {
     if (err) {
         console.log('ERROR: connecting to Database. ' + err);
     }
-});
+});*/
 
 
 //start server
