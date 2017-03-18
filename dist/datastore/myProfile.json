@@ -1,0 +1,50 @@
+{    "id": "6Wtua75DaiL4HoaCJJUKr6",
+    "created": "1421280175",
+    "modified": "1429747375",
+    "username": "janicea",
+    "status": "active",
+    "service": "gc",
+    "firstname": "Janice",
+    "lastname": "Allen",
+    "displayname": "JaniceA",
+    "country": "United States",
+    "role": "teacher",
+    "location": "seattle, wa",
+    "grades-taught" : "4th grade",
+    "class-size": "1-3",
+    "ages": "10 - 14",
+    "email": "janicea@yahoo.com",
+    "skypename": "janice12345",
+    "languages": [
+                    {
+                        "id": 1,
+                        "name": "English"
+                    },
+                    {
+                        "id": 2,
+                        "name": "Spanish"
+                    }
+    ],
+    "subjects": [
+        {
+            "id": 2,
+            "name": "Science"
+        },
+        {
+            "id": 3,
+            "name": "Social Studies"
+        },{
+            "id": 4,
+            "name": "Technology"
+        }
+    ],
+    "interested_in" : "Cultural Exchange",
+    "schooltype": "Public",
+    "schoolname": "Stoney Down Park JuniorSchool",
+    "description": "I teach 4th year primary school, specialising in global and digital citizenship.I’m looking for like minded teachers of children ages 8-10 for a culturalexchange.",
+    "looking_for": "Ideally we’d like to find people from Asia and Africa as we’re in London in the UK.",
+    "avatar": "http://lorempixel.com/120/120/people/1",
+    "lastactive": 1431438315943,
+    "flag" :   "http://images.epals.com/flags/us.jpg"
+}
+

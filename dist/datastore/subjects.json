@@ -1,0 +1,32 @@
+{
+  "subjects": [
+    {
+      "id": 1,
+      "name": "Match"
+    },
+    {
+      "id": 2,
+      "name": "Science"
+    },
+    {
+      "id": 3,
+      "name": "Social Studies"
+    },{
+      "id": 4,
+      "name": "Technology"
+    },{
+      "id": 5,
+      "name": "Music"
+    },{
+      "id": 6,
+      "name": "Art"
+    },{
+      "id": 7,
+      "name": "Revisionist History"
+    },{
+          "id": 7,
+          "name": "Math"
+      }
+    
+  ]
+}

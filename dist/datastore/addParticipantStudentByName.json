@@ -1,0 +1,23 @@
+{
+    "students":[
+        {
+            "id": "ldsjfksd933232",
+            "username": "carlos123",
+            "displayname": "Carlos T",
+            "birthdate": "1421280175",
+            "flag": "http://images.epals.com/flags/us.jpg",
+            "location": "New York, US",
+            "avatar": "http://lorempixel.com/120/120/people/11"
+        },
+        {
+            "id": "ldsjfksd933232",
+            "username": "carlos345",
+            "displayname": "Carlos T",
+            "birthdate": "1421280175",
+            "flag": "http://images.epals.com/flags/cn.jpg",
+            "location": "Chonqing, China",
+            "avatar": "http://lorempixel.com/120/120/people/11"
+        }
+
+    ]
+}

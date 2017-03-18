@@ -1,0 +1,19 @@
+{
+    "lookingfor": [
+        {
+            "id": 1,
+            "name": "Cultural Exchange"
+        },
+        {
+            "id": 2,
+            "name": "Historical Adventure"
+        },
+        {
+            "id": 3,
+            "name": "Movie Making"
+        },{
+            "id": 4,
+            "name": "Debates"
+        }
+    ]
+}

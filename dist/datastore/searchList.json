@@ -1,0 +1,42 @@
+{
+  "friendList": [
+    {
+      "name": "Alex",
+      "picture" : "http://lorempixel.com/40/40/people/",
+      "flag": "http://images.epals.com/flags/us.jpg"
+    },
+    {
+      "name": "mark",
+      "picture" : "http://lorempixel.com/40/40/people/",
+      "flag": "http://images.epals.com/flags/us.jpg"
+    },
+    {
+
+      "name": "Charter",
+      "picture" : "http://lorempixel.com/40/40/people/",
+      "flag": "http://images.epals.com/flags/us.jpg"
+    },{
+
+      "name": "Home",
+      "picture" : "http://lorempixel.com/40/40/people/",
+      "flag": "http://images.epals.com/flags/us.jpg"
+    },{
+
+      "name": "Faith Based",
+      "picture" : "http://lorempixel.com/40/40/people/",
+      "flag": "http://images.epals.com/flags/us.jpg"
+    },
+    {
+
+      "name": "International",
+      "picture" : "http://lorempixel.com/40/40/people/",
+      "flag": "http://images.epals.com/flags/us.jpg"
+    },
+    {
+
+      "name": "Other",
+      "picture" : "http://lorempixel.com/40/40/people/",
+      "flag": "http://images.epals.com/flags/us.jpg"
+    }
+  ]
+}
