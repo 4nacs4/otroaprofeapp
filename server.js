@@ -34,11 +34,11 @@ app.all('/*', function(req, res, next) {
 app.use('/', require('./app/routes'));
 
 // If no route is matched by now, it must be a 404
-app.use(function(req, res, next) {
+/*app.use(function(req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
-});
+});*/
 
 
 /*mongoose.connect(config.MONGODBSERVER, function(err, res) {
