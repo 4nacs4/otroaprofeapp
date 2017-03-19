@@ -56,7 +56,7 @@ var options = {
 /* https.createServer(options, app).listen(3000, function() {
  console.log("Node server running on https://localhost:3000");
  });*/
-app.listen(config.PORT, function() {
+app.listen(process.env.PORT, function() {
     console.log("Node server running on http://localhost:3000");
     //userData.drop();
 });
