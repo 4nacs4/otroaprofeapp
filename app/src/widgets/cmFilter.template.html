@@ -1,0 +1,18 @@
+<div class="cm-filterBlock">
+  <div class="cm-filterBlockHeader">
+    <div class="cm-filterBlockTitle">{{heading}}</div>
+    <a class="cm-filterBlockAddBtn" ng-click="addClicked()" ng-if="!allValuesEmpty && isSelectedEmpty && !isSelecting"><i class="fa fa-plus"></i></a>
+  </div>
+  <div class="cm-form">
+    <div class="checkbox form-group"  ng-repeat="list in selected | orderBy: 'name'">
+      <label>
+        <input type="checkbox" ng-model="list.isChecked"> {{list.name}}
+        <span class="glyphicon glyphicon-ok"></span>
+      </label>
+    </div>
+    <div class="form-group" ng-if="isSelecting">
+      <cm-drop-down place-holder="placeHolder" values="all" model="newSelected" on-select="onSelection(newSelected)"></cm-drop-down>
+    </div>
+    <a class="cm-filterBlockAddBtn2" ng-click="addClicked()"  ng-if="!isSelectedEmpty && !allValuesEmpty && !isSelecting"><span class="cm-addIcon"><i class="fa fa-plus"></i></span>Add</a>
+  </div>
+</div>

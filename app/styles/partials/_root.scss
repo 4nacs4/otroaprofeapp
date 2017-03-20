@@ -1,0 +1,622 @@
+.cm-tabGroup {
+  float: right;
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+      float: left;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      a {
+        display: block;
+        font-family: $fontOpenSans;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: $Grey999;
+        height: $headerBarHeight;
+        padding: 32px 20px 0;
+      }
+      a:hover {
+        color: $white;
+        background: #1f1f1f;
+      }
+      .cm-selectedArrow {
+        font-size: 15px;
+        color: #a2a2a2;
+        position: absolute;
+        bottom: -4px;
+        width: 100%;
+        top: auto;
+        text-align: center;
+        display: none;
+        @include transition(all 0.8s linear);
+      }
+      .cm-selectedBannerArrow {
+        color: $lGreen;
+      }
+      /* saf3+, chrome1+ */
+      @media screen and (-webkit-min-device-pixel-ratio: 0) {
+        .cm-selectedArrow {
+          bottom: -5px;
+        }
+      }
+    }
+    li.cm-active {
+      .cm-selectedArrow {
+        display: block;
+      }
+      a {
+        color: $white;
+        background: #1f1f1f;
+      }
+    }
+    li.cm-loggedUserTab {
+      .cm-userImg {
+        margin: -7px 12px 0 0;
+      }
+    }
+  }
+}
+
+.cm-userImg {
+  position: relative;
+  display: inline-block;
+  .cm-userImgDp {
+    border-radius: 3px;
+    @include sameWidthHeight(auto);
+  }
+  .cm-userImgDp.cm-userImgSm {
+    @include sameWidthHeight(34px);
+  }
+  .cm-userImgDp.cm-userImgMd {
+    @include sameWidthHeight(64px);
+  }
+  .cm-countBubble {
+    position: absolute;
+    background: $blue;
+    color: $white;
+    font-weight: bold;
+    font-size: 10px;
+    text-align: center;
+    padding: 1px 0 0;
+    @include sameWidthHeight(23px);
+    border: 3px solid $black;
+    display: inline-block;
+    border-radius: 50%;
+    right: -10px;
+    top: -10px;
+  }
+}
+
+.cm-countBubble {
+  position: absolute;
+  background: $blue;
+  color: $white;
+  font-weight: bold;
+  font-size: 10px;
+  text-align: center;
+  padding: 1px 0 0;
+  @include sameWidthHeight(23px);
+  border: 3px solid $black;
+  display: inline-block;
+  border-radius: 50%;
+  right: -10px;
+  top: -10px;
+}
+
+.cm-mainLogo {
+  background: url("/images/logos/aprofe-ca.png") no-repeat center;
+  background-size: 100% 100%;
+  width: 182px;
+  height: 60px;
+  display: block;
+  float: left;
+  margin: 9px 0 0 15px;
+}
+
+.cm-mainHeader {
+  background: $black;
+  height: $headerBarHeight;
+  padding: 0;
+  .cm-bdBtnGroup {
+    li:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.cm-mainPageTitle {
+  color: $white;
+  font-family: $fontQuestrial;
+  font-size: 28px;
+}
+
+.cm-pageActionBar {
+  background: $lGreen;
+  height: $headerBarHeight;
+  padding: 0;
+  .cm-bdBtnGroup {
+    li:last-child {
+      margin-right: 0;
+    }
+    li {
+      a {
+        font-size: 11px;
+        background: $green;
+
+      }
+      a:hover {
+        background: $dGreen;
+      }
+    }
+  }
+  .cm-tabGroup {
+    ul {
+      li {
+        a {
+          font-size: 11px;
+          color: $white;
+          background: none;
+          height: $headerBarHeight;
+        }
+        a:hover {
+          background: #81cb40;
+        }
+        .cm-notificationCounter {
+          width: 100%;
+          position: absolute;
+          top: 13px;
+          left: 0;
+          .cm-countBubble {
+            border: none;
+            padding: 1px 1px 0px 0;
+            margin: 0 auto;
+            position: static;
+            display: block;
+            @include sameWidthHeight(17px);
+          }
+        }
+      }
+      li.cm-active {
+        .cm-selectedArrow {
+          color: $white;
+          font-size: 13px;
+        }
+        a {
+          @extend a:hover;
+        }
+      }
+    }
+  }
+  .cm-mainPageTitle {
+    float: left;
+    margin-top: 25px;
+    margin-left:15px;
+  }
+  .cm-pageSearchBar {
+    position: relative;
+    float: right;
+    padding: 0;
+    margin: 20px 15px 0 ;
+    input[type="text"] {
+      background: #a1de6b;
+      border: none;
+      color: #fff;
+      border-radius: 3px;
+      font-size: 12px;
+      font-weight: 600;
+      @include boxShadow(none);
+      height: 40px;
+      padding: 0 15px;
+      width: 323px;
+    }
+    @include placeholderColor($white);
+    button {
+      height: 40px;
+      background: none;
+      border: none;
+      font-size: 17px;
+      color: $white;
+      padding: 3px 0 0 12px;
+      margin: 0 0 0 5px;
+      text-align: right;
+    }
+  }
+  .cm-pageSearchBar:after {
+    border-style: solid;
+    border-width: 7.5px 0 7.5px 8px;
+    content: " ";
+    height: 0;
+    position: absolute;
+    right: 31px;
+    top: 13px;
+    width: 0;
+    border-color: transparent transparent transparent #a1de6b;
+  }
+  .cm-crossBtnLg {
+    background: url("/images/icons/light_cross_lg.png") no-repeat center;
+    border-color: #9ad368;
+  }
+  .cm-crossBtnLg:hover {
+    background-color: #9ad368;
+  }
+}
+
+.cm-userLoggedDropDown {
+  float: right;
+  margin: 25px 30px 0;
+  .cm-cmBtn {
+    font-weight: 600;
+    color: #fff;
+    span {
+      background: #2a2a2a;
+      display: inline-block;
+      border-radius: 0 3px 3px 0;
+      padding: 5px 10px 0;
+      height: 28px;
+      .fa {
+        font-size: 21px;
+        line-height: 7px;
+        margin-left: 25px;
+        position: relative;
+        top: 3px;
+      }
+    }
+  }
+}
+
+.cm-bdlArrowBtn {
+  color: $white;
+  font-size: 14px;
+  height: 80px;
+  padding-top: 2px;
+  text-transform: uppercase;
+  margin-left: 15px;
+  .fa {
+    font-size: 50px;
+    margin-right: 14px;
+    position: relative;
+    top: 11px;
+  }
+}
+
+/* Grey Form */
+
+.cm-form.cm-greyForm {
+  .form-group {
+    margin-bottom: 8px;
+    .cm-formControlWrap {
+      position: relative;
+    }
+    .dropdown {
+      .form-control:after {
+        background-position: -99px center;
+        height: 36px;
+      }
+    }
+    label {
+      text-transform: uppercase;
+      color: $Grey777;
+      font-weight: 600;
+      font-size: 11px;
+      margin-bottom: 7px;
+    }
+    .form-control {
+      border-color: #d8d8d8;
+      border-radius: 2px;
+      height: 38px;
+      font-size: 16px;
+      font-weight: 600;
+      resize: none;
+    }
+    .form-control.cm-height100px {
+      height: 100px;
+    }
+    .form-control.cm-height172px {
+      height: 172px;
+    }
+    .cm-checkboxGroup {
+      min-height: 38px;
+      padding-top: 8px;
+      .cm-checkBoxAddBtn {
+        position: relative;
+        padding-left: 22px;
+        float: left;
+        margin-top: 3px;
+        line-height: 16px;
+        @include transition(none);
+        color: $black333;
+        &:hover, &:active, &focus {
+          color: $black333;
+        }
+        .cm-addIcon {
+          position: absolute;
+          left: 0;
+          top: 0;
+          display: block;
+          font-size: 10px;
+          color: $black333;
+          background: #dddddd;
+          padding: 0px 0 0 3px;
+          border-radius: 3px;
+          line-height: 14px;
+          @include sameWidthHeight(14px);
+        }
+      }
+    }
+    .checkbox {
+      float: left;
+      margin: 0 20px 5px 0;
+      label {
+        font-size: 16px;
+        font-weight: 600;
+        text-transform: none;
+        color: $black333;
+        margin: 0;
+        line-height: 20px;
+        position: relative;
+      }
+      .glyphicon {
+        border-radius: 2px;
+      }
+    }
+  }
+}
+
+/* Custom Value Slider */
+
+.cm-customValueSlider {
+  height: 38px;
+  .cm-sliderBar {
+    width: calc(100% - 65px);
+    display: block;
+    float: left;
+    margin-top: 15px;
+    .jslider {
+      top: auto;
+      height: auto;
+    }
+    .jslider-value, .jslider-label {
+      display: none;
+    }
+    .jslider-pointer {
+      background: url(/images/icons/value_slider_btn.png) no-repeat center;
+      @include sameWidthHeight(20px);
+      top: -7px;
+    }
+    .jslider-pointer-hover {
+      background-position: center !important;
+    }
+    .jslider-bg {
+      .left, .right {
+        height: 7px;
+        background: #ccc;
+      }
+      .left {
+        border-radius: 2px 0 0 2px;
+      }
+      .right {
+        border-radius: 0 2px 2px 0;
+      }
+      .range {
+        height: 7px;
+        background: $lGreen;
+      }
+      .default {
+        display: none;
+      }
+    }
+  }
+  .cm-sliderText {
+    width: 55px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: right;
+    float: right;
+    margin-top: 6px;
+  }
+}
+
+/* User Dp Info Box */
+
+.cm-userDpInfoBox {
+  border-bottom: 1px solid #e1e0e0;
+  position: relative;
+  cursor: pointer;
+  .cm-userImg {
+    float: left;
+    .cm-countBubble {
+      background: #64e201;
+      @include sameWidthHeight(12px);
+      border: 2px solid $white;
+      right: -4px;
+      top: -4px;
+    }
+  }
+  .cm-userInfoArea {
+    margin-left: 45px;
+    .cm-userTitle {
+      color: #34343f;
+      font-size: 15px;
+      line-height: 16px;
+      margin-bottom: 3px;
+      text-transform: capitalize;
+    }
+    .cm-userState {
+      color: #34343f;
+      font-size: 10px;
+      text-transform: uppercase;
+    }
+    .cm-userTitle2 {
+      font-size: 12px;
+      line-height: 16px;
+      margin-bottom: 4px;
+      margin-top: -2px;
+    }
+    .cm-userTitle3 {
+      font-size: 13px;
+      line-height: 16px;
+      margin-bottom: 4px;
+      margin-top: -2px;
+      overflow: hidden;
+      font-weight: 600;
+      .cm-publishTime {
+        color: #666;
+        text-transform: uppercase;
+        float: right;
+        font-size: 10px;
+      }
+    }
+    .cm-feedGlimpse {
+      color: #666;
+      font-size: 12px;
+      line-height: 15px;
+    }
+    .cm-msgGlimpse {
+      color: #666;
+      font-size: 10px;
+      line-height: 15px;
+    }
+    .cm-publishTime2 {
+      font-size: 11px;
+      font-weight: bold;
+      line-height: 10px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    .cm-chatMsg {
+      font-size: 13px;
+      line-height: 18px;
+    }
+  }
+}
+
+/* Datepicker */
+
+.cm-datepicker {
+  .cm-form.cm-greyForm {
+    .form-group.input-group {
+      margin-bottom: 8px;
+      label {
+        display: table-cell;
+        vertical-align: middle;
+        width: 35px;
+      }
+      .form-control {
+        font-size: 12px;
+        text-transform: uppercase;
+        height: 25px;
+        border-right: none;
+      }
+      .dropdown-menu[datepicker-popup-wrap] {
+        left: -65px !important;
+        padding: 5px !important;
+      }
+      .btn {
+        height: 25px;
+        padding-top: 3px;
+        border-radius: 0 2px 2px 0;
+        .glyphicon {
+          color: $Grey777;
+        }
+      }
+    }
+  }
+}
+
+/* Profile Background Picker */
+
+.cm-backgroundPicker {
+  .carousel {
+    margin: 0 8px;
+    .item {
+    }
+    img {
+      border: 4px solid transparent;
+      margin: -1px;
+      cursor: pointer;
+      &:hover {
+        border-color: $lGrey;
+      }
+      &.cm-active {
+        border-color: $green;
+      }
+    }
+    .carousel-indicators {
+      display: none;
+    }
+    .carousel-control {
+      @include sameWidthHeight(20px);
+      background: $white;
+      border-radius: 20px;
+      opacity: 1;
+      top: 23px;
+      line-height: 0.8;
+      .glyphicon {
+        font-size: 12px;
+        text-shadow: none;
+        color: $black333;
+        margin: 0;
+        position: static;
+        @include sameWidthHeight(auto);
+      }
+    }
+  }
+}
+
+/* Experience Drawer Info */
+
+.cm-expDrawerInfo{
+  padding:15px;
+  .cm-editExpLink{
+    color:$black333;
+    margin-top: 40px;
+    display: block;
+    &:hover{
+      color:$black333;
+      text-decoration: underline;
+    }
+  }
+  p{
+    font-size:14px;
+  }
+  h2{
+    color:$green;
+    font-size:17px;
+    font-family: $fontQuestrial;
+  }
+  .cm-greenArrowList{
+    list-style: none;
+    margin:0;
+    padding:0 0 0 15px;
+    li{
+      position: relative;
+      padding: 0 0 0 13px;
+      margin: 0 0 5px 0;
+      &:before{
+        content:" ";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 4px 0 4px 5px;
+        border-color: transparent transparent transparent $green;
+        position: absolute;
+        left:0;
+        top:5px;
+      }
+      a, a:focus{
+        text-decoration: underline;
+        color:$black333;
+        font-size:13px;
+        &:hover{
+          text-decoration:none;
+        }
+      }
+    }
+  }
+}
+  .summernoteMaxHeight .note-editor .note-editable{
+    max-height: 125px;
+  }

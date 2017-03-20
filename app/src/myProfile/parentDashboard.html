@@ -1,0 +1,31 @@
+<div class="cm-profileLayout clearfix cm-height100" ng-scrollbars>
+    <div class="cm-parentDashboard">
+        <div class="cm-parentDashboardHeader">
+            <div class="cm-primaryBar">
+                <div class="cm-parentName">{{vm.data.name}}<span>Parent</span></div>
+                <a class="cm-editMyAcc"><i class="fa fa-pencil"></i> Edit My Account</a>
+            </div>
+            <div class="cm-secondaryBar">
+                <div class="cm-kidsHeading">My Kids</div>
+                <a class="cm-cmBtn cm-bdBtn cm-btnSm">Add Kids</a>
+            </div>
+        </div>
+        <div class="cm-myKidsListing">
+            <div ng-repeat="kid in vm.data.kids" class="cm-connecProfileCard cm-myKidsCard cm-greyBorderCard">
+                <div class="cm-basicBio">
+                    <div class="cm-connecNCWrap">
+                        <div class="cm-connecName" ng-bind="kid.displayname"></div>
+                        <div class="cm-connecAdrs">
+                            <img ng-src="{{kid.flag}}" class="cm-flag" alt="">
+
+                            <div class="cm-connecAdrsTxt">{{kid.location}}<br>{{kid.country}}</div>
+                        </div>
+                    </div>
+                    <figure class="cm-userImg"><img alt="" ng-src="{{kid.avatar}}" class="cm-userImgDp cm-userImgMd"></figure>
+                </div>
+                <button class="btn cm-kidsCardActionBtn cm-kidsActionViewBtn">View Work</button>
+                <button class="btn cm-kidsCardActionBtn cm-kidsActionEditBtn">Edit</button>
+            </div>
+        </div>
+    </div>
+</div>

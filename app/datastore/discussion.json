@@ -1,0 +1,68 @@
+{
+  "discussion":
+    {
+      "experience_id": "1",
+      "subject":"Hello Students! Please take a few seconds to introduce yourself!",
+      "displayname": "Jonathan W",
+      "timestamp": "1432655304733",
+      "body": "Cras mattis consectetur purus sit amet fermentum. Etiam porta sem malesuada magna mollis euismod. Maecenas faucibus mollis interdum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.",
+      "location": "Washington, DC",
+      "avatar": "https://s-media-cache-ak0.pinimg.com/236x/11/a1/48/11a148663818e9c3598d530005a31995.jpg"
+    },
+  "comments" : [
+      {
+          "discussion_id": "1",
+          "displayname": "Jonathan W",
+          "timestamp": "1432655304733",
+          "body": "Etiam porta sem malesuada magna mollis euismod. Maecenas faucibus mollis interdum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean eu leo quam.",
+          "location": "Washington, DC",
+          "avatar": "https://s-media-cache-ak0.pinimg.com/236x/11/a1/48/11a148663818e9c3598d530005a31995.jpg" ,
+          "attachedImages" : [
+
+          ],
+          "commentReply" : [
+              {
+                  "comment_id": "1",
+                  "displayname": "Aubrey C",
+                  "timestamp": "1432655304733",
+                  "body": "Etiam porta sem malesuada magna mollis euismod. Maecenas faucibus mollis interdum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean eu leo quam.",
+                  "location": "Washington, DC",
+                  "avatar": "http://static.comicvine.com/uploads/original/11118/111181237/3995061-avatar_dc75_batman.jpg"
+              },
+              {
+                  "comment_id": "2",
+                  "displayname": "Jonathan W",
+                  "timestamp": "1432655304733",
+                  "body": "magna mollis euismod. Maecenas faucibus mollis interdum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean eu leo quam.",
+                  "location": "Washington, DC",
+                  "avatar": "https://s-media-cache-ak0.pinimg.com/236x/11/a1/48/11a148663818e9c3598d530005a31995.jpg"
+              }
+
+          ]
+      },
+      {
+          "discussion_id": "1",
+          "displayname": "Jonathan W",
+          "timestamp": "1432655304733",
+          "body": "Etiam porta sem malesuada magna mollis euismod. Maecenas faucibus mollis interdum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean eu leo quam.",
+          "location": "Washington, DC",
+          "avatar": "https://s-media-cache-ak0.pinimg.com/236x/11/a1/48/11a148663818e9c3598d530005a31995.jpg" ,
+          "attachedImages" : [
+            {
+              "link" :  "images/bg/media_1.jpg"
+            },
+            {
+              "link" :  "images/bg/media_2.jpg"
+            },
+            {
+              "link" : "images/bg/media_3.jpg"
+            }
+
+          ],
+          "commentReply" : [
+
+          ]
+      }
+  ]
+
+}

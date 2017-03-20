@@ -1,0 +1,7 @@
+<ul class="cm-tabNavAB">
+    <li ng-repeat="state in vm.navStates | orderBy: 'myConnectionNavOrder'" ui-sref="{{state.name}}" ng-class="{'cm-active': state.isSubActiveTab}"><i class="fa fa-caret-up"></i><a>{{state.myConnectionNavTitle}}</a><span class="cm-countBubble" ng-if="(state.notificationCount>0)&&(!state.isSubActiveTab)">{{state.notificationCount}}</span></li>
+</ul>
+<div class="cm-changeViewOptions">
+    <a class="cm-listView" ng-class="{active:vm.row}" ng-click="vm.rowDisplay(true)"><span class="glyphicon glyphicon-th-list"></span></a>
+    <a class="cm-GridView" ng-class="{active:!vm.row}" ng-click="vm.rowDisplay(false)"><span class="glyphicon glyphicon-th-large"></span></a>
+</div>

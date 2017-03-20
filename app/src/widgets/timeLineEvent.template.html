@@ -1,0 +1,30 @@
+<section class="cm-expSinglePost cm-greenBorderCard" ng-class="{'marginTop40':event.applyMargin}">
+    <div class="cm-singlePostHeader" ng-click="goToDiscussion()"><h1 class="cm-singlePostTitle">{{event.title}}</h1></div>
+    <div class="cm-singlePostBody">
+        <div class="cm-multipleMedia">
+            <div ng-repeat="media in event.media"  style="background-image:url({{media}});"
+                 class="cm-mediaBox"
+                 ng-class="{'cm-singleRowMedia':($index === 0),'cm-halfRowMedia':($index !==0)}">
+            </div>
+        </div>
+        <p class="cm-singlePostDesc">{{event.text}}</p>
+    </div>
+    <div class="cm-singlePostFooter">
+        <div class="cm-singlePostPublishTime" am-time-ago="event.createdon"></div>
+        <a class="btn cm-cmBtn cm-readmoreBtn" ng-click="goToDiscussion()" ><i class="fa fa-angle-right"></i></a>
+        <a class="btn cm-cmBtn cm-commentBtn" ng-click="goToDiscussion()" ng-class="{'cm-commentActive': (event.comments.count>0)}"><span class="glyphicon glyphicon-comment"></span> {{event.comments.count}}</a>
+    </div>
+    <div ng-if="event.comments.latestComment.length > 0" class="cm-latestComment">
+        <div class="cm-latestCmtTitle">Latest Comment</div>
+        <div class="cm-userDpInfoBox" ng-repeat="comment in event.comments.latestComment">
+            <figure class="cm-userImg">
+                <img alt="" src="{{comment.avatar}}" class="cm-userImgDp cm-userImgSm"/>
+            </figure>
+            <div class="cm-userInfoArea">
+                <div class="cm-userTitle">{{comment.title}}</div>
+                <div class="cm-publishTime2">{{comment.time}}</div>
+                <div class="cm-feedGlimpse">{{comment.text}}</div>
+            </div>
+        </div>
+    </div>
+</section>

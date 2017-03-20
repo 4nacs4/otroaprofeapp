@@ -1,0 +1,76 @@
+<div class="cm-expDiscussionBoard">
+    <h1>{{discussion.subject}}</h1>
+    <div class="cm-singleDBPost clearfix">
+        <figure class="cm-userImg">
+            <img alt="" src={{discussion.avatar}} class="cm-userImgDp cm-userImgSm">
+        </figure>
+        <div class="cm-singleDBPostContent">
+            <div class="cm-singleDBPostHdr clearfix">
+                <div class="cm-userMetaInfo">
+                    <div class="cm-userTitle">{{discussion.displayname}}<span class="cm-metaCountry">/ {{discussion.location}}</span></div>
+                    <div class="cm-singleDBPostMeta">
+                      {{discussion.timestamp | date:'MMM d, yyyy / hh:mma'}}{{  " " +timeZone}}
+                        <span class="cm-MetaCommentsCount" ng-class="{'greyCommentIcon': (comments.length>0)}"><span class="glyphicon glyphicon-comment"></span> {{comments.length}}</span>
+                    </div>
+                </div>
+                <a  class="cm-editExpLink" ui-sref="shell.myExperience.modification.editExperience({id: discussion.experience_id})"><i class="fa fa-pencil"></i> Edit Experience</a>
+            </div>
+            <div class="cm-singleDBPostBody">
+             {{discussion.body}}
+            </div>
+            <div class="cm-singleDBPostFooter clearfix">
+                <a class="cm-addCmntReplyLink" ng-click = "expandCommentBox()">Add Comment</a>
+                <a ng-click="goToBottom()" class="btn cm-scrollBtn cm-bdBtn cm-btnSm"><i class="fa fa-angle-double-down"></i></a>
+            </div>
+
+            <!-- Comment Html -->
+            <div ng-repeat="comment in comments" class="cm-singleDBPost cm-singleDBPostComment clearfix">
+                <figure class="cm-userImg">
+                    <img alt="" src={{comment.avatar}} class="cm-userImgDp cm-userImgSm">
+                </figure>
+                <div class="cm-singleDBPostContent">
+                    <div class="cm-singleDBPostHdr clearfix">
+                        <div class="cm-userMetaInfo">
+                            <div class="cm-userTitle">{{comment.displayname}}<span class="cm-metaCountry">/ {{comment.location}}</span></div>
+                            <div class="cm-singleDBPostMeta">
+                              {{comment.timestamp | date:'MMM d, yyyy / hh:mma'}}{{  " " +timeZone}}
+                                <a  class="cm-metaEditPost">Edit</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cm-singleDBPostBody">
+                      {{comment.body}}
+                      <div class="cm-singleDBPostMedia">
+                          <img ng-repeat="img in comment.attachedImages" src={{img.link}} alt="">
+                      </div>
+                    </div>
+                    <div class="cm-singleDBPostFooter clearfix">
+                        <a class="cm-addCmntReplyLink" ng-click = "expandCommentBox()">Reply</a>
+                    </div>
+
+                    <!--Reply Html-->
+                    <div ng-repeat="reply in comment.commentReply" class="cm-singleDBPost cm-singleDBPostReply clearfix">
+                        <figure class="cm-userImg">
+                            <img alt="" src="{{reply.avatar}}" class="cm-userImgDp cm-userImgSm">
+                        </figure>
+                        <div class="cm-singleDBPostContent">
+                            <div class="cm-singleDBPostHdr clearfix">
+                                <div class="cm-userMetaInfo">
+                                    <div class="cm-userTitle">{{reply.displayname}}<span class="cm-metaCountry">/ {{reply.location}}</span></div>
+                                    <div class="cm-singleDBPostMeta">
+                                        {{reply.timestamp | date:'MMM d, yyyy / hh:mma'}}{{  " " +timeZone}}
+                                        <a  class="cm-metaEditPost">Edit</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cm-singleDBPostBody">
+                              {{reply.body}}
+                            </div>
+                        </div>
+                    </div>
+                    <div id="discussionEnd"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

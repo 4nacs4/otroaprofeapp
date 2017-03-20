@@ -1,0 +1,641 @@
+// SideBar Content Page
+
+.cm-GreyBg{
+  background:#f0f0f0;
+}
+
+.cm-mainContentArea {
+  margin-left: -15px;
+  margin-right: -15px;
+  height: 100%;
+  @include transition($transitionValue);
+
+  .cm-cardListing {
+    height: calc(100% - 60px);
+    padding: 10px;
+
+    .cm-cardListingBlock {
+      padding: 10px;
+    }
+  }
+}
+.cm-mainContentArea.cm-sideBarOpen {
+  padding-left: 250px;
+}
+
+.cm-sideBarContentWrapper {
+  height: 100%;
+  position: relative;
+  .cm-sideBarWrapper {
+    height: 100%;
+    width: 250px;
+    position: absolute;
+    left: -265px;
+    top: 0;
+    @include transition($transitionValue);
+    .cm-saveSearchMain{
+      @include boxShadow(none);
+      overflow: auto;
+      width:100%;
+      background:$white;
+      position: absolute;
+      top:62px;
+      left:0;
+      height:265px;
+      z-index:10;
+      padding: 9px 0 15px;
+      @include boxShadow(0px 3px 8px 0px rgba(0, 0, 0, 0.21));
+      .cm-saveSearchPresetsWrapper{
+        position: relative;
+        .cm-saveSearchPresetTitle{
+          font-size:12px;
+          color:$black;
+          margin:6px 0;
+          font-weight: bold;
+          padding: 0 15px;
+        }
+        ul{
+          list-style: none;
+          margin:0;
+          padding: 0;
+          li{
+            margin:0;
+            padding:4px 30px 0 15px;
+            position: relative;
+            font-size:14px;
+            color:$Grey777;
+            height: 30px;
+            cursor: pointer;
+            .cm-removeSearch, .cm-removeSearch:focus{
+              color:$black333;
+              font-size: 10px;
+              text-align: center;
+              position: absolute;
+              right: 13px;
+              top: 8px;
+              border-radius: 50%;
+              line-height: 1.2;
+              @include sameWidthHeight(14px);
+            }
+            .cm-removeSearch:hover, .cm-removeSearch:hover:focus{
+              background:rgba(0,0,0,0.08);
+            }
+          }
+          li.cm-active{
+            background:#beedff;
+            color:$black333;
+          }
+        }
+      }
+    }
+    .cm-sideBarExpandBtn {
+      z-index:1;
+      color: $white;
+      width: 20px;
+      text-align: center;
+      height: 26px;
+      position: absolute;
+      top: 17px;
+      right: -20px;
+      font-size: 18px;
+      background: $dGreen;
+      display: block;
+      border-radius: 0 4px 4px 0;
+      .fa {
+        position: relative;
+        right: 1px;
+        top: -1px;
+      }
+      .fa-angle-left {
+        display: none;
+      }
+    }
+    .transclude{
+      height:100%;
+    }
+    .transclude .cm-sideBarHeader {
+      height: 62px;
+      background: $dGreen;
+      padding: 0 15px;
+      position: relative;
+
+      .cm-sideBarTitle {
+        font-size: 17px;
+        float: left;
+        color: $white;
+        padding-top: 16px;
+        cursor: pointer;
+        .fa {
+          opacity: 0.6;
+        }
+        .cm-saveSearchPresetsArrow{
+          color: #ffffff;
+          font-size: 15px;
+          left: 65px;
+          position: absolute;
+          top: 52px;
+        }
+      }
+      .cm-filterOptions {
+        float: right;
+        padding-top: 21px;
+        overflow: hidden;
+        .cm-filterOptionsBtn {
+          font-weight: 600;
+          text-transform: capitalize;
+          display: inline-block;
+          margin: 0 0 0 12px;
+          color: $white;
+        }
+        .cm-filterOptionsBtn:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+    .transclude .cm-sideBarBody {
+      height: calc(100% - 62px);
+      overflow: auto;
+      background: $white;
+      position: relative;
+      .cm-filterBlock {
+        border-top: 2px solid $mGrey;
+        padding: 16px 15px;
+        .cm-filterBlockHeader {
+          overflow: hidden;
+          .cm-filterBlockTitle {
+            color: #4b9e02;
+            font-weight: 600;
+            float: left;
+            text-transform: uppercase;
+          }
+          .cm-filterBlockAddBtn {
+            display: block;
+            float: right;
+            font-size: 10px;
+            color: $black333;
+            background: #dddddd;
+            padding: 0px 0 0 3px;
+            border-radius: 3px;
+            margin-top: 1px;
+            @include sameWidthHeight(14px);
+            @include transition(none);
+          }
+        }
+        .cm-form {
+          .checkbox {
+            margin-bottom:6px !important;
+            label {
+              color: $black333;
+              font-size: 12px;
+              padding-left: 22px;
+              line-height: 19px;
+              margin: 0;
+              .glyphicon {
+                @include sameWidthHeight(14px);
+                font-size: 10px;
+                color: #383838;
+                padding: 1px 1px 0 0;
+              }
+            }
+          }
+          .form-group {
+            margin: 0;
+            .form-control {
+              border-color: #ebeced;
+              border-radius: 3px;
+              color: #333333;
+              font-weight: 600;
+              height: 32px;
+              font-size: 12px;
+              font-weight: normal;
+            }
+          }
+          .form-group:first-child{
+            margin-top: 9px;
+          }
+          .cm-filterBlockAddBtn2 {
+            position: relative;
+            padding-left: 22px;
+            @include transition(none);
+            color:$black333;
+            &:focus,&:hover,&:active{
+              color:$black333;
+            }
+            .cm-addIcon {
+              position: absolute;
+              left: 0;
+              top: 0;
+              display: block;
+              font-size: 10px;
+              color: $black333;
+              background: #dddddd;
+              padding: 0px 0 0 3px;
+              border-radius: 3px;
+              line-height: 14px;
+              @include sameWidthHeight(14px);
+            }
+          }
+        }
+      }
+    }
+  }
+  .cm-sideBarWrapper.cm-sideBarExpanded {
+    left: -15px;
+      .cm-sideBarExpandBtn {
+        .fa-angle-left {
+          display: inline-block;
+        }
+        .fa-angle-right {
+          display: none;
+        }
+      }
+
+  }
+}
+// Content Action Bar
+
+.cm-contentActionBar{
+  height:60px;
+  background:#4b9e02;
+  padding:0 15px;
+  border-bottom:1px solid $dGreen;
+  position: relative;
+
+  .cm-bdBtnGroup{
+    margin-right: 0;
+  }
+
+  .cm-bdlArrowBtn{
+    text-transform: none;
+    font-size: 15px;
+    height: 100%;
+    padding: 0;
+    margin-left: 30px;
+    .fa{
+      font-size: 40px;
+      margin-right: 14px;
+      position: relative;
+      top: 8px;
+    }
+  }
+
+  .cm-scrollBtn{
+    display: inline-block;
+    background: $green;
+    border: none;
+    font-size: 11px;
+    padding: 6px 25px 0;
+    width: auto;
+    vertical-align: top;
+    font-size: 22px;
+    line-height: 1.3;
+    padding: 0;
+    position: absolute;
+    right: 30px;
+    top: 90px;
+    width: 28px;
+    cursor: pointer;
+    z-index:1;
+    opacity: 0.7;
+  }
+
+  .cm-bdBtnGroup{
+    li{
+      margin: 16px 5px 0;
+      a{
+        font-size:11px;
+        background:$lGreen;
+        padding: 6px 25px 0;
+        width:auto;
+        border:none;
+        .fa{
+          font-size: 14px;
+          margin-right: 10px;
+          position: relative;
+          top: 1px;
+        }
+      }
+    }
+  }
+
+  .cm-miniLabel{
+    font-weight: 600;
+    color:$white;
+    padding-top: 20px;
+    float:left;
+    padding-left:25px;
+  }
+  .cm-mainPageTitle{
+    float: left;
+    padding-left: 20px;
+    padding-top: 9px;
+  }
+  .cm-sortByOptions{
+    float:right;
+    padding-top:14px;
+    .form-group {
+      float:left;
+      label {
+        @extend .cm-miniLabel;
+        padding: 0 10px 0 0;
+        float: none;
+      }
+      select {
+        width: 122px;
+        height: 32px;
+        padding: 0 0 0 11px;
+        color: $black333;
+        font-weight: 600;
+        border: none;
+        border-radius: 3px;
+        background: $white;
+      }
+      .ui-select-placeholder{
+        height:32px !important;
+        display:inline-block;
+        vertical-align: middle;
+      }
+    }
+
+    .cm-sortBtn{
+      background:url(/images/icons/sort_icon_sprite.png) no-repeat #ebeced;
+      height:32px;
+      width:30px;
+      display:inline-block;
+      border-radius:3px;
+      float:left;
+      margin-left:13px;
+      @include transition(none);
+    }
+
+    .cm-ascBtn{
+      background-position: -28px center;
+    }
+
+    .cm-dscBtn{
+      background-position: -66px center;
+    }
+    .cm-tabNavAB{
+      float:left;
+      list-style: none;
+      margin:0;
+      padding: 0;
+      height:100%;
+      li{
+        display:inline-block;
+        height:100%;
+        margin:0 30px 0 0;
+        padding:0;
+        text-align: center;
+        position: relative;
+        a, a:hover, a:focus{
+          display: block;
+          font-size:12px;
+          color:$green;
+          text-transform: uppercase;
+          font-weight: bold;
+          padding:20px 0 0;
+        }
+        .fa{
+          width:100%;
+          position: absolute;
+          bottom:0;
+          left:0;
+          font-size:14px;
+          line-height: 0.4;
+          display:none;
+        }
+        .cm-countBubble {
+          position: absolute;
+          right: -13px;
+          top: 7px;
+          border: none;
+          padding: 1px 1px 0px 0;
+          display: block;
+          @include sameWidthHeight(17px);
+        }
+      }
+      li.cm-active{
+        a{
+          color:$black333;
+        }
+        .fa{
+          display:block;
+        }
+      }
+    }
+  }
+
+  .cm-changeViewOptions{
+    float:right;
+    margin-left:35px;
+    padding-top: 19px;
+    overflow: hidden;
+    a{
+      //      @include sameWidthHeight(20px);
+      display:block;
+      float:left;
+      margin-left:15px;
+      border-radius:3px;
+      color:$white;
+      padding:5px;
+      line-height: 0;
+
+      .glyphicon{
+        top:0;
+      }
+    }
+    a.active{
+      background:$dGreen;
+    }
+  }
+  .cm-tabNavAB{
+     float:left;
+     list-style: none;
+     margin:0;
+     padding: 0;
+     height:100%;
+     li{
+       display:inline-block;
+       height:100%;
+       margin:0 30px 0 0;
+       padding:0;
+       text-align: center;
+       position: relative;
+       a, a:hover, a:focus{
+         display: block;
+         font-size:12px;
+         color:$green;
+         text-transform: uppercase;
+         font-weight: bold;
+         padding:20px 0 0;
+       }
+       .fa{
+         width:100%;
+         position: absolute;
+         bottom:0;
+         left:0;
+         font-size:14px;
+         line-height: 0.4;
+         display:none;
+       }
+       .cm-countBubble {
+         position: absolute;
+         right: -13px;
+         top: 7px;
+         border: none;
+         padding: 1px 1px 0px 0;
+         display: block;
+         @include sameWidthHeight(17px);
+       }
+     }
+     li.cm-active{
+       a{
+         color:$black333;
+       }
+       .fa{
+         display:block;
+       }
+     }
+   }
+}
+
+.cm-contentActionBar.cm-contentActionBarWhite{
+  background:$white;
+  border-color:#dddddd;
+
+  .cm-changeViewOptions {
+    a {
+      color:$lGreen;
+    }
+    a.active {
+      background: $lGreen;
+      color:$white;
+    }
+  }
+}
+
+.cm-contentActionBar.cm-contentActionBarWhite{
+  background:$white;
+  border-color:#dddddd;
+
+  .cm-changeViewOptions {
+    a {
+      color:$lGreen;
+    }
+    a.active {
+      background: $lGreen;
+      color:$white;
+    }
+  }
+
+}
+.cm-customSelectActionBar.selectize-control{
+  display:inline-block;
+  vertical-align: middle;
+  height:32px;
+  .selectize-input{
+    width: 122px;
+    height: 32px;
+    padding: 6px 30px 0 11px;
+    color: $black333;
+    font-weight: 600;
+    border: none;
+    border-radius: 3px;
+    background: $white;
+  }
+  .selectize-input:after{
+    background:url("/images/icons/sort_icon_sprite.png") no-repeat 10px center #ebeced;
+    border-radius: 3px 0 0 3px;
+    width:30px;
+    height: 32px;
+    top: 0;
+    right: 0;
+    border: none;
+    margin: 0;
+  }
+  .selectize-dropdown .active{
+    background:#eee;
+    color:$black;
+  }
+}
+.cm-filterBlockAddBtn2.ng-enter,.cm-filterBlockAddBtn.ng-enter {
+  transition:0.5s linear all;
+  opacity:0;
+}
+.cm-filterBlockAddBtn2.ng-enter-active,.cm-filterBlockAddBtn.ng-enter-active {
+  opacity:1;
+}
+.modal + .cm-customSelectFilter.selectize-control {
+  z-index: 1051;
+}
+.cm-customSelectFilter.selectize-control{
+  display:inline-block;
+  vertical-align: middle;
+  .selectize-input ::-webkit-input-placeholder {
+    color: $black;
+  }
+
+  .selectize-input :-moz-placeholder { /* Firefox 18- */
+    color: $black;
+  }
+
+  .selectize-input ::-moz-placeholder {  /* Firefox 19+ */
+    color: $black;
+  }
+
+  .selectize-input :-ms-input-placeholder {
+    color: $black;
+  }
+  .selectize-input{
+    padding: 6px 45px 0 11px;
+    color: $black333;
+    font-weight: 600;
+    border: none;
+    border-radius: 3px;
+    background: $white;
+    height: 32px;
+    font-size: 12px;
+    font-weight: normal;
+  }
+  .selectize-input:after{
+    background:url("/images/icons/sort_icon_sprite.png") no-repeat 10px center #ebeced;
+    border-radius: 3px 0 0 3px;
+    width:30px;
+    height: 32px;
+    top: 0;
+    right: 0;
+    border: none;
+    margin: 0;
+  }
+  .selectize-dropdown .active{
+    background:#eee;
+    color:$black;
+  }
+}
+.totalCount {
+  font-size: 17px;
+  color: $white;
+  font-weight: normal;
+}
+
+/* No Listing Message */
+
+.cm-noListingMessage{
+  font-size:14px;
+  text-align: center;
+  margin-top:50px;
+  .cm-cmBtn{
+    background: $blue;
+    color:$white;
+    font-size:11px;
+    font-weight: bold;
+    text-transform:uppercase;
+    text-align: center;
+    padding:5px 20px 0;
+    height:28px;
+    display: block;
+    margin:15px auto 0;
+    width:150px;
+  }
+}

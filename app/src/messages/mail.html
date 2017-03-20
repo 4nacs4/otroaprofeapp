@@ -1,0 +1,49 @@
+<div class="cm-messagePanel cm-messageList">
+  <div class="cm-messagePanelHeader clearfix">
+    <a class="btn cm-msgPanelHeaderOptBtn pull-left cm-dropdownBtn">All Messages<i class="fa fa-caret-down"></i></a>
+    <label class="cm-checkBoxAlone pull-right">
+      <input type="checkbox">
+      <span class="glyphicon glyphicon-ok"></span>
+    </label>
+    <a class="btn cm-msgPanelHeaderOptBtn pull-right cm-optionBtn" disabled="disabled"><i class="fa fa-trash"></i>Trash</a>
+  </div>
+  <div class="cm-messagePanelBody">
+    <div class="cm-messageListBox">
+      <div class="cm-messageListTitle">Today</div>
+  <!--from this line the code has been hard coded from the directive template 'src/widgets/cmMessageExcerpt.template.html'
+     if i try calling this from directive... my directive scope doesnot update it self from next prev buttons  -->
+      <div ng-repeat="message in vm.messages">
+          <div class="cm-messageListTitle" ng-show="$index == 2">Yesterday</div>
+        <cm-message-excerpt message="message"></cm-message-excerpt>
+        </div>
+        <!--this is the end of template 'src/widgets/cmMessageExcerpt.template.html calling directive is commented below this line-->
+        <!--<cm-message-excerpt message="message" ></cm-message-excerpt>-->
+      </div>
+    </div>
+  </div>
+</div>
+<div class="cm-messagePanel cm-messageView">
+  <div class="cm-messagePanelHeader clearfix">
+    <a class="btn cm-msgPanelHeaderOptBtn pull-left cm-optionBtn"><i class="fa fa-reply"></i>Reply</a>
+    <a class="btn cm-msgPanelHeaderOptBtn pull-left cm-optionBtn"><i class="fa fa-trash"></i>Trash</a>
+    <a class="btn cm-msgPanelHeaderOptBtn pull-right cm-pagiBtn cm-next" ng-disabled="vm.activeIndex >= vm.messages.length-1" ng-click="vm.navNextMsg()">Next<i
+      class="fa fa-angle-right"></i></a>
+    <a class="btn cm-msgPanelHeaderOptBtn pull-right cm-pagiBtn cm-prev" ng-disabled="vm.activeIndex <= 0" ng-click="vm.navPrevMsg()"><i
+      class="fa fa-angle-left"></i>Prev</a>
+  </div>
+  <div class="cm-messagePanelBody">
+    <div class="cm-singleMessage">
+      <div class="cm-singleMessageDetails">
+        <figure class="cm-userImg"><img class="cm-userImgDp cm-userImgSm" src={{vm.activeMessage.displaypicture}}
+                                        alt=""></figure>
+        <div class="cm-singleMessageFrom">
+          <div class="cm-messageFromUser">{{vm.activeMessage.from}}</div>
+          <div class="cm-messageTime" ng-bind="vm.activeMessage.created | date:'MMMM-dd-yyyy HH:mm a'"></div>
+        </div>
+      </div>
+      <div class="cm-messageSubject">Video Chat?</div>
+      <div class="cm-singleMessageBody" ng-bind-html="vm.activeMessage.text"></div>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,163 @@
+$errorColor: #D64444;
+$black: #000000;
+$white: #ffffff;
+$black333: #333333;
+$lGreen: #79c338;
+$green: #56a70e;
+$dGreen: #2b8c01;
+$blue: #00aeef;
+$mGrey: #dfdfdf;
+$Grey777: #777777;
+$Grey999: #999999;
+$lGrey: #ebeced;
+$Grey2f: #2f2f2f;
+$fontOpenSans: "Open Sans", Arial;
+$fontQuestrial: "Questrial", Arial;
+$transitionValue: all 0.3s ease-in-out;
+$headerBarHeight: 80px;
+
+body, html {
+  font-size: 12px;
+  height: 100%;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+  color: #333;
+  font-family: 'Open Sans', Arial;
+  font-weight: normal;
+  background:#333;
+}
+
+
+
+body{
+  min-height: 768px;
+}
+
+.container{
+  width:1024px !important;
+}
+
+object, embed, a, a:focus, a:active,
+button::-moz-focus-inner,
+input:focus,
+input[type="reset"]::-moz-focus-inner,
+button:focus,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner,
+select::-moz-focus-inner,
+input[type="file"] > input[type="button"]::-moz-focus-inner {
+  outline: 0 !important;
+}
+
+a {
+  cursor: pointer;
+  color: inherit;
+  @include transition($transitionValue);
+}
+
+a:hover, a:active, a:focus {
+  text-decoration: none;
+  color: white;
+}
+
+input::-moz-focus-inner {
+  border: 0;
+}
+
+input::-ms-clear {
+  display: none;
+}
+::-ms-tooltip {
+  display: none;
+}
+
+img {
+  border: none;
+}
+
+/* Page Layout */
+.cm-heightpx{
+  height: 170px !important;
+}
+
+.cm-height100{
+  height:100%;
+}
+
+.cm-twoBarHeader {
+  height: 160px;
+  width: 100%;
+  @include transition(all 0.5s ease-in-out);
+}
+.cm-twoBarHeader.cm-marketingBnrOpen{
+  height:calc(160px + 320px);
+  @include transition(none);
+}
+
+.cm-twoBarContent {
+  height:calc(100% - 160px);
+  @include transition(all 0.5s ease-in-out);
+}
+
+.cm-twoBarContent.cm-marketingBnrOpen{
+  height:calc(100% - (160px + 320px));
+}
+
+.cm-mainContainer{
+  height: 100%;
+  overflow:hidden;
+}
+.cm-singleBarHeader{
+  height: 80px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 200;
+}
+.cm-singleBarContent {
+  height: calc(100% - 80px);
+  overflow: auto;
+}
+
+.pager .disabled > a, .pager .disabled > a:hover, .pager .disabled > a:focus, .pager .disabled > span,
+.nav  .disabled  a , .nav .disabled a :hover, , .nav .disabled a :focus{
+  cursor:default !important;
+}
+
+.cm-mainWrapper{
+  padding:0;
+}
+.marginTop40 {
+  margin-top: 40px !important;
+}
+input[type="file"] {
+  display: none;
+}
+
+.greyCommentIcon{
+  color:#dfdfdf;
+}
+
+.defaultCursor{
+  cursor: default;
+}
+
+.cm-form .form-group .form-control:focus.ng-invalid {
+  border-color: #ccc !important;
+}
+
+.cm-form .form-group .form-control:focus.ng-invalid.ng-dirty {
+  border-color: #D64444 !important;
+}
+
+.cm-form .form-group .form-control:active .ng-invalid.ng-dirty {
+  border-color: #D64444 !important;
+}
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+

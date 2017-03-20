@@ -1,0 +1,56 @@
+/*
+  For extra things on profileConnectionTag to
+  use it as connectionCard on find connections page.
+*/
+.cm-expandedBio{
+  border-top:1px solid #ddd;
+  padding:10px 10px 12px;
+  margin-top:3px;
+  overflow: hidden;
+
+  .cm-bioField{
+    margin:0 0 10px 0;
+    font-weight: 600;
+    .cm-biolabel{
+      font-size:9px;
+      color:$Grey777;
+      text-transform: uppercase;
+      display:block;
+    }
+  }
+
+  .cm-subLangWrap{
+    float:left;
+    .cm-bioField:last-child{
+      margin:0;
+    }
+  }
+  .cm-AgeStatusBtnWrap{
+    float:right;
+    width:74px;
+    margin-right:-10px;
+    .cm-statusBtn{
+      display: block;
+      width:100%;
+      height:28px;
+      border-radius:3px 0 0 3px;
+      background:$blue;
+      color:$white;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size:11px;
+      text-align: center;
+      padding-top: 6px;
+      @include transition(none);
+    }
+    a.cm-statusBtn:hover{
+      background:$blue - 20;
+    }
+    .cm-statusBtn.cm-statusPending, .cm-statusBtn.cm-statusPending:hover{
+      background:#f26532;
+      cursor:default;
+    }
+  }
+}
+
+

@@ -1,0 +1,103 @@
+/* Experience Card */
+
+.cm-addCard{
+  cursor: pointer;
+  height:336px;
+  .cm-addCardText{
+    text-transform: uppercase;
+    font-size:16px;
+    color:#34343f;
+    text-align: center;
+    background:url("/images/icons/add_card_icon.jpg") no-repeat center top;
+    padding-top:150px;
+    position: relative;
+    top:65px;
+    width: 105px;
+    margin:0 auto;
+  }
+}
+
+.cm-expCard {
+  position: relative;
+  border-radius: 4px;
+  background:$white;
+  @include boxShadow(0px 4px 0px 0px $lGreen);
+  .cm-countBubble {
+    width: 36px;
+    height: 36px;
+    border: 3px solid #f0f0f0;
+    font-size: 16px;
+    padding-top: 2px;
+  }
+  .cm-expImg {
+    width: 100%;
+    height: auto;
+    border-radius: 4px 4px 0 0;
+    cursor:pointer;
+  }
+  .cm-expDetails {
+    background: $white;
+    padding: 0 15px;
+    border-radius: 0 0 4px 4px;
+    .cm-userImg {
+      display: block;
+      text-align: center;
+      margin: -18px 0 10px;
+      .cm-userImgDp {
+        border: 2px solid $white;
+      }
+    }
+    .cm-expTitle {
+      font-size: 16px;
+      text-transform: capitalize;
+      text-align: center;
+      cursor:pointer;
+    }
+    .cm-expDuration {
+      text-transform: uppercase;
+      font-size: 10px;
+      color: $Grey777;
+      text-align: center;
+      padding-bottom: 15px;
+      cursor:pointer;
+    }
+    .cm-expDesc {
+      margin: 0 0 15px;
+      text-align: center;
+      height:68px;
+      cursor:pointer;
+    }
+    .cm-expActionBar {
+      position: relative;
+      text-align: center;
+      height: 22px;
+      .cm-expStatus {
+        font-size: 11px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: $white;
+        text-align: center;
+        height: 22px;
+        padding: 3px 20px 0;
+        display: inline-block;
+        border-radius: 4px 4px 0 0;
+      }
+      .cm-expStatus.cm-pending {
+        background: #f26532;
+      }
+      .cm-expStatus.cm-completed {
+        background: $lGreen;
+      }
+      .cm-expEdit {
+        display: block;
+        right: 0;
+        bottom: 0;
+        height: 22px;
+        text-align: center;
+        color: $blue;
+        position: absolute;
+        font-size: 15px;
+      }
+    }
+  }
+}

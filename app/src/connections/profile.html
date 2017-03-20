@@ -1,0 +1,69 @@
+<div class="container cm-height100" ng-scrollbars>
+  <div class="cm-profileLayout clearfix">
+    <div class="cm-profileLeft">
+      <div class="cm-profileDPColumn">
+        <figure class="cm-userImg"><img class="cm-userImgDp cm-userImgLg" src="{{vm.connectionProfile.avatar}}" alt=""></figure>
+        <div class="cm-latestActivity">LATEST ACTIVITY<span class="cm-activityStatus">{{vm.connectionProfile.lastactive | date:'MMM d, yyyy'}}</span></div>
+        <a ng-click="vm.connect(vm.connectionProfile.id,vm.connectionProfile.displayname)" class="cm-cmBtn cm-btnSm">Connect</a>
+      </div>
+      <div class="cm-profileBio">
+        <div class="cm-profileBioHeader">
+            <div class="cm-NameTitle"><span ng-bind="::vm.connectionProfile.displayname"></span></div>
+            <div class="cm-residenceArea"><span ng-bind="::vm.connectionProfile.location"></span></div>
+        </div>
+        <div class="cm-profileBioWrap">
+          <div class="cm-bioRow cm-countryRow">
+            <div class="cm-bioLabel">Country</div>
+            <div class="cm-bioEntry">
+              <img alt="" class="cm-flag" ng-src="{{vm.connectionProfile.flag}}">
+              <span class = "cm-bioEntry" ng-bind="::vm.connectionProfile.country"></span>
+            </div>
+          </div>
+            <div ng-repeat="row in vm.profileAttributes" class="cm-bioRow" ng-class="{'cm-textTransformNone': row.upperCase == false}">
+              <div class="cm-bioLabel" ng-bind="::row.title | uppercase"></div>
+              <div class="cm-bioEntry" ng-bind="::row.data"></div>
+            </div>
+           <div class="cm-bioRow cm-aboutRow">
+             <div class="cm-bioLabel">About <span ng-bind="::vm.connectionProfile.firstname"></span></div>
+             <div class="cm-bioEntry" ng-bind="::vm.connectionProfile.description"></div>
+           </div>
+        </div>
+      </div>
+    </div>
+    <div class="cm-profileRight">
+      <!-- Connection Widget -->
+      <div class="cm-connecMiniWidget cm-miniWidget">
+          <tabset class="cm-widgetNavTabs">
+            <tab ng-repeat="tab in vm.connectionWidget.tabs" heading="{{::tab.title}}" active="tab.active" ng-click="vm.connectionWidget.updateActiveTab(tab)">
+              <div class="row cm-widgetGridWrap">
+                <cm-connection-tag ng-repeat="connection in tab.currentPage" connection="connection"></cm-connection-tag>
+              </div>
+            </tab>
+          </tabset>
+          <pager total-items="vm.connectionWidget.activeTabTotalItems()" ng-model="vm.connectionWidget.tabs[vm.connectionWidget.activeTab].currentPageNo"
+          items-per-page="vm.connectionWidget.activeTabItemsPerPage()" ng-change="vm.connectionWidget.updatePage()"></pager>
+        </div>
+      <!-- Experince Widget -->
+      <div class="cm-expMiniWidget cm-miniWidget">
+          <tabset class="cm-widgetNavTabs">
+            <tab ng-repeat="tab in vm.experienceWidget.tabs" heading="{{::tab.title}}" active="tab.active" ng-click="vm.experienceWidget.updateActiveTab(tab)">
+              <div class="row cm-widgetGridWrap">
+                <cm-experience-tag ng-repeat="experience in tab.currentPage" card-type="half" experience="experience"></cm-experience-tag>
+              </div>
+            </tab>
+          </tabset>
+          <pager total-items="vm.experienceWidget.activeTabTotalItems()" ng-model="vm.experienceWidget.tabs[vm.experienceWidget.activeTab].currentPageNo" items-per-page="vm.experienceWidget.activeTabItemsPerPage()" ng-change="vm.experienceWidget.updatePage()"></pager>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Pager template override from UI-Bootstrap -->
+<script id="template/pagination/pager.html" type="text/ng-template">
+  <ul class="pager cm-widgetPagiWrap">
+    <li ng-class="{disabled: noPrevious(), previous: align}"><a href ng-click="selectPage(page - 1, $event)"><i class="fa fa-angle-left"></i></a></li>
+    <li ng-class="{disabled: noNext(), next: align}"><a href ng-click="selectPage(page + 1, $event)"><i class="fa fa-angle-right"></i></a></li>
+  </ul>
+</script>
+

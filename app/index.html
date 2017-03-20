@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head lang="en">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=1024">
+        <link href='http://fonts.googleapis.com/css?family=Questrial|Open+Sans:400italic,600italic,400,300,600,700,800'
+              rel='stylesheet' type='text/css'>
+        <title ng-bind="pageTitle"></title>
+        <!-- build:css styles/vendor.css -->
+        <!-- bower:css -->
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+        <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css" />
+        <link rel="stylesheet" href="bower_components/selectize/dist/css/selectize.css" />
+        <link rel="stylesheet" href="bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css" />
+        <link rel="stylesheet" href="bower_components/angular-awesome-slider/dist/css/angular-awesome-slider.min.css" />
+        <link rel="stylesheet" href="bower_components/summernote/dist/summernote.css" />
+        <link rel="stylesheet" href="bower_components/ng-tags-input/ng-tags-input.min.css" />
+        <!-- endbower -->
+        <!-- endbuild -->
+        <!-- build:css styles/main.css -->
+        <link rel="stylesheet" href="styles/css/main.css"/>
+        <!-- endbuild -->
+    </head>
+
+    <body class="{{backdropClass}}">
+        <div ui-view class="cm-height100 container cm-mainWrapper"></div>
+    </body>
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-ui-utils/ui-utils.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-ui-select/dist/select.js"></script>
+    <script src="bower_components/sifter/sifter.js"></script>
+    <script src="bower_components/microplugin/src/microplugin.js"></script>
+    <script src="bower_components/selectize/dist/js/selectize.js"></script>
+    <script src="bower_components/jquery-mousewheel/jquery.mousewheel.js"></script>
+    <script src="bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js"></script>
+    <script src="bower_components/ng-scrollbars/dist/scrollbars.min.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/angular-moment/angular-moment.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
+    <script src="bower_components/angular-awesome-slider/dist/angular-awesome-slider.min.js"></script>
+    <script src="bower_components/summernote/dist/summernote.js"></script>
+    <script src="bower_components/angular-summernote/dist/angular-summernote.js"></script>
+    <script src="bower_components/ng-tags-input/ng-tags-input.min.js"></script>
+    <script src="bower_components/angular-img-cropper/dist/angular-img-cropper.min.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:js scripts/app.js -->
+    <script src="src/messages/messages.module.js"></script>
+    <script src="src/core/core.module.js"></script>
+    <script src="src/myProfile/myProfile.module.js"></script>
+    <script src="src/common/common.module.js"></script>
+    <script src="src/shell/shell.module.js"></script>
+    <script src="src/shell/shell.controller.js"></script>
+    <script src="src/widgets/widgets.module.js"></script>
+    <script src="src/connections/connections.module.js"></script>
+    <script src="src/modals/modals.module.js"></script>
+    <script src="src/app.module.js"></script>
+    <script src="src/core/router.config.js"></script>
+    <script src="src/widgets/cmConnection.directive.js"></script>
+    <script src="src/widgets/cmConnectionTag.directives.js"></script>
+    <script src="src/widgets/cmExperienceTag.directive.js"></script>
+    <script src="src/connections/connections.factory.js"></script>
+    <script src="src/messages/message.factory.js"></script>
+    <script src="src/connections/widgetContainer.factory.js"></script>
+    <script src="src/connections/home.controller.js"></script>
+    <script src="src/shell/topNavBar.controller.js"></script>
+    <script src="src/common/auth.factory.js"></script>
+    <script src="src/myProfile/myProfile.factory.js"></script>
+    <script src="src/modals/cmModal.factory.js"></script>
+    <script src="src/modals/cmDialog.factory.js"></script>
+    <script src="src/modals/modalConfigs.constant.js"></script>
+    <script src="src/common/modals/loginModal.controller.js"></script>
+    <script src="src/connections/profile.factory.js"></script>
+    <script src="src/connections/profile.controller.js"></script>
+    <script src="src/common/cmFieldValid.directive.js"></script>
+    <script src="src/common/values.constant.js"></script>
+    <script src="src/common/cm-values.js"></script>
+    <script src="src/common/cmFilter.factory.js"></script>
+    <script src="src/shell/oneNavShell.controller.js"></script>
+    <script src="src/shell/subNavBar.controller.js"></script>
+    <script src="src/shell/messageSubNavBar.controller.js"></script>
+    <script src="src/shell/backdrop.constant.js"></script>
+    <script src="src/modals/cmModalWindowClass.directive.js"></script>
+    <script src="src/common/modals/inviteConnectionDialog.controller.js"></script>
+    <script src="src/widgets/sideBarContainer.directives.js"></script>
+    <script src="src/widgets/cmDropDown.directive.js"></script>
+    <script src="src/widgets/cmGreyDropDown.directive.js"></script>
+    <script src="src/widgets/cmFilter.directive.js"></script>
+    <script src="src/widgets/cmSearch.directive.js"></script>
+    <script src="src/widgets/timeLineEvent.directive.js"></script>
+    <script src="src/widgets/cmTimeLine.directive.js"></script>
+    <script src="src/widgets/cmFeedCard.directive.js"></script>
+    <script src="src/widgets/cmFeedContainer.directive.js"></script>
+    <script src="src/common/modals/saveFilterDialog.controller.js"></script>
+    <script src="src/common/modals/experienceInvitationDialog.controller.js"></script>
+    <script src="src/widgets/cmMessageExcerpt.directive.js"></script>
+    <script src="src/messages/mail.controller.js"></script>
+    <script src="src/shell/navigation.factory.js"></script>
+    <script src="src/myProfile/myProfile.controller.js"></script>
+    <script src="src/myProfile/myProfileEdit.controller.js"></script>
+
+    <script src="src/common/searchList.factory.js"></script>
+    <script src="src/messages/newMessage.controller.js"></script>
+    <script src="src/myConnections/myConnections.module.js"></script>
+    <script src="src/myConnections/myConnections.factory.js"></script>
+    <script src="src/myConnections/myConnections.controller.js"></script>
+    <script src="src/experienceDrawer/experienceDrawer.module.js"></script>
+    <script src="src/experienceDrawer/experienceDrawer.factory.js"></script>
+    <script src="src/experienceDrawer/experienceDrawer.controller.js"></script>
+    <script src="src/registerUser/progressBar.service.js"></script>
+    <script src="src/experienceDrawer/experienceDrawer.factory.js"></script>
+    <script src="src/experienceDrawer/experienceDrawer.controller.js"></script>
+    <script src="src/shell/createExpSubNavBar.controller.js"></script>
+    <script src="src/widgets/cmExperienceInvitationTag.directive.js"></script>
+    <script src="src/widgets/cmDiscussion.directive.js"></script>
+    <script src="src/common/onFileChange.directive.js"></script>
+    <script src="src/experienceDrawer/addParticipant.controller.js"></script>
+    <script src="src/myProfile/parentDashboard.controller.js"></script>
+    <script src="src/widgets/cmPostDiscussion.directive.js"></script>
+    <script src="src/widgets/cmCountWords.directive.js"></script>
+    <script src="src/widgets/cmCountChars.directive.js"></script>
+
+    <script src="src/registerUser/registerUser.module.js"></script>
+    <script src="src/registerUser/registerUser.factory.js"></script>
+    <script src="src/registerUser/registerUser.controller.js"></script> 
+    <script src="src/utils/restApi.factory.js"></script> 
+    <script src="src/config/config.js"></script>
+    <script src="src/config/prodConfig.js"></script> 
+    <script src="src/utils/dataCollections.factory.js"></script> 
+    <script src="src/common/modals/messageModal.controller.js"></script>
+    
+    <script src="bower_components/satellizer/satellizer.js"></script>
+
+    <!-- endbuild -->
+
+</html>

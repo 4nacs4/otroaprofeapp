@@ -1,0 +1,373 @@
+/* Experience Drawer Side Bar */
+.cm-sideBarContentWrapper.cm-chatDrawer{
+  .cm-sideBarWrapper{
+    width:290px;
+    left:-305px;
+    .cm-sideBarExpandBtn{
+      background:#ecedf0;
+      color:$green;
+      z-index: 2;
+    }
+    .cm-sideBarHeader{
+      background:#ecedf0;
+      border-bottom:1px solid #ecedf0;
+      .cm-sideBarTitle{
+        font-family: "Questrial", Arial;
+        font-size:20px;
+        color:$green;
+      }
+      .cm-actionBtn{
+        height:100%;
+        background:url(/images/icons/small_green_plus_icon.png) no-repeat center #e0e1e5;
+        width:72px;
+        height:62px;
+        float:right;
+        border:none;
+        border-radius:0;
+        margin-right:-15px;
+        @include transition(none);
+      }
+      .cm-messages {
+        font-size: 21px;
+        padding-top: 15px;
+        padding-left: 15px;
+        background-image: none;
+        color: $green;
+      }
+    }
+    .cm-sideBarBody {
+      height: calc(100% - 115px);
+      .chatListBox{
+        &:first-child{
+          .cm-chatListLabel{
+            border-top:1px solid #e1e0e0;
+          }
+        }
+        .cm-chatListLabel {
+          height: 28px;
+          font-size: 10px;
+          font-weight: bold;
+          padding: 6px 15px 0;
+          color: #34343f;
+          text-transform: uppercase;
+          border-bottom: 1px solid #e1e0e0;
+          background: #f4f5f8; /* Old browsers */
+          background: -moz-linear-gradient(top, #f4f5f8 0%, #ecedf0 100%); /* FF3.6+ */
+          background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f4f5f8), color-stop(100%, #ecedf0)); /* Chrome,Safari4+ */
+          background: -webkit-linear-gradient(top, #f4f5f8 0%, #ecedf0 100%); /* Chrome10+,Safari5.1+ */
+          background: -o-linear-gradient(top, #f4f5f8 0%, #ecedf0 100%); /* Opera 11.10+ */
+          background: -ms-linear-gradient(top, #f4f5f8 0%, #ecedf0 100%); /* IE10+ */
+          background: linear-gradient(to bottom, #f4f5f8 0%, #ecedf0 100%); /* W3C */
+          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f5f8', endColorstr='#ecedf0', GradientType=0); /* IE6-9 */
+        }
+        .cm-userDpInfoBox{
+          padding:13px 15px;
+          &.cm-active{
+            background: #f4f5f8; /* Old browsers */
+            background: -moz-linear-gradient(top, #f4f5f8 0%, #ecedf0 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f4f5f8), color-stop(100%, #ecedf0)); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top, #f4f5f8 0%, #ecedf0 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top, #f4f5f8 0%, #ecedf0 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(top, #f4f5f8 0%, #ecedf0 100%); /* IE10+ */
+            background: linear-gradient(to bottom, #f4f5f8 0%, #ecedf0 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f5f8', endColorstr='#ecedf0', GradientType=0); /* IE6-9 */
+            &.cm-chatLive:after{
+              background-color:transparent;
+            }
+          }
+          &:before{
+            content:" ";
+            @include sameWidthHeight(18px);
+            position: absolute;
+            display: none;
+            top:0;
+            left:0;
+            background:url(/images/icons/unread_msg_tag.png) no-repeat center;
+          }
+          &.cm-unread:before{
+            display: block;
+          }
+          &:after{
+            content:" ";
+            width:60px;
+            height:59px;
+            position: absolute;
+            right:0;
+            top:0;
+            background:url(/images/icons/chat_drawer_tabs_icons.png) no-repeat -263px 18px #f4f5f9;
+            display: none;
+          }
+          &.cm-chatLive:after{
+            display: block;
+          }
+        }
+      }
+    }
+    .cm-sideBarFooter{
+      height:55px;
+      .chatDrawerTabs{
+        list-style: none;
+        background:#ecedf0;
+        height:100%;
+        margin:0;
+        padding: 0;
+        li{
+          position:relative;
+          float:left;
+          width:25%;
+          height:100%;
+          border:none;
+          border-radius:0;
+          background:url(/images/icons/chat_drawer_tabs_icons.png) no-repeat 25px 17px;
+          .cm-countBubble{
+            border:none;
+            @include sameWidthHeight(17px);
+            top: 7px;
+            right: 17px;
+          }
+          &.cm-active{
+            background-color:$green;
+            background-position:25px -26px;
+          }
+          &.cm-expInfo{
+            background-position:-190px 17px;
+            &.cm-active{
+              background-position:-190px -26px;
+            }
+          }
+          &.cm-messages{
+            background-position:-117px 17px;
+            &.cm-active{
+              background-position:-117px -26px;
+            }
+          }
+          &.cm-feeds{
+            background-position:-44px 17px;
+            &.cm-active{
+              background-position:-44px -26px;
+            }
+          }
+        }
+      }
+    }
+    &.cm-sideBarExpanded{
+      left:-15px;
+    }
+  }
+  .cm-mainContentArea.cm-sideBarOpen {
+    padding-left: 290px;
+    .cm-contentActionBar{
+      border:none;
+    }
+  }
+}
+/* Experience Timeline */
+
+.cm-expTimelineWrapper{
+  padding:30px;
+  position: relative;
+  height: calc(100% - 60px);
+  overflow: auto;
+  .cm-expTimelineInner{
+    min-height:100%;
+    padding:28px 0 40px;
+    position: relative;
+    background:url(/images/bg/timeline_bar_bg.jpg) repeat-y center top;
+    .cm-expTimelineHeader, .cm-expTimelineFooter{
+      position:absolute;
+      width:100%;
+      text-align: center;
+      left:0;
+    }
+    .cm-expTimelineHeader{
+      top:0;
+    }
+    .cm-expTimelineFooter{
+      bottom:0;
+    }
+    .cm-expTimelineBody{
+      padding-bottom:30px;
+      .cm-expPostPanel{
+        width:50%;
+      }
+      .cm-expPostPanel.left{
+        float:left;
+        padding-right: 25px;
+      }
+      .cm-expPostPanel.right{
+        float:right;
+        padding-left: 25px;
+        .cm-expSinglePost{
+          &:before{
+            left:-8px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 9px 9px 9px 0;
+            border-color: transparent #ffffff transparent transparent;
+          }
+          &:after{
+            left: -31px;
+          }
+        }
+      }
+      .cm-expSinglePost{
+        min-height:100px;
+        background:$white;
+        border-radius:4px;
+        margin-top:24px;
+        position: relative;
+        &:before{
+          content:" ";
+          position: absolute;
+          right:-8px;
+          top:12px;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 9px 0 9px 9px;
+          border-color: transparent transparent transparent #ffffff;
+        }
+        &:after{
+          content:" ";
+          position: absolute;
+          right: -31px;
+          top: 15px;
+          border-radius: 50px;
+          background:$green;
+          @include sameWidthHeight(12px);
+        }
+        .cm-singlePostHeader{
+          cursor:pointer;
+          border-bottom:1px solid #e1e0e0;
+          padding:15px 20px;
+          h1{
+            font-size:16px;
+            font-weight: normal;
+            margin:0;
+            padding: 0;
+            line-height: 20px;
+          }
+        }
+        .cm-singlePostBody{
+          cursor:pointer;
+          padding:0 20px 20px;
+          .cm-singlePostDesc{
+            margin:15px 0 0;
+            font-size:13px;
+            color:#444444;
+          }
+          .cm-singleMedia{
+            margin-top:15px;
+            margin-bottom: -3px;
+            img, iframe{
+              width:100%;
+              height:auto;
+            }
+          }
+          .cm-multipleMedia{
+            margin-top:15px;
+            margin-bottom: -3px;
+            text-align: center;
+            .cm-mediaBox{
+              background:$Grey777 no-repeat center;
+              background-size:cover;
+              display:inline-block;
+            }
+            .cm-singleRowMedia{
+              height:160px;
+              width:100%;
+            }
+            .cm-halfRowMedia{
+              width: 48%;
+              height: 135px;
+              margin: 0 2px;
+            }
+          }
+        }
+        .cm-singlePostFooter{
+          height:48px;
+          border-top:1px solid #e1e0e0;
+          .cm-singlePostPublishTime{
+            font-size:10px;
+            color:#444;
+            text-transform: uppercase;
+            padding: 15px 20px 0;
+            float:left;
+          }
+          .cm-cmBtn{
+            float:right;
+            width:66px;
+            height:100%;
+            display:block;
+            border:none;
+            border-left: 1px solid #e1e0e0;
+            font-size:10px;
+            border-radius:0;
+          }
+          .cm-commentBtn{
+            padding-top:15px;
+            color:#444;
+            .glyphicon{
+              color:$mGrey;
+              font-size: 12px;
+              height: 12px;
+              vertical-align: bottom;
+            }
+            &.cm-commentActive{
+              .glyphicon{
+                color:$green;
+              }
+            }
+          }
+          .cm-readmoreBtn{
+            font-size:19px;
+            padding-top: 9px;
+            color:$black333
+          }
+        }
+        .cm-latestComment{
+          padding:10px 20px;
+          background:#ecedf0;
+          border-top:1px solid #e1e0e0;
+          border-radius:0 0 4px 4px;
+          .cm-latestCmtTitle{
+            font-size:10px;
+            text-transform: uppercase;
+            color:#444;
+            margin:0 0 10px 0;
+          }
+          .cm-userDpInfoBox{
+            border:none;
+            padding-bottom:5px;
+            .cm-userInfoArea{
+              .cm-userTitle{
+                color:$green;
+                font-size:14px;
+                margin-bottom:5px;
+              }
+              .cm-publishTime2{
+                font-size:10px;
+                color:$Grey777;
+                font-weight: normal;
+              }
+              .cm-feedGlimpse{
+                color:$black333;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .expTimelineTitle{
+    display: inline-block;
+    background: $green;
+    border: none;
+    font-size: 11px;
+    padding: 6px 25px 0;
+    width: auto;
+    vertical-align: top;
+  }
+
+}

@@ -1,0 +1,70 @@
+<div class="cm-modalTitle">Become a Member</div><br>
+<div class="cm-form">
+    <form name="signUpStudent" novalidate>
+    <div class="form-group cm-done">
+        <label for="cm-username">Choose Avatar and Username</label>
+        <div class="clearfix cm-usernameAvatar">
+            <div class="cm-avatarSelect">
+                <div class="cm-dropdownAvatarWrap">
+                    <a class="cm-dropdownToggle" ng-click="vm.showList()" ng-class="{'open': vm.showAvatarList}">
+                        <figure class="cm-userImg">
+                            <img alt=""  ng-src="{{vm.user.profileAvatar}}"  class="cm-userImgDp cm-userImgSm">
+                            <div class="cm-avatarSelectOverlay"><i class="fa fa-angle-down"></i></div>
+                        </figure>
+                    </a>
+                    <div ng-show="vm.showAvatarList" class="cm-avatarDropdown cm-greyBorderCard">
+                      <div class="cm-avatarListing">
+                        <figure ng-repeat="item in vm.data.slice(((vm.currentPage-1)*vm.itemsPerPage), ((vm.currentPage)*vm.itemsPerPage))" class="cm-userImg">
+                          <img src={{item.image}} ng-click="vm.updateUserImg(item)" class="cm-userImgDp cm-userImgSm">
+                          <!--<div ng-if="$index%5 == 4"></div>-->
+                        </figure>
+                      </div>
+                      <pagination total-items="vm.totalItems" ng-model="vm.currentPage" ng-change="vm.pageChanged()" class="pagination-sm cm-selectAvatarPagi" items-per-page=40></pagination>
+                    </div>
+                </div>
+            </div>
+            <div class="cm-inputUsername">
+                <div class="cm-formControlWrap">
+                    <input name="username" ng-model="vm.user.username" required type="text" placeholder="" class="form-control" cm-field-valid>
+                    <ng-messages for="signUpStudent.username.$error" ng-if="signUpStudent.username.$dirty">
+                        <div ng-message="required">A valid username is required</div>
+                    </ng-messages>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group cm-done">
+        <label>Choose Password</label>
+        <div class="cm-formControlWrap">
+            <input name="password" type="password" required ng-minlength="5" placeholder="Must be at least 5 characters..." class="form-control" ng-model="vm.user.password" cm-field-valid>
+            <ng-messages for="signUpStudent.password.$error" ng-if="signUpStudent.password.$dirty">
+                <div ng-message="required">A valid password is required</div>
+                <div ng-message="minlength">Your password is too short</div>
+            </ng-messages>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Date of Birth</label>
+        <div class="row cm-row">
+            <div class="col-sm-4 cm-column">
+                <label class="sr-only">Month</label>
+                <cm-gray-drop-down model="vm.user.dob.month"  order-by-id="true" place-holder="{{vm.months[0].name}}" values="vm.months"></cm-gray-drop-down>
+            </div>
+            <div class="col-sm-4 cm-column">
+                <label class="sr-only">Date</label>
+                <cm-gray-drop-down model="vm.user.dob.date"  place-holder="{{vm.days[0].name}}" values="vm.days"></cm-gray-drop-down>
+            </div>
+            <div class="col-sm-4 cm-column">
+                <label class="sr-only">Year</label>
+                <cm-gray-drop-down model="vm.user.dob.year" place-holder="{{vm.years[0].name}}" values="vm.years"></cm-gray-drop-down>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="text-center">
+        <button class="btn cm-cmBtn cm-btnMd" ng-click="">Back</button>
+        <button class="btn cm-cmBtn cm-btnMd" ng-disabled="!signUpStudent.$valid">Next <i class="cm-arrowGlyph"></i></button>
+    </div>
+    </form>
+</div>

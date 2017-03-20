@@ -1,0 +1,87 @@
+
+/* Parents Dashboard */
+
+.cm-parentDashboard{
+  .cm-parentDashboardHeader{
+    .cm-primaryBar{
+      overflow:hidden;
+      margin-bottom:30px;
+    }
+    .cm-secondaryBar{
+      overflow:hidden;
+    }
+    .cm-parentName{
+      float:left;
+      font-size:22px;
+      font-weight: 600;
+      span{
+        font-weight: normal;
+        font-size:16px;
+        display: block;
+      }
+    }
+    .cm-editMyAcc, .cm-editMyAcc:focus{
+      color:$black333;
+      display: block;
+      float: right;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size:11px;
+      .fa{
+        font-size:14px;
+      }
+      &:hover{
+        color:$black333;
+      }
+    }
+    .cm-kidsHeading{
+      font-size:18px;
+      font-weight: 600;
+      color:$lGreen;
+      float:left;
+    }
+    .cm-cmBtn{
+      float:right;
+      font-size:11px;
+      background:$green;
+    }
+  }
+  .cm-myKidsListing{
+    margin-top:15px;
+    .cm-connecProfileCard.cm-myKidsCard{
+      @include boxShadow(0px 4px 0px 0px $lGreen);
+      height:86px;
+      overflow: hidden;
+      margin-bottom:15px;
+      .cm-basicBio{
+        float:left;
+        .cm-connecNCWrap{
+          width:150px;
+          margin-right:15px;
+        }
+        .cm-userImg{
+          float:left;
+        }
+      }
+      .cm-kidsCardActionBtn, .cm-kidsCardActionBtn:focus{
+        font-size:14px;
+        font-weight: 600;
+        text-transform: uppercase;
+        text-align: center;
+        border-left:1px solid #d3d3d3;
+        height:86px;
+        border-radius:0;
+        background:none;
+        float:right;
+        color:$black333;
+        &.cm-kidsActionEditBtn {
+          width:92px;
+        }
+        &.cm-kidsActionViewBtn{
+          width:140px;
+          background:$lGrey;
+        }
+      }
+    }
+  }
+}

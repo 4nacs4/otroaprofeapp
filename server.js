@@ -5,7 +5,7 @@ var methodOverride = require("method-override");
 var mongoose = require('mongoose');
 var cors = require('cors');
 var helmet = require('helmet');
-var config = require('./app/config');
+var config = require('./server/config');
 var https = require('https');
 var fs = require('fs');
 var tls = require('tls');
@@ -31,15 +31,7 @@ app.all('/*', function(req, res, next) {
 });
 
 // REGISTER OUR ROUTES -------------------------------
-app.use('/', require('./app/routes'));
-
-// If no route is matched by now, it must be a 404
-app.use(function(req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
-});
-
+app.use('/', require('./server/routes'));
 
 mongoose.connect(config.MONGODBSERVER, function(err, res) {
     if (err) {
@@ -56,6 +48,7 @@ mongoose.connect(config.MONGODBSERVER, function(err, res) {
 /* https.createServer(options, app).listen(3000, function() {
  console.log("Node server running on https://localhost:3000");
  });*/
+app.use(express.static(__dirname + '/dist/'))
 app.use(express.static(__dirname + '/'))
 
 app.listen(process.env.PORT, function() {

@@ -1,0 +1,64 @@
+<div class="container cm-mainContainer">
+    <article class="cm-sideBarContentWrapper cm-chatDrawer">
+        <side-bar-container arrow-class="vm.arrowClass" sidebar-open="vm.sideFilterOpen" sidebar-closed="vm.sideFilterClosed">
+            <div class="cm-sideBarHeader">
+                <div class="cm-sideBarTitle">{{vm.sideBarHeading}}</div>
+                <a ng-if="vm.sideBarButtonVisible" class="btn cm-cmBtn cm-actionBtn {{vm.sideBarButtonClass}}" ng-click="vm.sideBarButtonClick()"><i ng-if="vm.sideBarButtonClass === 'cm-messages'" class="fa fa-pencil-square-o"></i>{{vm.cardType}}</a>
+            </div>
+            <div class="cm-sideBarBody" ng-scrollbars ui-view="sideBar">
+            </div>
+            <div class="cm-sideBarFooter">
+                <ul class="chatDrawerTabs">
+                    <li ng-repeat="sideBar in vm.sideBarTabs" ng-click="sideBar.clicked(sideBar)" ng-class="{'cm-active': sideBar.active}" class="btn {{sideBar.iconClass}}"><span ng-if="(sideBar.notification>0) && !sideBar.active" class="cm-countBubble">{{sideBar.notification}}</span></li>
+                </ul>
+            </div>
+        </side-bar-container>
+        <div class="cm-mainContentArea" ng-class="{'cm-sideBarOpen': vm.sideFilterOpen }">
+            <section class="cm-contentActionBar" ng-if="(vm.pageType === 'timeLine')">
+                <div class="cm-mainPageTitle">{{vm.timeLine.name}}</div>
+                <ul class="cm-bdBtnGroup clearfix">
+                    <li><a class="btn cm-cmBtn cm-bdBtn cm-btnSm" ><i class="fa fa-video-camera"></i></span>Video Chat</a></li>
+                    <li><a class="btn cm-cmBtn cm-bdBtn cm-btnSm" ng-click="vm.goToPostDiscussion()" >Add Discussion</a></li>
+                </ul>
+                <a ng-if="(vm.pageType === 'timeLine')" ng-click="vm.gotoBottom()" class="btn cm-scrollBtn cm-bdBtn cm-btnSm"><i class="fa fa-angle-double-down"></i></a>
+            </section>
+            <section class="cm-contentActionBar" ng-if="(vm.pageType === 'discussion')">
+                <a ng-click="vm.goToDiscussion(vm.timeLine.expId)" class="cm-cmBtn cm-bdlArrowBtn"><i class="fa fa-angle-left"></i>Back to Discussions</a>
+            </section>
+            <section  ng-if="(vm.pageType === 'timeLine')" class="cm-expTimelineWrapper cm-bglGreen cm-bubblesBg" ng-scrollbars>
+                <cm-time-line all-event = "vm.timeLine.events"></cm-time-line>
+                <section id="bottomEnd"></section>
+            </section>
+            <section  ng-if="(vm.pageType === 'discussion')" ng-class="{'cm-addCommentReplyEditorExpanded': vm.getExpand() == true}" class=" cm-expDiscussionWrapper"  ng-scrollbars>
+                <cm-discussion expand = "vm.expanded"></cm-discussion>
+            </section>
+          <div  ng-if="(vm.pageType === 'post')" class="cm-height100">
+            <cm-post-discussion></cm-post-discussion>
+          </div>
+          <div ng-show="vm.getExpand() == false" ng-if="(vm.pageType === 'discussion')" class="cm-addCommentReplyEditorBar">
+            <figure class="cm-userImg">
+              <img alt="" src="images/avatars/user_img2.png" class="cm-userImgDp cm-userImgSm">
+            </figure>
+            <div class="cm-addCommentReplyEditorBox" ng-click="vm.setExpand(true)">
+              <input type="text" class="cm-addCommentInputDeco form-control" placeholder="Add a comment to this message...">
+
+            </div>
+          </div>
+          <div  ng-show="vm.getExpand() == true" ng-if="(vm.pageType === 'discussion')" class=" cm-addCommentReplyEditorBar cm-expanded">
+            <a class="cm-addCommentCancel" ng-click="vm.setExpand(false)"><i class="fa fa-times"></i></a>
+            <figure class="cm-userImg">
+              <img alt="" src="images/avatars/user_img2.png" class="cm-userImgDp cm-userImgSm">
+            </figure>
+            <div class="cm-addCommentReplyEditorBox">
+              <div class="cm-addCommentReplyEditorTextarea summernoteMaxHeight">
+                <summernote config="vm.options" class="form-control" ></summernote>
+              </div>
+              <div class="cm-addCREBoxFooter">
+                <div class="cm-dragAttachMediaText"><span class="glyphicon glyphicon-paperclip"></span>To attach files drag &amp; drop here or <a> select files from your computer.</a></div>
+                <button type="submit" class="btn cm-cmBtn">Add Comment</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </article>
+</div>

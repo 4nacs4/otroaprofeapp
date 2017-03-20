@@ -1,0 +1,242 @@
+/* Profile Layout */
+
+.cm-profileLayout {
+  padding: 30px;
+}
+
+/* Find Connections Profile */
+
+.cm-profileLeft, .cm-profileRight {
+  width: 50%;
+  float: left;
+}
+
+.cm-profileLeft {
+  padding-right: 15px;
+}
+
+.cm-profileRight {
+  padding-left: 30px;
+}
+
+.cm-profileDPColumn {
+  float: left;
+  .cm-userImg{
+    margin-bottom:17px;
+  }
+  .cm-latestActivity {
+    font-size: 10px;
+    text-transform: uppercase;
+    color: $Grey777;
+    text-align: center;
+    font-weight: 600;
+    margin: 0 0 17px 0;
+
+    .cm-activityStatus {
+      font-size: 12px;
+      display: block;
+      color: $black333;
+    }
+
+  }
+  .cm-editLink, .cm-editLink:focus{
+    font-size:10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color:$black333;
+    text-align: center;
+    display: block;
+    margin-bottom:3px;
+  }
+  .cm-editLink:hover, .cm-editLink:hover:focus{
+    color:$black;
+  }
+  .cm-cmBtn {
+    background: $blue;
+    color: $white;
+    display: block;
+    width: 100%;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+  .cm-cmBtn:hover {
+    background: $blue - 20;
+  }
+  .cm-editLink, .cm-editLink:focus{
+    font-size:10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color:$black333;
+    text-align: center;
+    display: block;
+    margin-bottom:3px;
+  }
+  .cm-editLink:hover, .cm-editLink:hover:focus{
+    color:$black;
+  }
+}
+
+.cm-profileBio {
+  margin-left: 145px;
+  .cm-profileBioHeader{
+    overflow: hidden;
+    .cm-profileBioTitleWrap{
+      float:left;
+    }
+    .cm-NameTitle {
+      font-weight: 600;
+      font-size: 22px;
+      color: $black;
+      line-height: 16px;
+    }
+    .cm-residenceArea {
+      font-size: 12px;
+      margin-top: 10px;
+      text-transform: uppercase;
+    }
+    .cm-editProfileLink, .cm-editProfileLink:focus{
+      display: block;
+      font-size:11px;
+      color:#444444;
+      margin-left:80px;
+      margin-top:14px;
+      .fa{
+        font-size:15px;
+        margin-right:5px;
+      }
+    }
+    .cm-editProfileLink:hover, .cm-editProfileLink:hover:focus{
+      color:$black;
+    }
+    .cm-editProfileLink, .cm-switchBoxWrap{
+      float:right;
+    }
+  }
+
+  .cm-profileBioWrap {
+    padding-top: 30px;
+    .cm-bioRow {
+      border-top: 1px solid #ddd;
+      min-height: 38px;
+      overflow: hidden;
+      .cm-bioLabel {
+        float: left;
+        width: 120px;
+        padding-right: 15px;
+        font-weight: 600;
+        font-size: 10px;
+        text-transform: uppercase;
+        color: $Grey777;
+        padding-top: 12px;
+      }
+      .cm-bioEntry {
+        font-size: 12px;
+        font-weight: 600;
+        padding-top: 11px;
+        margin-left: 120px;
+        padding-bottom: 10px;
+        text-transform: uppercase;
+
+        span {
+          margin-left: 5px;
+        }
+
+      }
+    }
+    .cm-bioRow.cm-textTransformNone {
+      .cm-bioEntry {
+        text-transform: none;
+      }
+    }
+    .cm-bioRow.cm-aboutRow {
+      height: auto;
+      .cm-bioLabel {
+        float: none;
+        width: auto;
+        padding-right: 0;
+      }
+      .cm-bioEntry {
+        font-size: 14px;
+        font-weight: normal;
+        margin: 0;
+        line-height: 21px;
+        text-transform: none;
+      }
+    }
+    .cm-bioRow.cm-countryRow {
+      height:38px;
+      .cm-bioEntry {
+        .cm-flag {
+          position: relative;
+          top: -3px;
+          margin-right: 8px;
+          width:31px;
+          height:21px;
+        }
+      }
+    }
+  }
+}
+
+/* Edit Profile */
+
+
+.cm-editProfile{
+  .cm-editProfileHeader{
+    margin-bottom:25px;
+    overflow: hidden;
+    margin-top: -5px;
+    .cm-editProfileTitle{
+      font-size:20px;
+      font-weight: 600;
+      float: left;
+    }
+    .cm-profileSaveBtn, .cm-profileSaveBtn:focus{
+      font-size:16px;
+      color:$white;
+      border-radius: 2px;
+      font-weight: 600;
+      text-transform: capitalize;
+      float: right;
+      display: block;
+      background:$blue;
+      width:100px;
+      height:36px;
+      text-transform: uppercase;
+    }
+    .cm-profileSaveBtn:hover, .cm-profileSaveBtn:hover:focus{
+      background:$blue - 20;
+    }
+  }
+}
+
+
+/* Switch checkbox */
+
+.form-group{
+  label{
+    display:inline-block;
+    font-size:12px;
+    font-weight: 600;
+  }
+  .cm-switchCheckbox{
+    input[type="checkbox"]{
+      display:none;
+    }
+    .cm-switchBox{
+      width:68px;
+      height:28px;
+      display:inline-block;
+      vertical-align: middle;
+      margin-left:10px;
+      background:url(/images/icons/switch_icon.png) no-repeat left center;
+    }
+    input[type="checkbox"]:checked ~ .cm-switchBox{
+      background-position: right center;
+    }
+  }
+}
+
+
+
+

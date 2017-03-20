@@ -1,0 +1,589 @@
+<div class="container cm-mainContainer">
+
+    <div class="cm-mainContentArea cm-GreyBg" ng-scrollbars>
+        <section class="cm-createExpForm">
+            <form class="cm-form" name="register" novalidate>
+                <div class="cm-row">
+                    <div class="cm-column left" style="width:100%">
+                        <div class="cm-whitePanel ">
+                            <div class="cm-whitePanelHead">
+                                <div class="cm-whitePanelTitle">Datos Personales</div>
+                            </div>
+                            <div class="cm-whitePanelBody">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                        <label for="cm-firstName">Nombres</label>
+                                        <div class="form-group">
+                                            <input name="firstName" required type="text" ng-pattern="/^(\D)+$/" class="form-control" id="cm-firstName" ng-model="vm.user.firstName" ng-minlength="6" ng-maxlength="30">
+                                            <ng-messages for="register.firstName.$error" ng-if="register.firstName.$dirty">
+                                                <div ng-message="pattern">El Nombre debe contener solo texto</div>
+                                                <div ng-message="minlength">El Nombre es muy corto</div>
+                                                <div ng-message="required">Ingrese su Nombre</div>
+                                                <div ng-message="maxlength">El Nombre es muy largo</div>
+                                            </ng-messages>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                        <label for="cm-lastName">Apellidos</label>
+                                        <div class="form-group">
+                                            <input name="lastName" required type="text" ng-pattern="/^(\D)+$/" class="form-control" id="cm-lastName" ng-model="vm.user.lastName" ng-minlength="6" ng-maxlength="30">
+                                            <ng-messages for="register.lastName.$error" ng-if="register.lastName.$dirty">
+                                                <div ng-message="pattern">El Apellido debe contener solo texto</div>
+                                                <div ng-message="minlength">El Apellido es muy corto</div>
+                                                <div ng-message="maxlength">El Apellido es muy largo</div>
+                                                <div ng-message="required">Ingrese su Apellido</div>
+                                            </ng-messages>
+                                        </div>
+                                    </div>                                      
+                                </div>
+                                </br>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                                        <label class="">Fecha de Nacimiento</label>
+                                        <div class="input-group">
+                                            <input  name="dob" ng-change="" type="text" class="form-control"
+                                                    datepicker-popup="{{vm.format}}" ng-model="vm.user.dob"
+                                                    is-open="vm.dobOpened" ng-required="true" close-text="Cerrar" close-text="Cerrar" required disabled/>
+                                            <ng-messages for="register.dob.$error" ng-if="register.dob.$dirty">
+                                                <div ng-message="required">Ingrese su Fecha de nacimiento</div>
+                                            </ng-messages>
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default" ng-click="vm.dobOpen($event)" ><i
+                                                        class="glyphicon glyphicon-calendar"></i></button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                                        <label class="">Estado Civil</label>
+                                        <div class="form-group">
+                                            <ui-select name="" on-select="" ng-model="vm.civilStatus" class="cm-customSelectFilter">
+                                                <ui-select-match placeholder="-Seleccione-">{{$select.selected.name}}</ui-select-match>
+                                                <ui-select-choices repeat="list in vm.civilStatusCollection | orderBy: 'name' | filter: {name: $select.search}">
+                                                    <div  ng-bind="list.name"></div>
+                                                </ui-select-choices>
+                                            </ui-select>
+                                            <input  name="estadoCivil" ng-model="vm.civilStatus" type="hidden" required/>
+                                            <ng-messages for="register.estadoCivil.$error" ng-if="register.estadoCivil.$dirty">
+                                                <div ng-message="required">Seleccione su Estado civil</div>
+                                            </ng-messages>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                                        <label class="">Peso</label>
+                                        <div class="form-group">
+                                            <input name="weight" type="number" ng-model="vm.user.weight" ng-change="" class="form-control" ng-maxlength="5">
+                                            <ng-messages for="register.weight.$error" ng-if="register.weight.$dirty">
+                                                <div ng-message="maxlength">El Peso es muy largo</div>
+                                            </ng-messages>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
+                                        <label class="">Estatura</label>
+                                        <div class="form-group">
+                                            <input name="height" type="number" ng-model="vm.user.height" ng-change="" class="form-control" ng-maxlength="5">
+                                            <ng-messages for="register.height.$error" ng-if="register.height.$dirty">
+                                                <div ng-message="maxlength">La estatura es muy largo</div>
+                                            </ng-messages>
+                                        </div>
+                                    </div>
+                                </div>
+                                </br>
+                                <div class="row"> 
+                                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                                        <label class="">Teléfono Celular</label>
+                                        <div class="input-group">
+                                            <div class="input-group-btn">
+                                                <ui-select name="" on-select="" ng-model="vm.cellphoneType" class="cm-customSelectFilter">
+                                                    <ui-select-match placeholder="-Seleccione-">{{$select.selected.name}}</ui-select-match>
+                                                    <ui-select-choices repeat="list in vm.cellphoneTypeCollection | orderBy: 'name' | filter: {name: $select.search}">
+                                                        <div  ng-bind="list.name"></div>
+                                                    </ui-select-choices>
+                                                </ui-select>
+                                                <input  name="cellphoneType" ng-model="vm.cellphoneType" type="hidden" required/>
+                                                <ng-messages for="register.cellphoneType.$error" ng-if="register.cellphoneType.$dirty">
+                                                    <div ng-message="required">Ingrese su código de celular</div>
+                                                </ng-messages>
+                                            </div>
+                                            <input name="cellphone" type="number" ng-model="vm.cellphoneNumber" ng-change="" class="form-control" ng-maxlength="7" required>
+                                            <ng-messages for="register.cellphone.$error" ng-if="register.cellphone.$dirty">
+                                                <div ng-message="maxlength">Número celular muy largo</div>
+                                                <div ng-message="required">Ingrese su número de celular</div>
+                                            </ng-messages>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                                        <label class="">Teléfono Habitacion</label>
+                                        <div class="input-group">
+                                            <div class="input-group-btn" style='width:30%'>
+                                                <input name="phoneType" type="number" ng-model="vm.phoneType" ng-change="" class="form-control" ng-maxlength="4" ng-minlength="4">
+
+                                            </div>
+                                            <ng-messages for="register.phoneType.$error" ng-if="register.phoneType.$dirty">
+                                                <div ng-message="maxlength">Numero muy largo</div>
+                                                <div ng-message="minlength">Numero muy corto</div>
+                                            </ng-messages>
+                                            <input name="phoneNumber" type="number" ng-model="vm.phoneNumber" ng-change="" class="form-control" ng-maxlength="7" ng-minlength="7">
+                                            <ng-messages for="register.phoneType.$error" ng-if="register.phoneType.$dirty">
+                                                <div ng-message="maxlength">Numero muy largo</div>
+                                                <div ng-message="minlength">Numero muy corto</div>
+                                            </ng-messages>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                                        <label class="">E-mail</label>
+                                        <div class="form-group">
+                                            <input name='email' ng-pattern='/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i' ng-maxlength="60" type="text" ng-model="vm.user.email" ng-change="" class="form-control" required>
+                                            <ng-messages for="register.email.$error" ng-if="register.email.$dirty">
+                                                <div ng-message="pattern">Correo electrónico inválido</div>
+                                                <div ng-message="maxlength">Correo electrónico muy largo</div>
+                                                <div ng-message="required">Ingrese su Correo electrónico</div>
+                                            </ng-messages>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cm-whitePanel">
+                            <div class="cm-whitePanelHead">
+                                <div class="cm-whitePanelTitle">Ubicacion</div>
+                            </div>
+                            <div class="cm-whitePanelBody">
+                                <label class="">Dirección de Habitación</label>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                        <div class="form-group">
+                                            <input name="address1" type="text" placeholder="Calles y Avenidas" ng-model="vm.user.location.address1" ng-change="" class="form-control" ng-maxlength="100" ng-minlength="10" required>
+                                            <ng-messages for="register.address1.$error" ng-if="register.address1.$dirty">
+                                                <div ng-message="minlength">Dirección muy corta</div>
+                                                <div ng-message="maxlength">Dirección muy larga</div>
+                                                <div ng-message="required">Ingrese una Dirección</div>
+                                            </ng-messages>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                        <div class="form-group">
+                                            <input name="address2" type="text" placeholder="Urb, Casa, Edificio, Apto y Sector" ng-model="vm.user.location.address2" ng-change="" class="form-control" ng-maxlength="100" ng-minlength="1" required>
+                                            <ng-messages for="register.address2.$error" ng-if="register.address2.$dirty">
+                                                <div ng-message="minlength">Dirección muy larga</div>
+                                                <div ng-message="maxlength">Dirección muy larga</div>
+                                                <div ng-message="required">Ingrese tipo de habitación</div>
+                                            </ng-messages>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                                        <label class="">Pais</label>
+                                        <div class="form-group">
+                                            <ui-select name="" on-select="" ng-model="vm.country" class="cm-customSelectFilter">
+                                                <ui-select-match placeholder="-Seleccione-">{{$select.selected.name}}</ui-select-match>
+                                                <ui-select-choices repeat="list in vm.countryCollection | orderBy: 'name' | filter: {name: $select.search}">
+                                                    <div  ng-bind="list.name"></div>
+                                                </ui-select-choices>
+                                            </ui-select>
+                                            <input  name="country" ng-model="vm.country" type="hidden" required/>
+                                            <ng-messages for="register.country.$error" ng-if="register.country.$dirty">
+                                                <div ng-message="required">Seleccione Pais</div>
+                                            </ng-messages>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                                        <label class="">Estado</label>
+                                        <div class="form-group">
+                                            <ui-select name="" on-select="vm.setCity(vm.state)" ng-model="vm.state" class="cm-customSelectFilter">
+                                                <ui-select-match placeholder="-Seleccione-">{{$select.selected.estado}}</ui-select-match>
+                                                <ui-select-choices repeat="list in vm.stateCollection | orderBy: 'estado' | filter: {estado: $select.search}">
+                                                    <div  ng-bind="list.estado"></div>
+                                                </ui-select-choices>
+                                            </ui-select>
+                                            <input  name="state" ng-model="vm.state" type="hidden" required/>
+                                            <ng-messages for="register.state.$error" ng-if="register.state.$dirty">
+                                                <div ng-message="required">Seleccione Estado</div>
+                                            </ng-messages>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+                                        <label class="">Ciudad</label>
+                                        <div class="form-group">
+                                            <ui-select name="" on-select="" ng-model="vm.city" class="cm-customSelectFilter">
+                                                <ui-select-match placeholder="-Seleccione-">{{$select.selected}}</ui-select-match>
+                                                <ui-select-choices repeat="list in vm.cityCollection">
+                                                    <div  ng-bind="list"></div>
+                                                </ui-select-choices>
+                                            </ui-select>
+                                            <input  name="city" ng-model="vm.city" type="hidden" required/>
+                                            <ng-messages for="register.city.$error" ng-if="register.city.$dirty">
+                                                <div ng-message="required">Seleccione Ciudad</div>
+                                            </ng-messages>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+                                        <label class="">Código Postal</label>
+                                        <div class="form-group">
+                                            <input name="zip" type="number" placeholder="" ng-model="vm.user.location.zip" ng-change="" class="form-control" ng-maxlength="4" ng-minlength="4" required>
+                                            <ng-messages for="register.zip.$error" ng-if="register.zip.$dirty">
+                                                <div ng-message="maxlength">Código postal muy largo</div>
+                                                <div ng-message="minlength">Código postal muy corto</div>
+                                                <div ng-message="required">Ingrese Código postal</div>
+                                            </ng-messages>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                                        <label class="">Tipo de Vivienda</label>
+                                        <div class="form-group">
+                                            <ui-select name="" on-select="" ng-model="vm.houseType" class="cm-customSelectFilter">
+                                                <ui-select-match placeholder="-Seleccione-">{{$select.selected.name}}</ui-select-match>
+                                                <ui-select-choices repeat="list in vm.houseTypeCollection | orderBy: 'name' | filter: {name: $select.search}">
+                                                    <div  ng-bind="list.name"></div>
+                                                </ui-select-choices>
+                                            </ui-select>
+                                            <input  name="houseType" ng-model="vm.houseType" type="hidden" required/>
+                                            <ng-messages for="register.houseType.$error" ng-if="register.houseType.$dirty">
+                                                <div ng-message="required">Seleccione Tipo de vivienda</div>
+                                            </ng-messages>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cm-whitePanel">
+                            <div class="cm-whitePanelHead">
+                                <div class="cm-whitePanelTitle">Datos Laborales</div>
+                            </div>
+                            <div class="cm-whitePanelBody">
+                                <div class="row"> 
+                                    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+                                        <label class="">Profesión</label>
+                                        <div class="form-group">
+                                            <input type="text" ng-model="vm.user.bussiness.profession" ng-change="" class="form-control">
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                                        <label class="">Ocupación</label>                               
+                                        <div class="form-group">
+                                            <input type="text" ng-model="vm.user.bussiness.job" ng-change="" class="form-control">
+                                        </div>                                </div>
+                                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                                        <label class="">Empresa</label>
+                                        <div class="form-group">
+                                            <input type="text" ng-model="vm.user.bussiness.company" ng-change="" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+                                        <label class="">Ingreso Mesual</label>
+                                        <div class="form-group">
+                                            <input type="text" ng-model="vm.user.bussiness.salary" ng-change="" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cm-whitePanel">
+                            <div class="cm-whitePanelHead">
+                                <div class="cm-whitePanelTitle">Datos Complementarios</div>
+                            </div>
+                            <div class="cm-whitePanelBody">
+                                <div class="row"> 
+                                    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+                                        <label class="">Marca del Vehiculo</label>
+                                        <div class="form-group">
+                                            <input type="text" ng-model="vm.user.extraData.car.mark" ng-change="" class="form-control">
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+                                        <label class="">Modelo</label>                               
+                                        <div class="form-group">
+                                            <input type="text" ng-model="vm.user.extraData.car.model" ng-change="" class="form-control">
+                                        </div>                                </div>
+                                    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+                                        <label class="">Año</label>
+                                        <div class="form-group">
+                                            <input type="text" ng-model="vm.user.extraData.car.year" ng-change="" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-if="vm.stateUrl === 'shell.registerUser'" class="cm-whitePanel">
+                            <div class="cm-whitePanelHead">
+                                <div class="cm-whitePanelTitle">Datos de la Afiliación</div>
+                            </div>
+                            <div class="cm-whitePanelBody">
+                                <div class="row"> 
+                                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                                        <label class="">Cedula de Afiliador</label>
+                                        <div class="input-group">
+                                            <div class="input-group-btn">
+                                                <ui-select name="" on-select="vm.referredIdTypeSelected()" ng-model="vm.referredIdType" class="cm-customSelectFilter">
+                                                    <ui-select-match >{{$select.selected.name}}</ui-select-match>
+                                                    <ui-select-choices repeat="list in vm.idTypeCollection | orderBy: 'name' | filter: {name: $select.search}">
+                                                        <div  ng-bind="list.name"></div>
+                                                    </ui-select-choices>
+                                                </ui-select>
+                                                <input  name="referredIdType" ng-model="vm.referredIdType" type="hidden" required/>
+                                                <ng-messages for="register.referredIdType.$error" ng-if="register.referredIdType.$dirty">
+                                                    <div ng-message="required">Seleccione Tipo de Persona</div>
+                                                </ng-messages>
+                                            </div>
+                                            <input name="ci" pattern="[0-9]*" required type="text" class="form-control" id="cm-ci" ng-model="vm.referredNumberId" ng-minlength="6" ng-maxlength="10">
+                                            <ng-messages for="register.ci.$error" ng-if="register.ci.$dirty">
+                                                <div ng-message="maxlength">Cédula muy larga</div>
+                                                <div ng-message="minlength">Cédula muy corta</div>
+                                                <div ng-message="required">Ingrese Cédula</div>
+                                            </ng-messages>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                </br>
+                                <div class="row"> 
+                                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                                        <label class="">Banco</label>                               
+                                        <div class="form-group">
+                                            <input name="bank" type="text" ng-model="vm.user.membership.pay.bankName" ng-change="" class="form-control" ng-minlength="6" ng-maxlength="10" required>
+                                            <ng-messages for="register.bank.$error" ng-if="register.bank.$dirty">
+                                                <div ng-message="maxlength">Banco muy largo</div>
+                                                <div ng-message="minlength">Banco muy corto</div>
+                                                <div ng-message="required">Ingrese Banco</div>
+                                            </ng-messages>
+                                        </div>                               
+                                    </div>
+                                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                                        <label class="">Nro. Referencia</label>                               
+                                        <div class="form-group">
+                                            <input name="transferId" type="text" ng-model="vm.user.membership.pay.transferId" ng-change="" class="form-control" ng-minlength="6" ng-maxlength="20" required>
+                                            <ng-messages for="register.transferId.$error" ng-if="register.transferId.$dirty">
+                                                <div ng-message="maxlength">Referencia muy larga</div>
+                                                <div ng-message="minlength">Referencia muy corta</div>
+                                                <div ng-message="required">Ingrese Referencia</div>
+                                            </ng-messages>
+                                        </div>                               
+                                    </div>
+                                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                                        <label class="">Fecha de Pago</label>
+                                        <div class="input-group">
+                                            <input name="dop" ng-change="" type="text" class="form-control"
+                                                    datepicker-popup="{{vm.format}}" ng-model="vm.user.membership.pay.payDate"
+                                                    is-open="vm.payOpened" ng-required="true" close-text="Cerrar" close-text="Cerrar" required disabled/>
+                                            <ng-messages for="register.dop.$error" ng-if="register.dop.$dirty">
+                                                <div ng-message="required">Ingrese su Fecha de Pago</div>
+                                            </ng-messages>
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default" ng-click="vm.payOpen($event)" ><i
+                                                        class="glyphicon glyphicon-calendar"></i></button>
+                                            </span>
+                                        </div>                            
+                                    </div>
+                                    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+                                        <label class="">Monto</label>                               
+                                        <div class="form-group">
+                                            <input name="amount" type="number" ng-model="vm.user.membership.pay.amount" ng-change="" class="form-control" ng-minlength="2" ng-maxlength="6" required>
+                                            <ng-messages for="register.amount.$error" ng-if="register.amount.$dirty">
+                                                <div ng-message="maxlength">Monto muy largo</div>
+                                                <div ng-message="minlength">Monto muy corto</div>
+                                                <div ng-message="required">Ingrese Monto</div>
+                                            </ng-messages>
+                                        </div>                               
+                                    </div>
+
+                                </div>
+                                <div class="row"> 
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <p class="text-center" style="face=arial; font-size:12px;text-align:left">
+                                            Declaro bajo Fe de Juramento que los Fondos Provenientes de mi Actividad Económica<br>
+                                            son de una fuente lícita y no tienen relación alguna con capitales, bienes, haberes o <br>
+                                            beneficios derivados de las actividades ilícitas de los delitos de <b>Legitimación de </b><br>
+                                            <b>Capitales y Financiamiento al Terrorismo Previstos en la Ley Orgánica Contra la </b><br>
+                                            <b>Delincuencia Organizada y demás Leyes que rigen la materia.</b><br><br>
+                                            Todos los datos suministrados por mí son ciertos y autorizo a verificarlos en cualquier momento.<br><br>
+                                            Asimismo, solicito que me participe acerca de los planes preferenciales a los cuales tenga <br>
+                                            acceso mediante esta afiliación.<br><br>
+                                            <i>Inversiones Aprofe, CA, garantiza que estos datos serán de usuo exclusivo de la empresa</i><br>
+                                            <i>Cuenta Corriente Banesco 0134-0261-2926-1102-5549 de Inversiones Aprofe CA</i><br>
+                                            <i>Rif: J-31216127-2,  inversionesaprofe@gmail.com</i><br>
+                                        </p>
+
+                                    </div>                            
+                                </div>
+                                <div class="row"> 
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <div class="form-group">
+                                            <!--div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox">
+                                                    Acepto los terminos y condiciondes de esta afiliación
+                                                </label>
+                                            </div-->
+                                        </div>
+                                    </div>                            
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cm-whitePanelFoot">
+                            <button  ng-if="vm.stateUrl === 'shell.myProfile.view.edit'" type="submit" class="btn cm-cmBtn cm-btnMd" ng-click="vm.saveProfile(register)">Guardar</button>
+                            <button ng-if="vm.stateUrl === 'shell.registerUser'" class="btn cm-cmBtn cm-btnMd" ng-click="vm.createMembership(register)">Afiliar</button>
+                        </div>
+                    </div>
+                    <!--div class="cm-column right">
+                        <div class="cm-whitePanel">
+                            <div class="cm-whitePanelHead">
+                                <div class="cm-whitePanelTitle">Status</div>
+                            </div>
+                            <div class="cm-whitePanelBody">
+                                <div class="cm-greyForm cm-form">
+                                    <div class="form-group">
+                                        <label class="sr-only">Status</label>
+                                        <cm-gray-drop-down place-holder="{{vm.status.allValues[0].name}}" model="vm.selectedStudentNumber"
+                                                           values="vm.status.allValues"></cm-gray-drop-down>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div ui-view="invitePending">
+    
+                        </div>
+                        <div class="cm-whitePanel cm-datepicker">
+                            <div class="cm-whitePanelHead">
+                                <div class="cm-whitePanelTitle">Duration</div>
+                            </div>
+                            <div class="cm-whitePanelBody">
+                                <div class="cm-greyForm cm-form">
+                                    <div class="form-group input-group">
+                                        <label>Start</label>
+                                        <input  ng-change="vm.updateProgress('Calendar')" type="text" class="form-control"
+                                                datepicker-popup="{{vm.format}}" ng-model="vm.startdt"
+                                                is-open="vm.startOpened" ng-required="true" close-text="Close"/>
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default" ng-click="vm.startOpen($event)" ><i
+                                                    class="glyphicon glyphicon-calendar"></i></button>
+                                        </span>
+                                    </div>
+    
+                                    <div class="form-group input-group">
+                                        <label>End</label>
+                                        <input type="text" class="form-control" datepicker-popup="{{vm.format}}" ng-model="vm.enddt"
+                                               is-open="vm.endOpened" ng-required="true" close-text="Close"/>
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default" ng-click="vm.endOpen($event)"><i
+                                                    class="glyphicon glyphicon-calendar"></i></button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cm-whitePanel">
+                            <div class="cm-whitePanelHead">
+                                <div class="cm-whitePanelTitle">Featured Image</div>
+                            </div>
+                            <div class="cm-whitePanelBody">
+                                <div class="cm-greyForm cm-form" ng-show="vm.altScreen == true">
+                                    <div class="cropArea">
+                                     
+                                        <canvas width="233" height="200" id="canvas" image-cropper image="vm.cropper.sourceImage" cropped-image="vm.cropper.croppedImage" crop-width="300" crop-height="200" keep-aspect="true" touch-radius="30" crop-area-bounds="bounds"></canvas>
+                                    </div>
+                                    <br>
+                                    <div class="cm-uploadImgBtn">
+                                        <label type="button" class="btn cm-cmBtn cm-bdBtn cm-btnSm" ng-click = "vm.cropImage()">Crop</label>
+    
+                                        <p>Drag and scale to crop<br>the image to your liking</p>
+                                    </div>
+                                </div>
+                                <div class="cm-uploadImgBtn" ng-show="vm.altScreen == false">
+                                    <label for="fileInput" class="btn cm-cmBtn cm-bdBtn cm-btnSm" ng-click="vm.updateProgress('ImagePicker')"> Add a Featured Image</label>
+                                    <input type="file" img-cropper-fileread id="fileInput" image="vm.cropper.sourceImage" />
+                                    <p>Image must be at least<br />230 pixels wide and 140 pixels tall.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cm-whitePanel">
+                            <div class="cm-whitePanelHead">
+                                <div class="cm-whitePanelTitle">Appearance Option</div>
+                            </div>
+                            <div class="cm-whitePanelBody">
+                                <div class="cm-form">
+                                    <div class="form-group">
+                                        <label>Color Scheme</label>
+    
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox">
+                                                <span class="glyphicon glyphicon-ok"></span>
+    
+                                                <div class="cm-colorSchemeOption cm-scheme1"></div>
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox">
+                                                <span class="glyphicon glyphicon-ok"></span>
+    
+                                                <div class="cm-colorSchemeOption cm-scheme2"></div>
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox">
+                                                <span class="glyphicon glyphicon-ok"></span>
+    
+                                                <div class="cm-colorSchemeOption cm-scheme3"></div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group cm-backgroundPicker">
+                                        <label>Choose a Background</label>
+                                        <carousel>
+                                            <slide ng-repeat="slideCollection in vm.groupedSlides" active="slide.active">
+                                                <div>
+                                                    <img ng-src="{{slideCollection.image1.image}}">
+                                                    <img ng-src="{{slideCollection.image2.image}}">
+                                                    <img ng-src="{{slideCollection.image3.image}}">
+                                                </div>
+                                            </slide>
+                                        </carousel>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cm-whitePanel">
+                            <div class="cm-whitePanelHead">
+                                <div class="cm-whitePanelTitle">Security Settings</div>
+                            </div>
+                            <div class="cm-whitePanelBody">
+                                <div class="cm-form">
+                                    <div class="form-group">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox">
+                                                <span class="glyphicon glyphicon-ok"></span>
+                                                Moderate Student Comments
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox">
+                                                <span class="glyphicon glyphicon-ok"></span>
+                                                Allow Video Chat
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="btn cm-cmBtn cm-deleteExperienceBtn" ng-click = "vm.cropImage()">Delete this Experience</a>
+    
+                    </div-->
+            </form>
+        </section>
+    </div>
+</div>

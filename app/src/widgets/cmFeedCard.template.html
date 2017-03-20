@@ -1,0 +1,21 @@
+<div ng-mouseenter="card.chat = (true && (type === 'participants'))"
+     ng-mouseleave="card.chat = (false && (type === 'participants'))"
+     class="cm-userDpInfoBox"
+     ng-click="isClicked()"
+     ng-class="{'cm-unread':card.new && !(type === 'chats'), 'cm-active':card.teacher, 'cm-chatLive': card.chat}">
+    <figure class="cm-userImg">
+        <span ng-if="card.online" class="cm-countBubble"></span>
+        <img alt="" ng-src="{{card.avatar}}" class="cm-userImgDp cm-userImgSm">
+    </figure>
+    <div ng-if="(type === 'feeds' || type === 'messages' || type === 'chats')" class="cm-userInfoArea">
+        <div ng-if="(type === 'chats')" class="cm-publishTime2">{{card.time}}</div>
+        <div ng-if="!(type === 'chats')" ng-class="{'cm-userTitle3': (type==='messages'),'cm-userTitle2': (type==='feeds')}">{{card.title.substring(0, 24) + '...'}}
+        <div ng-if="(type==='messages')&&(card.add!==true)" class="cm-publishTime" am-time-ago="card.createdon"></div>
+        </div>
+        <div class="cm-feedGlimpse">{{card.text}}</div>
+    </div>
+    <div ng-if="(type === 'participants')" class="cm-userInfoArea">
+        <div class="cm-userTitle">{{card.displayname}}</div>
+        <div class="cm-userState">{{card.teacher ? 'teacher/' : ''}}{{card.location}}</div>
+    </div>
+</div>

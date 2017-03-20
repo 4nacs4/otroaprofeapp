@@ -1,0 +1,17 @@
+<div class="cm-messageBlock"  ng-class="{'cm-active':message.isActive}">
+  <div ng-show = "message.state === 'unread'" class="cm-messageUnreadTag"></div>
+  <figure class="cm-userImg"><img class="cm-userImgDp cm-userImgSm" src={{message.displaypicture}} alt="">
+  </figure>
+  <div class="cm-messageInfoMini">
+    <div class="cm-messageBlockHeader">
+      <div class="cm-messageFrom" ng-bind="message.from"></div>
+      <label class="cm-checkBoxAlone">
+        <input type="checkbox">
+        <span class="glyphicon glyphicon-ok"></span>
+      </label>
+      <div class="cm-messageTime" am-time-ago="message.created"></div>
+    </div>
+    <div class="cm-messageSubject" ng-bind="message.subject"></div>
+    <div class="cm-messageDesc" ng-bind-html="message.text"></div>
+  </div>
+</div>

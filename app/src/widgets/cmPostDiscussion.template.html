@@ -1,0 +1,46 @@
+<div class="cm-height100">
+  <section class="cm-contentActionBar">
+    <div class="cm-mainPageTitle">Post a New Discussion</div>
+  </section>
+
+  <section class="cm-postDiscussionWrapper">
+    <div class="cm-postDiscussionInner">
+      <div class="cm-whitePanel">
+        <div class="cm-whitePanelHead">
+          <div class="cm-whitePanelTitle">Discussion Title</div>
+          <a class="cm-whitePanelHeaderLink" ng-click="cancelPost()">Delete this Discussion</a>
+        </div>
+        <div class="cm-whitePanelBody">
+          <div class="cm-greyForm cm-form">
+            <div class="form-group">
+              <label class="sr-only">Discussion Title</label>
+              <input type="text" class="form-control">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cm-whitePanel">
+        <div class="cm-whitePanelHead">
+          <div class="cm-whitePanelTitle">Message</div>
+          <a class="btn cm-cmBtn cm-bdBtn cm-btnSm cm-whitePanelHdrBtn">Add Image(s) or Video</a>
+        </div>
+        <div class="cm-whitePanelBody">
+          <div class="cm-greyForm cm-form">
+            <div class="form-group">
+              <label class="sr-only">Message</label>
+              <div><summernote ng-model="content" config="{ height: 177,toolbar: [['style', ['bold', 'italic', 'underline', 'clear']],['color', ['color']],['para', ['ul', 'ol', 'paragraph']],['height', ['height']]]}" class="form-control"></summernote></div>
+            </div>
+          </div>
+        </div>
+        <div class="cm-whitePanelFoot">
+          <div class="cm-rytTxt">Word Count: <cm-word-count words="content"> </cm-word-count> </div>
+        </div>
+      </div>
+      <div>
+        <button class="btn cm-formBtn cm-submitBtn" ng-click="cancelPost()">Post Discussion</button>
+        <button class="btn cm-formBtn" ng-click="cancelPost()" >Cancel</button>
+      </div>
+    </div>
+  </section>
+
+</div>

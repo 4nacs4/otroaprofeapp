@@ -1,0 +1,17 @@
+<div ng-class="{'col-sm-3 col-xs-3': (cardType === 'full'), 'cm-cardListingBlock':(cardType === 'full'),'col-sm-6':(cardType === 'half'),'cm-widgetBlock':(cardType === 'half')}">
+    <div class="cm-expCard" ng-class="{'cm-greyBorderCard':(cardType === 'half')}">
+        <span ng-if="(experience.notification > 0) && (cardType === 'full')" class="cm-countBubble">{{experience.notification}}</span>
+        <img class="cm-expImg" ng-src="{{experience.image}}" alt="" ng-click="goToExperienceDrawer()">
+        <div class="cm-expDetails">
+            <figure class="cm-userImg"><img alt="" ng-src="{{experience.avatar}}" class="cm-userImgDp cm-userImgSm"></figure>
+            <div class="cm-expTitle" ng-click="goToExperienceDrawer()">{{experience.name}}</div>
+            <div class="cm-expDuration" ng-click="goToExperienceDrawer()">{{experience.startdate | date:'MMM d, yyyy'}} — {{experience.enddate | date:'MMM d, yyyy' }}</div>
+            <p class="cm-expDesc" ng-if="(cardType === 'full')" ng-click="goToExperienceDrawer()">{{experience.description}}</p>
+            <div class="cm-expActionBar" ng-if="(cardType === 'full')">
+                <div class="cm-expStatus" ng-class="{'cm-completed': experience.status === 'completed','cm-pending': experience.status === 'pending',}">{{experience.status}}</div>
+                <a class="cm-expEdit" ng-click = "editExperience(experience.id)"><i class="fa fa-pencil"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+

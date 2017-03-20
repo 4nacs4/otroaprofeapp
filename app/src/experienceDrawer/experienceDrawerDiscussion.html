@@ -1,0 +1,14 @@
+<section class="cm-contentActionBar">
+    <a ng-click="vm.goToDiscussion(vm.timeLine.expId)" class="cm-cmBtn cm-bdlArrowBtn"><i class="fa fa-angle-left"></i>Back to Discussions</a>
+</section>
+<section class="cm-expDiscussionWrapper" ng-scrollbars>
+    <cm-discussion></cm-discussion>
+</section>
+<div class="cm-addCommentReplyEditorBar">
+    <figure class="cm-userImg">
+        <img alt="" ng-src="{{vm.userDp}}" class="cm-userImgDp cm-userImgSm">
+    </figure>
+    <div class="cm-addCommentReplyEditorBox">
+        <input type="text" class="cm-addCommentInputDeco form-control" placeholder="Add a comment to this message...">
+    </div>
+</div>

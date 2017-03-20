@@ -1,0 +1,44 @@
+@media (min-width: 1024px) {
+  .container {
+    width: 1014px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1014px;
+  }
+}
+
+.cm-offset-0, .cm-offset-single-0 {
+  padding: 0 !important;
+}
+
+.cm-offset-left-0 {
+  padding-left: 0 !important;
+}
+
+.cm-offset-right-0 {
+  padding-right: 0 !important;
+}
+
+.cm-bubblesBg {
+  background: url(/images/bg/bubbles.png);
+}
+
+.cm-bglGreen {
+  @extend .cm-bubblesBg;
+  background-color: $lGreen;
+}
+
+.cm-bgDGreen {
+  @extend .cm-bubblesBg;
+  background-color: $dGreen;
+}
+
+.cm-bgWhite{
+  background:$white;
+}
+.note-statusbar .note-resizebar{
+  display: none;
+}

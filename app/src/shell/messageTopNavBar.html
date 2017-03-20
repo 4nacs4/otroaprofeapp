@@ -1,0 +1,18 @@
+  <header class="cm-mainHeader">
+    <div class="clearfix">
+      <a class="cm-mainLogo"></a>
+      <nav class="cm-tabGroup">
+        <ul class="clearfix">
+          <li><a ui-sref="shell.connections">Find Connections</a><span
+            class="glyphicon glyphicon-triangle-top cm-selectedArrow"></span></li>
+          </li>
+          <li class="cm-loggedUserTab cm-active"><a>
+            <figure class="cm-userImg"><img class="cm-userImgDp cm-userImgSm"
+                                            src="{{vm.userDp}}" alt="">
+            </figure>
+            Jonathan W</a><span class="glyphicon glyphicon-triangle-top cm-selectedArrow" ng-class="{'cm-selectedBannerArrow': !vm.isBannerVisible()}"></span></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+

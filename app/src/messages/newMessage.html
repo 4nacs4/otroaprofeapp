@@ -1,0 +1,92 @@
+<script type="text/ng-template" id="customTemplate.html">
+  <a>
+    <img ng-src="http://lorempixel.com/20/20/people/" width="16">
+    <span bind-html-unsafe="match.label | typeaheadHighlight:query"></span>
+  </a>
+</script>
+<div class="cm-messagePanel cm-messageCreate">
+      <div class="cm-messagePanelHeader clearfix">
+        <div class="cm-messageCreateTitle">
+          New Message
+        </div>
+      </div>
+      <div class="cm-messagePanelBody" ng-scrollbars>
+        <div class="cm-singleMessage cm-singleCreateMessage">
+          <div class="cm-greyForm cm-form">
+            <div class="row">
+              <div class="col-md-7">
+                <div class="form-group cm-sendToField">
+                  <label>To</label>
+                  <div class="cm-formControlWrap">
+                   <!-- <input type="text" ng-model="customSelected" placeholder="Custom template" typeahead-template-url="src/common/customTemplate.html" typeahead="friend as friend.name for friend in vm.friendList | filter:{name:$viewValue}"  class="form-control"> -->
+                    <tags-input ng-model="tags"
+                                display-property="name"
+                                placeholder="Search Friends"
+                                replace-spaces-with-dashes="false"
+                                template="tag-template">
+                      <auto-complete source="vm.loadCountries($query)"
+                                     min-length="0"
+                                     load-on-focus="true"
+                                     load-on-empty="true"
+                                     max-results-to-show="32"
+                                     template="autocomplete-template"></auto-complete>
+                    </tags-input>
+
+                    <script type="text/ng-template" id="tag-template">
+
+                      <div class="cm-recipientBlock cm-recipientInputsBlock">
+                        <figure class="cm-userImg"><img class="cm-userImgDp cm-userImgSm"  ng-src="{{data.picture}}" ng-if="data.picture"></figure>
+                        <div class="cm-recipientName">{{$getDisplayText()}}</div>
+                      </div>
+
+                      <!--<div class="tag-template">-->
+                        <!--<div class="left-panel">-->
+                          <!--<img ng-src="{{data.picture}}" ng-if="data.picture"/>-->
+                        <!--</div>-->
+                        <!--<div class="right-panel">-->
+                          <!--<span>{{$getDisplayText()}}</span>-->
+                          <!--<a class="remove-button" ng-click="$removeTag()">&#10006;</a>-->
+                        <!--</div>-->
+                      <!--</div>-->
+                    </script>
+
+                    <script type="text/ng-template" id="autocomplete-template">
+                      <div class="cm-recipientBlock form-control">
+                        <figure class="cm-userImg"><img class="cm-userImgDp cm-userImgSm" ng-src="{{data.picture}}" ></figure>
+                        <div ng-bind-html="$highlight($getDisplayText())" class="cm-recipientName">Craig S</div>
+                        <img alt="" class="cm-flag" src="{{data.flag}}">
+                        <span>{{data.confederation}}</span>
+                      </div>
+                    </script>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-7">
+                <div class="form-group">
+                  <label>Subject</label>
+                  <input type="text" class="form-control" value="More info about Wednesday’s project">
+                </div>
+              </div>
+              <div class="col-md-11">
+                <div class="form-group">
+                  <label>Your Message</label>
+                    <textarea class="form-control">Hi Janet,
+
+Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Etiam porta sem malesuada magna mollis euismod. Nullam quis risus eget urna mollis ornare vel eu leo. Etiam porta sem malesuada magna mollis euismod.
+
+Best,
+Jonathan</textarea>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <a class="cm-cmBtn cm-attachFilesBtn"><span class="glyphicon glyphicon-paperclip"></span> Attach Files</a>
+              </div>
+              <div class="col-md-12">
+                <button class="btn cm-formBtn cm-submitBtn">Send Message</button>
+                <button ui-sref="^" class="btn cm-formBtn">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

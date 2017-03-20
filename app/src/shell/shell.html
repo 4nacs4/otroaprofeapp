@@ -1,0 +1,6 @@
+<header class="cm-twoBarHeader" ng-class="{'cm-marketingBnrOpen': vm.isBannerVisible()}">
+  <nav ui-view="topNavBar"></nav>
+  <section class="cm-marketingBanner" ng-if="vm.isBannerVisible()" ui-view="marketingBanner"></section>
+  <nav ui-view="subNavBar"></nav>
+</header>
+<section ui-view="content" class="cm-twoBarContent cm-bgWhite" ng-class="{'cm-marketingBnrOpen': vm.isBannerVisible()}"></section>

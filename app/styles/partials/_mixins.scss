@@ -1,0 +1,35 @@
+@mixin transition($transitionValue) {
+  -webkit-transition: $transitionValue;
+  -moz-transition: $transitionValue;
+  -ms-transition: $transitionValue;
+  -o-transition: $transitionValue;
+  transition: $transitionValue;
+}
+
+@mixin placeholderColor($placeholderColorValue) {
+  input::-webkit-input-placeholder {
+    color: $placeholderColorValue;
+  }
+  input:-moz-placeholder {
+    /* Firefox 18- */
+    color: $placeholderColorValue;
+  }
+  input::-moz-placeholder {
+    /* Firefox 19+ */
+    color: $placeholderColorValue;
+  }
+  input:-ms-input-placeholder {
+    color: $placeholderColorValue;
+  }
+}
+
+@mixin boxShadow($boxShadowValue) {
+  -webkit-box-shadow: $boxShadowValue;
+  -moz-box-shadow: $boxShadowValue;
+  box-shadow: $boxShadowValue;
+}
+
+@mixin sameWidthHeight($sameWidthHeightValue) {
+  width: $sameWidthHeightValue;
+  height: $sameWidthHeightValue;
+}

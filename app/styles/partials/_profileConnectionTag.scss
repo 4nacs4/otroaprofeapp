@@ -1,0 +1,143 @@
+/* Connection Profile Card */
+
+.cm-greenBorderCard {
+  @include boxShadow(0px 4px 0px 0px $dGreen);
+}
+
+.cm-greyBorderCard {
+  border: 1px solid #d3d3d3;
+}
+
+.cm-connecProfileCard {
+  background: $white;
+  border-radius: 4px;
+  position: relative;
+  .cm-basicBio {
+    padding: 10px;
+    overflow: hidden;
+    .cm-connecNCWrap {
+      float: left;
+      margin-right: 10px;
+      .cm-connecName {
+        font-size: 18px;
+        font-weight: 600;
+        color: $black;
+        margin: 0 0 15px;
+        cursor: pointer;
+      }
+      .cm-connecAdrs {
+        overflow: hidden;
+        .cm-flag {
+          float: left;
+          width: 31px;
+          margin-right: 6px;
+          display: block;
+          height:21px;
+        }
+        .cm-connecAdrsTxt {
+          font-size: 10px;
+          text-transform: uppercase;
+          color: $black333;
+          font-weight: 600;
+          float: left;
+          line-height: 11px;
+        }
+      }
+    }
+  }
+  .cm-userImg {
+    float: right;
+    cursor: pointer;
+  }
+  .cm-requestRespondBtns {
+    border-top: 1px solid #ddd;
+    padding: 10px;
+    overflow: hidden;
+    .cm-cmBtn {
+      font-size: 11px;
+      font-weight: bold;
+      height: 28px;
+      border-radius: 3px;
+      text-align: center;
+      padding-top: 5px;
+      text-transform: uppercase;
+      display: block;
+      width: 47%;
+      float: right;
+      border: 1px solid $Grey999;
+      color: #555555;
+      @include transition(none);
+    }
+    .cm-cmBtn.cm-acceptBtn {
+      background: $blue;
+      border-color: $blue;
+      float: left;
+      color: $white;
+    }
+  }
+}
+
+/* Class to transform connectionCard into connectionCardRow on Find Connections Page */
+.cm-cardRowBlock{
+  .cm-connecProfileCard{
+    overflow:hidden;
+    .cm-basicBio{
+      float:left;
+      width:33%;
+    }
+    .cm-expandedBio{
+      width:67%;
+      padding: 10px;
+      margin: 17px 0 0;
+      border:none;
+      overflow:hidden;
+      .cm-bioField{
+        float:left;
+        margin:0;
+      }
+      .cm-subLangWrap{
+        padding-left:5px;
+        overflow:hidden;
+        width:65%;
+        .cm-bioField{
+          width:50%;
+        }
+      }
+      .cm-AgeStatusBtnWrap{
+        float:left;
+        margin:0;
+        width:35%;
+        padding-right:10px;
+        overflow:hidden;
+        .cm-statusBtn{
+          float:right;
+          width:74px;
+          border-radius:3px;
+          margin-top:1px;
+        }
+      }
+    }
+  }
+  .cm-connecProfileCard.cm-profileRequestCard{
+    position: relative;
+    .cm-expandedBio{
+      .cm-AgeStatusBtnWrap {
+        width: auto;
+      }
+    }
+    .cm-requestRespondBtns{
+      border:none;
+      position:absolute;
+      right:20px;
+      top:12px;
+      padding: 0;
+      .cm-cmBtn{
+        float:none;
+        width:100%;
+        width: 90px;
+        margin-bottom:5px;
+      }
+    }
+  }
+}
+

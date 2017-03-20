@@ -1,0 +1,30 @@
+{
+  "schooltype": [
+    {
+      "id": 1,
+      "name": "Public"
+    },
+    {
+      "id": 2,
+      "name": "Private"
+    },
+    {
+      "id": 3,
+      "name": "Charter"
+    },{
+      "id": 4,
+      "name": "Home"
+    },{
+      "id": 5,
+      "name": "Faith Based"
+    },
+    {
+      "id": 6,
+      "name": "International"
+    },
+    {
+      "id": 7,
+      "name": "Other"
+    }
+  ]
+}

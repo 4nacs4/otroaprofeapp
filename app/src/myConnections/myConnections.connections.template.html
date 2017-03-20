@@ -1,0 +1,14 @@
+<div ng-if="vm.myConnections.length<=0" class="cm-noListingMessage">
+    You have no {{vm.title}} requests at this time.
+    <a class="btn cm-cmBtn" ui-sref="shell.connections">Find Connections</a>
+</div>
+<cm-connection
+        ng-repeat="connection in vm.myConnections"
+        to-Profile="vm.toProfile(connection.id)"
+        profile="connection"
+        connect="vm.connect(connection.id,connection.displayname)"
+        view-profile="vm.toProfile(connection.id)"
+        type="vm.connectionCardType"
+        col-size="(vm.row)? 1:4 ">
+ </cm-connection>
+    

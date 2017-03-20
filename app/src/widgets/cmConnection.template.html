@@ -1,0 +1,31 @@
+<div class="cm-cardListingBlock {{colClass}}">
+  <div class="cm-connecProfileCard cm-greenBorderCard" ng-class="{'cm-profileRequestCard': (colSize === 1)&&(profile.status === 'request')}">
+    <div class="cm-basicBio">
+      <div class="cm-connecNCWrap">
+        <div class="cm-connecName" ng-click="toProfile(profile.id)">{{profile.displayname}}</div>
+        <div class="cm-connecAdrs">
+          <img ng-src="{{profile.flag}}" class="cm-flag" alt="">
+          <div class="cm-connecAdrsTxt">{{profile.location}}<br>{{profile.country}}</div>
+        </div>
+      </div>
+      <figure class="cm-userImg" ng-click="toProfile()"><img alt="" ng-src="{{profile.avatar}}" class="cm-userImgDp cm-userImgMd"></figure>
+    </div>
+    <div class="cm-expandedBio">
+      <div class="cm-subLangWrap">
+        <div class="cm-bioField"><span class="cm-biolabel">Subjects</span>{{profile.subjectsString}}</div>
+        <div class="cm-bioField"><span class="cm-biolabel">Languages</span>{{profile.languagesString}}</div>
+      </div>
+      <div class="cm-AgeStatusBtnWrap">
+        <div class="cm-bioField"><span class="cm-biolabel">Ages</span>{{profile.ages}}</div>
+        <a class="cm-statusBtn" ng-if="profile.status === 'connect'" ng-click="connect()">connect</a>
+        <a class="cm-statusBtn cm-statusPending" ng-if="profile.status === 'pending'" ng-click="">pending</a>
+        <a class="cm-statusBtn" ng-if="profile.status === 'message'" ng-click="">message</a>
+      </div>
+    </div>
+    <div class="cm-requestRespondBtns" ng-if="profile.status === 'request'">
+          <a class="btn cm-cmBtn cm-acceptBtn">Accept</a>
+          <a class="btn cm-cmBtn">Cancel</a>
+      </div>
+  </div>
+</div>
+

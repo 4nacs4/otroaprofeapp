@@ -1,0 +1,30 @@
+<div class="cm-mainHeader">
+  <div class="clearfix">
+    <a class="cm-mainLogo"></a>
+    <ul ng-if="!vm.isLoggedIn()" class="cm-bdBtnGroup clearfix">
+      <li>
+        <a class="cm-cmBtn cm-bdBtn cm-btnSm" ng-click="vm.login()">Entrar</a>
+      </li>
+    </ul>
+    <nav ng-if="vm.isLoggedIn()" class="cm-tabGroup">
+        <ul class="clearfix">
+            <li><a ui-sref="shell.connections">Buscar Productos</a><span
+            class="glyphicon glyphicon-triangle-top cm-selectedArrow"></span></li>
+          </li>
+          <li class="cm-loggedUserTab cm-active"><a ui-sref="shell.myProfile.view">
+            <figure class="cm-userImg"><img class="cm-userImgDp cm-userImgSm"
+                                            src="{{vm.user.avatar}}" alt="">
+            </figure>
+            {{vm.user.displayName}}</a><span class="glyphicon glyphicon-triangle-top cm-selectedArrow" ng-class="{'cm-selectedBannerArrow': !vm.isBannerVisible()}"></span></li>
+        </ul>
+      </nav>
+    <!--nav class="cm-tabGroup">
+      <ul class="clearfix">
+        <li ui-sref-active="cm-active" ng-repeat="state in vm.navStates">
+          <a ui-sref="{{state.name}}">{{state.title}}</a>
+          <span class="glyphicon glyphicon-triangle-top cm-selectedArrow" ng-class="{'cm-selectedBannerArrow': !vm.isBannerVisible()}"></span>
+        </li>
+      </ul>
+    </nav-->
+  </div>
+</div>

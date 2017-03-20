@@ -1,0 +1,47 @@
+{
+  "thread": {
+    "_id": "Y2PvXGQ2bYAXqGGa4",
+    "title": "Hat",
+    "description": "",
+    "state": "active",
+    "startdate": 1441065600000,
+    "created": 1432655207673
+  },
+  "messages": [
+    {
+      "_id": "x7imm4N5tJvg24JxL",
+      "from": "kateb",
+      "to": "shahzadc",
+      "subject": "Hat",
+      "text": "Hello, I really like your hat! I think you are super cool in that smelly hat. Do you ever wash it?",
+      "threadid": "Y2PvXGQ2bYAXqGGa4",
+      "status": "approved",
+      "state": "read",
+      "created": 1432655232688
+    },
+    {
+      "_id": "gkCCrsWWBJ46Zhf8K",
+      "from": "Zhili",
+      "to": "kateb",
+      "reply_to": "x7imm4N5tJvg24JxL",
+      "subject": "Hat",
+      "text": "You are mean",
+      "threadid": "Y2PvXGQ2bYAXqGGa4",
+      "status": "approved",
+      "state": "delivered",
+      "created": 1432655304733
+    },
+    {
+      "_id": "gcjj418184f151",
+      "from": "shahzadc",
+      "to": "kateb",
+      "reply_to": "x7imm4N5tJvg24JxL",
+      "subject": "My Experience Invite",
+      "text": "Please Accept",
+      "threadid": "Y2PvXGQ2bYAXqGGa4",
+      "status": "approved",
+      "state": "read",
+      "created": 1432655319733
+    }
+  ]
+}

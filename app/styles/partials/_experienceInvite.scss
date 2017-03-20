@@ -1,0 +1,283 @@
+/* Create An Experience */
+.cm-row{
+  padding:0 5px;
+  overflow: hidden;
+  .cm-column{
+    padding:0 10px;
+  }
+}
+
+.cm-createExpForm{
+  padding:20px 0;
+  .left.cm-column{
+    width:719 * 100% / 1014;
+    float:left;
+  }
+  .right.cm-column{
+    width:295 * 100% / 1014;
+    float:right;
+  }
+}
+
+.cm-whitePanel{
+  border:1px solid #d8d8d8;
+  border-radius:3px;
+  background:$white;
+  margin-bottom:20px;
+  .cm-form.cm-greyForm{
+    .form-group{
+      margin-bottom: 0;
+      label{
+        text-transform: none;
+        color:$black333;
+        font-size:13px;
+        font-weight: normal;
+      }
+      .dropdown{
+        .form-control:after{
+          background-position:11px center;
+        }
+      }
+    }
+  }
+  .cm-whitePanelHead{
+    border-bottom:1px solid #d8d8d8;
+    overflow: hidden;
+    height:50px;
+    padding:0 20px;
+    .cm-whitePanelTitle{
+      font-size:16px;
+      float:left;
+      margin-top:13px;
+    }
+    .cm-addInvitations, .cm-addInvitations:focus{
+      font-size: 16px;
+      display: block;
+      float: right;
+      margin-top: 13px;
+      color:$blue;
+      &:hover{
+        color:$blue - 20;
+      }
+    }
+  }
+  .cm-whitePanelFoot{
+    padding:7px 20px;
+    border-top:1px solid #d8d8d8;
+    font-size:11px;
+    overflow:hidden;
+    .cm-leftTxt{
+      float:left;
+    }
+    .cm-rytTxt{
+      float:right;
+    }
+    .cm-highlightRed{
+      color:red;
+      font-weight: 600;
+    }
+  }
+  .cm-whitePanelBody{
+    padding:20px;
+    .cm-form{
+      .checkbox{
+        margin: 0 0 5px;
+        .glyphicon{
+          font-size:10px;
+          @include sameWidthHeight(14px);
+        }
+        label{
+          display: block;
+          line-height: 18px;
+        }
+      }
+    }
+    .cm-mediaBox{
+      background:url(../../images/video_dummy_img.jpg) no-repeat center #656565;
+      height:72px;
+      border-radius:3px;
+      display: block;
+      background-size:41px;
+      margin-bottom: 5px;
+    }
+    .cm-colorSchemeOption{
+      width:170px;
+      height:12px;
+      position: relative;
+      top: 3px;
+      background:url(../../images/theme_color_sprite.png) no-repeat;
+    }
+    .cm-colorSchemeOption.cm-scheme1{
+      background-position:left 0px;
+    }
+    .cm-colorSchemeOption.cm-scheme2{
+      background-position:left -16px;
+    }
+    .cm-colorSchemeOption.cm-scheme3{
+      background-position:left -32px;
+    }
+  }
+}
+
+.cm-deleteExperienceBtn, .cm-deleteExperienceBtn:focus, .cm-deleteExperienceBtn:hover {
+  font-size:12px;
+  font-weight: bold;
+  color:#ff3333;
+  text-align: center;
+  height:50px;
+  border:1px solid #d8d8d8;
+  border-radius:3px;
+  background:$white;
+  padding:15px 0 0 0;
+  display: block;
+  text-transform: uppercase;
+}
+
+/* Experience Invite Panel */
+.cm-expInvitePanel{
+  padding:20px 0;
+  height:100%;
+  .cm-row{
+    height:100%;
+  }
+  .cm-column{
+    width:50%;
+    height: 100%;
+    float:left;
+  }
+}
+
+.cm-connecListingPanel{
+  border:1px solid #d3d3d3;
+  background:$white;
+  border-radius:4px;
+  height:100%;
+  .cm-connecListingPanelHeader {
+    height:190px;
+    .cm-connecListingPanelTitle {
+      font-weight: 600;
+      font-size: 18px;
+      height: 50px;
+      border-bottom: 1px solid #d3d3d3;
+      padding: 12px 20px 0;
+    }
+  }
+  .cm-connecListingBody{
+    height:calc(100% - 190px);
+    overflow: auto;
+    padding:0 20px 20px;
+    .cm-connecListingResult{
+      margin: 0 -5px;
+      .cm-widgetBlock{
+        padding:0 5px;
+        margin-bottom:10px;
+        .cm-connecProfileCard{
+          cursor: pointer;
+          .cm-basicBio{
+            padding:7px;
+            border:3px solid $white;
+            border-radius:4px;
+          }
+        }
+        .cm-connecProfileCard[disabled]{
+          opacity:0.5;
+          cursor: default;
+        }
+        .cm-connecProfileCard.cm-selected{
+          border:4px solid $lGreen;
+          .cm-basicBio{
+            border:none;
+          }
+          &:after{
+            content:" ";
+            display:block;
+            border-radius:3px 0 0;
+            right:0;
+            bottom:0;
+            position: absolute;
+            @include sameWidthHeight(27px);
+            background:url(/images/icons/sort_icon_sprite.png) no-repeat -198px center $lGreen;
+          }
+        }
+      }
+    }
+  }
+}
+
+.cm-connecListingActionBar{
+  padding:20px 20px 30px;
+  .cm-actionSelectStatus{
+    overflow: hidden;
+    margin:0 0 20px 0;
+    .cm-selectCount{
+      font-size: 14px;
+      float:left;
+      margin:8px 0 0 0;
+    }
+    .cm-ActionBtn{
+      height:38px;
+      background:$blue;
+      color:$white;
+      text-transform: uppercase;
+      font-size:11px;
+      font-weight: bold;
+      text-align: center;
+      width:163px;
+      float:right;
+      display: block;
+      border-radius:3px;
+      padding:10px 0 0 0;
+      .cm-arrowGlyph{
+        display:inline-block;
+        background:url(/images/icons/sort_icon_sprite.png) no-repeat -132px center;
+        width:22px;
+        height:16px;
+        vertical-align: middle;
+        top: -1px;
+        position: relative;
+        margin-left:18px;
+      }
+    }
+    .cm-ActionBtn[disabled]{
+      background:none;
+      color:#cccccc;
+      .cm-arrowGlyph{
+        background-position:-166px center;
+      }
+    }
+  }
+  .cm-searchConnec{
+    border:1px solid #d3d3d3;
+    border-radius: 2px;
+    padding:10px;
+    .fa{
+      font-size: 18px;
+      margin-right: 10px;
+      color:$Grey777;
+      position: relative;
+      top: 1px;
+    }
+    input, input:focus{
+      border:none;
+      padding: 0;
+      font-size:13px;
+      width:calc(100% - 30px);
+      outline: 0;
+    }
+  }
+}
+
+.cm-connecListingPanel.cm-connecListingInvitePanel {
+  .cm-connecListingPanelHeader{
+    height:128px;
+    .cm-connecListingActionBar{
+      padding: 20px;
+      .cm-actionSelectStatus{
+        margin-bottom:0;
+      }
+    }
+  }
+  .cm-connecListingBody {
+    height: calc(100% - 128px);
+  }
+}

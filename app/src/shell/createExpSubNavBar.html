@@ -1,0 +1,11 @@
+<section class="cm-pageActionBar">
+
+  <div class="clearfix">
+
+    <h1 class="cm-mainPageTitle" ng-click="vm.toggleNextButton()">{{vm.title}}</h1>
+    <a class="cm-crossBtnLg" ui-sref="{{vm.progressCrossNavClosePrevState}}"></a>
+    <a class="cm-progressBarBtn" ng-click="vm.pgsStatusNext()">
+      <div ng-style="{'width' : vm.pgsStatusPercent}" class="cm-progressBar"></div>
+      <span ng-bind="vm.pgsStatusText"></span></a>
+  </div>
+</section>

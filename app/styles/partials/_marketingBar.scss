@@ -1,0 +1,102 @@
+.cm-marketingBanner{
+  background:#a2a2a2;
+  height:320px;
+  overflow: hidden;
+  @include transition(all 0.5s ease-in-out);
+  .cm-hideIntroBtn{
+    font-weight: 600;
+    text-transform: uppercase;
+    color:#dadada;
+    display: block;
+    float:right;
+    .fa{
+      color:$Grey777;
+      font-size: 10px;
+      text-align: center;
+      border-radius: 50%;
+      line-height: 1.6;
+      margin-left:5px;
+      background:#dadada;
+      top: -2px;
+      position: relative;
+      @include sameWidthHeight(18px);
+      @include transition($transitionValue);
+    }
+  }
+  .cm-hideIntroBtn:hover{
+    color:$white;
+    .fa{
+      background:$white;
+    }
+  }
+  .cm-marketingBannerInner{
+    padding:30px 30px 0 55px;
+    position: relative;
+    margin-bottom: 22px;
+    .cm-marketingBnrText{
+      float:left;
+      width:500px;
+      h1{
+        font-family: "Questrial", Arial;
+        font-weight: normal;
+        font-size:28px;
+        color:$white;
+        span{
+          font-size:48px;
+          display: block;
+        }
+      }
+      p{
+        font-size:16px;
+        font-weight: 600;
+        color:$white;
+        margin:0 0 30px 0;
+      }
+
+      .cm-cmBtn{
+        font-size:14px;
+        font-weight: 600;
+        text-align: center;
+        display:inline-block;
+        width:170px;
+        height:40px;
+        border:1px solid $white;
+        border-radius:3px;
+        text-transform: uppercase;
+        margin:0 10px 0 0;
+        color:$white;
+        padding-top: 8px;
+      }
+
+      .cm-cmBtn.cm-focusedBtn{
+        background:$blue;
+      }
+    }
+    .cm-marketingBannerVideo{
+      width:367px;
+      height:218px;
+      background: url("/images/bg/video_dummy_img.jpg") no-repeat center #656565;
+      float:right;
+      margin-top: 15px;
+    }
+  }
+}
+
+.cm-marketingBanner.cm-marketingBannerOpen{
+  height:320px;
+
+}
+
+.cm-marketingBanner.ng-enter{
+  @include transition(none);
+}
+
+.cm-marketingBanner.ng-enter,
+.cm-marketingBanner.ng-leave.ng-leave-active {
+  height:0;
+}
+
+.cm-marketingBanner.ng-leave,
+.cm-marketingBanner.ng-enter.ng-enter-active {
+  height: 320px;
+}

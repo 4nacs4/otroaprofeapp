@@ -1,0 +1,104 @@
+{
+  "id": "6Wtua75DaiL4HoaCJJUKr6",
+  "created": "1421280175",
+  "modified": "1429747375",
+  "username": "janicea",
+  "status": "active",
+  "service": "gc",
+  "firstname": "Janice",
+  "lastname": "Allen",
+  "displayname": "JaniceA",
+  "country": "United States",
+  "role": "teacher",
+  "location": "seattle, wa",
+  "grades-taught" : "4th grade",
+  "class-size": "5 - 10",
+  "ages": "8 - 10",
+  "email": "janicea@yahoo.com",
+  "skypename": "janice12345",
+  "languages": "English, German",
+  "subjects": "Math, Science",
+  "interested_in" : "Cultural Exchange",
+  "schooltype": "public",
+  "schoolname": "Stoney Down Park JuniorSchool",
+  "description": "I teach 4th year primary school, specialising in global and digital citizenship.I’m looking for like minded teachers of children ages 8-10 for a culturalexchange.",
+  "looking_for": "Ideally we’d like to find people from Asia and Africa as we’re in London in the UK.",
+  "avatar": "http://lorempixel.com/120/120/people/1",
+  "lastactive": 1431438315943,
+  "flag" :   "http://images.epals.com/flags/us.jpg",
+  "connections": [
+    {
+      "id": 11366146641,
+      "displayname": "Arthur K",
+      "country": "us",
+      "location": "New York, NY",
+      "avatar": "http://lorempixel.com/120/120/people/2",
+      "flag": "http://images.epals.com/flags/us.jpg"
+    },
+    {
+      "id": 45145514661,
+      "displayname": "Maylin C",
+      "country": "cn",
+      "location": "Shanghai",
+      "avatar": "http://lorempixel.com/120/120/people/3",
+      "flag":"http://images.epals.com/flags/cn.jpg"
+    },
+    {
+      "id": "6782466525",
+      "displayname": "Craig S",
+      "country": "us",
+      "location": "Wash DC",
+      "avatar": "http://lorempixel.com/120/120/people/4",
+      "flag":"http://images.epals.com/flags/us.jpg"
+    },
+    {
+      "id": "45145514661",
+      "displayname": "Farrukh Z",
+      "country": "pk",
+      "location": "Faisalabad",
+      "avatar": "http://lorempixel.com/120/120/people/5",
+      "flag":"http://images.epals.com/flags/pk.jpg"
+    },
+    {
+      "id": "32214551",
+      "displayname": "Kate B",
+      "country": "uk",
+      "location": "London",
+      "avatar": "http://lorempixel.com/120/120/people/6",
+      "flag":"http://images.epals.com/flags/uk.jpg"
+    }
+  ],
+  "shared-connections": [{
+    "id": 4316813434,
+    "displayname": "William B",
+    "country": "uk",
+    "location": "Yorkshire",
+    "avatar": "http://lorempixel.com/120/120/people/3",
+    "flag": "http://images.epals.com/flags/uk.jpg"
+  },{
+    "id": 34177284145,
+    "displayname": "Samuel B",
+    "country": "ie",
+    "location": "Belfast",
+    "avatar": "http://lorempixel.com/120/120/people/5",
+    "flag": "http://images.epals.com/flags/ie.jpg"
+  }],
+  "experiences": [
+    {
+      "id": "1344155144",
+      "name": "GlobalCitizenship",
+      "avatar": "http://lorempixel.com/120/120/people/6",
+      "image": "http://lorempixel.com/300/200/city",
+      "startdate": "1431439375",
+      "enddate": "1436659375"
+    },{
+      "id": "451541551133",
+      "name": "CulturalExchange",
+      "avatar": "http://lorempixel.com/120/120/people/9",
+      "image": "http://lorempixel.com/300/200/city",
+      "startdate": "1441152175",
+      "enddate": "1450137775"
+
+    }
+  ]
+}

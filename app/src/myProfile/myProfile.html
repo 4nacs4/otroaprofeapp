@@ -1,0 +1,93 @@
+<div class="container cm-height100">
+    <div class="cm-profileLayout clearfix cm-height100" ng-scrollbars>
+        <div class="cm-profileDPColumn">
+            <figure class="cm-userImg"><img class="cm-userImgDp cm-userImgLg" ng-src="{{vm.profile.avatar}}" alt=""></figure>
+            <!--a class="cm-editLink">Change Password</a-->
+        </div>
+        <div class="cm-profileBio">
+            <div class="cm-profileBioHeader">
+                <div ng-if="!vm.profile.membership" class="alert alert-warning">
+                    <strong>Alerta!</strong> Debe completar el proceso de afiliacion!.
+                </div>
+                <div class="cm-profileBioTitleWrap">
+                    <div class="cm-NameTitle">{{vm.profile.displayName}}</div>
+                    <div class="cm-residenceArea">{{vm.profile.location.state}}, {{vm.profile.location.city}}</div>
+                </div>
+                <a ng-click="vm.editProfile()" class="cm-editProfileLink"><i class="fa fa-pencil"></i> Editar Perfil</a>
+                <!--div class="form-group cm-switchBoxWrap">
+                    <div class="checkbox cm-switchCheckbox">
+                        <label>
+                            <input type="checkbox"> Available for Matching
+                            <div class="cm-switchBox"></div>
+                        </label>
+                    </div>
+                </div-->
+            </div>
+            <div class="cm-profileBioWrap">
+                <div class="row">
+                    <div class="col-sm-6 col-xs-6">
+                        <div class="cm-bioRow"><div class="cm-bioLabel">Cedula</div><div class="cm-bioEntry">{{vm.profile.id}}</div></div>
+                        <div class="cm-bioRow cm-countryRow"><div class="cm-bioLabel">Nombres</div><div class="cm-bioEntry">{{vm.profile.firstName}}</div></div>
+                        <div class="cm-bioRow"><div class="cm-bioLabel">Apellidos</div><div class="cm-bioEntry">{{vm.profile.lastName}}</div></div>
+                        <div class="cm-bioRow"><div class="cm-bioLabel">Correo</div><div class="cm-bioEntry">{{vm.profile.email}}</div></div>
+                        <div class="cm-bioRow"><div class="cm-bioLabel">Puntos</div><div class="cm-bioEntry">{{vm.points}}</div></div>
+
+                    </div>
+                </div>
+            </div>
+            </br>
+            <div ng-if='vm.referredLoaded' class="cm-profileBioHeader">
+                <div class="cm-profileBioTitleWrap">
+                    <div class="cm-NameTitle">Lista de Referidos</div>
+                     </br>
+                    <div style="font-weight: bold; font-size: 16px">Nivel 1</div>
+                    <div class="row">
+                        <div class="col-sm-6 col-xs-6" >
+                            <div style="font-weight: bold">Cedula</div>
+                        </div>  
+                        <div class="col-sm-6 col-xs-6" >
+                            <div style="font-weight: bold">Nombres</div>
+                        </div>
+                        <div ng-repeat="referred in vm.referredList['referredList1']">
+                            <div class="col-sm-6 col-xs-6" >
+                                <div >{{referred.id}}</div>
+                            </div>
+                            <div class="col-sm-6 col-xs-6" >
+                                <div class="cm-bioEntry">{{referred.displayName}}</div>
+                            </div>           
+                        </div>
+                    </div>
+                    <div ng-if="vm.referredList['referredListCount1'] == 0">
+                        <div class="alert alert-warning">
+                            <strong>Atencion!</strong> No tiene ningun Referido Indirecto.
+                        </div>
+                    </div>
+                    </br>
+                    <div style="font-weight: bold; font-size: 16px">Nivel 2</div>
+                    <div class="row">
+                        <div class="col-sm-6 col-xs-6" >
+                            <div style="font-weight: bold">Cedula</div>
+                        </div>  
+                        <div class="col-sm-6 col-xs-6" >
+                            <div style="font-weight: bold">Nombres</div>
+                        </div>
+                        <div ng-repeat="referred in vm.referredList['referredList2']">
+                            <div class="col-sm-6 col-xs-6" >
+                                <div class="cm-bioEntry">{{referred.id}}</div>
+                            </div>
+                            <div class="col-sm-6 col-xs-6" >
+                                <div class="cm-bioEntry">{{referred.displayName}}</div>
+                            </div>           
+                        </div>
+                    </div>
+                    <div ng-if="vm.referredList['referredListCount2'] == 0">
+                        <div class="alert alert-warning">
+                            <strong>Atencion!</strong> No tiene ningun Referido Indirecto.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

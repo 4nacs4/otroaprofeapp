@@ -1,0 +1,101 @@
+.cm-cmBtn {
+  display: inline-block;
+}
+
+.cm-bdBtn {
+  border-radius: 3px;
+  color: $white;
+  font-weight: bold;
+}
+
+.cm-bdBtn:hover {
+  color: #fff;
+  background: $Grey2f + 10;
+}
+
+.cm-btnSm {
+  background: $Grey2f;
+  height: 28px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 110px;
+  padding: 5px 15px 0;
+}
+
+.cm-btnMd {
+  font-size: 16px;
+  text-transform: uppercase;
+  color: $white;
+  font-weight: bold;
+  background: $blue;
+  border-radius: 4px;
+  height: 40px;
+  padding: 0 25px;
+  @include transition($transitionValue);
+}
+
+.cm-btnMd:hover {
+  color: $white;
+  background: $blue - 30;
+}
+
+.cm-bdBtnGroup {
+  margin: 0 15px 0 0;
+  padding: 0;
+  list-style: none;
+  float: right;
+  li {
+    margin: 25px 20px 0;
+    padding: 0;
+    float: left;
+    a {
+      display: block;
+    }
+  }
+}
+
+.cm-crossBtnLg {
+  background: url("/images/icons/dark_cross_lg.png") no-repeat center;
+  border-left: 1px solid $black333;
+  float: right;
+  margin: 0;
+  height: $headerBarHeight;
+  width: 100px;
+  display: block;
+}
+
+.cm-crossBtnLg:hover {
+  background-color: #1f1f1f;
+}
+
+.cm-progressBarBtn, .cm-progressBarBtn:hover {
+  border: 1px solid $white;
+  background: #99d168;
+  text-align: center;
+  width: 200px;
+  height: 38px;
+  color: $white;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  float: right;
+  margin: 21px 40px 0;
+  padding-top: 8px;
+  border-radius: 2px;
+  span {
+    position: relative;
+    z-index: 1;
+  }
+  .cm-progressBar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 36px;
+    width: 40%;
+    background: $blue;
+    z-index: 0;
+  }
+
+}

@@ -1,0 +1,28 @@
+<div class="modal-body" cm-modal-window-class="{'queryClass':'cm-modal', 'cm-modalSmall': vm.size, 'cm-modalLarge': !vm.size}">
+  <div class="cm-animate-if" ng-if="vm.showOnState('signUp')" ng-include="'src/common/modals/signUpModal.html'"></div>
+  <div class="cm-animate-if" ng-if="vm.showOnState('signIn')" ng-include="'src/common/modals/signInModal.html'"></div>
+  <div class="cm-animate-if" ng-if="vm.showOnState('forgotPassword')" ng-include="'src/common/modals/forgotPasswordModal.html'"></div>
+  <div class="cm-animate-if" ng-if="vm.showOnState('forgotPasswordDone')" ng-include="'src/common/modals/forgotPasswordDoneModal.html'"></div>
+  <div class="cm-animate-if" ng-if="vm.showOnState('signUpStudent')" ng-include="'src/common/modals/signUpStudentModal.html'"></div>
+</div>
+
+<!-- Sign in footer -->
+<div class="modal-footer cm-greyModalFooter" ng-if="vm.showOnState('signIn')">
+  <p class="cm-animate-if" ng-if="vm.showOnState('signIn')">si no eres miembro?&nbsp;&nbsp;<a ng-click="vm.setActiveState('signUp')">Registrate</a></p>
+</div>
+
+<!-- Sign up footer -->
+<div class="modal-footer cm-greyModalFooter" ng-if="vm.showOnState('signUp')">
+  <p class="cm-animate-if" ng-if="vm.showOnState('signUp') || vm.showOnState('signUpAll')">ya eres miembro?&nbsp;&nbsp;<a ng-click="vm.setActiveState('signIn')">Entrar</a></p>
+</div>
+
+<!-- Forgot Password footer -->
+<div class="modal-footer cm-blueModalFooter" ng-if="vm.showOnState('forgotPassword')" ng-class="{'showBody':vm.showForgotPasswordText,'hideBody':!vm.showForgotPasswordText}">
+  <div class="cm-question">Was your account registered<br>by a teacher or parent?</div>
+  <div class="cm-note">If so, you'll need to contact the person in charge of your account to retrieve your username.</div>
+</div>
+
+<!-- Forgot Password Done footer -->
+<div class="modal-footer cm-blueModalFooter" ng-if="vm.showOnState('forgotPasswordDone')">
+  <div class="cm-note">If you do not receive the email, please check your email program's Spam or Bulk folders. Insure that you always get email from epals by adding <a>support@epals.com</a> in your address book.</div>
+</div>

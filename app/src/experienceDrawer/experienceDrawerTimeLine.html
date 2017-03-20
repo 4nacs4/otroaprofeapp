@@ -1,0 +1,12 @@
+<section class="cm-contentActionBar">
+  <div class="cm-mainPageTitle">{{vm.timeLine.name}}</div>
+  <ul class="cm-bdBtnGroup clearfix">
+    <li><a class="btn cm-cmBtn cm-bdBtn cm-btnSm" ><i class="fa fa-video-camera"></i></span>Video Chat</a></li>
+    <!--<li><a class="btn cm-cmBtn cm-bdBtn cm-btnSm" ng-click="vm.goToPostDiscussion()">Add Discussion</a></li>-->
+  </ul>
+  <a ng-click="vm.gotoBottom()" class="btn cm-scrollBtn cm-bdBtn cm-btnSm"><i class="fa fa-angle-double-down"></i></a>
+</section>
+<section class="cm-expTimelineWrapper cm-bglGreen cm-bubblesBg" ng-scrollbars>
+  <cm-time-line all-event = "vm.timeLine.events"></cm-time-line>
+  <section id="bottomEnd"></section>
+</section>

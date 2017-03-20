@@ -1,0 +1,24 @@
+.cm-animate-if.ng-enter {
+  -webkit-transition: 0.5s linear all;
+  -moz-transition: 0.5s linear all;
+  -o-transition: 0.5s linear all;
+  transition: 0.5s linear all;
+}
+
+.cm-animate-if.ng-enter {
+  z-index: 100;
+  opacity: 0;
+}
+
+.cm-animate-if.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+
+.cm-animate-if.ng-leave {
+  z-index: 101;
+  opacity: 1;
+}
+
+.cm-animate-if.ng-leave.ng-leave-active {
+  opacity: 0;
+}

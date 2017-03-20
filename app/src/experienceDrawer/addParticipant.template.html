@@ -1,0 +1,264 @@
+<div class="container cm-mainContainer">
+    <div class="cm-mainContentArea cm-GreyBg">
+        <div class="cm-expInvitePanel">
+            <div class="cm-row">
+                <div class="cm-column">
+                    <tabset class="cm-addParticipantsPanel">
+                        <tab heading="Add Teachers" disable="true">
+                            <div class="cm-connecListingActionBar">
+                                <div class="cm-actionSelectStatus">
+                                    <div class="cm-selectCount"><strong>{{(vm.teacherSelected.length > 0) ? vm.teacherSelected.length : 0 }} Teachers</strong> Selected</div>
+                                    <a class="btn cm-cmBtn cm-ActionBtn" ng-click="vm.addSelected(vm.teacherSelected, vm.teacherInviteList)" ng-disabled="(vm.teacherSelected.length <= 0) ">Add Selected<i class="cm-arrowGlyph"></i></a>
+                                </div>
+                                <div class="cm-partiWell cm-partiFilterPanel">
+                                    <div class="cm-partiWellHdr">Find/Add a Teacher</div>
+                                    <div class="cm-partiWellBody">
+                                        <div class="cm-form cm-greyForm">
+                                            <div class="form-group">
+                                                <label class="sr-only">Enter Name or Username</label>
+                                                <div class="cm-formControlWrap">
+                                                    <input ng-model="vm.teacherSearchText" type="text" class="form-control" placeholder="Enter Name or Username">
+                                                    <a ng-click="vm.stopSearchTeacher()"  ng-if="vm.teacherSearchText.length>0" class="cm-removeSearch"><i class="fa fa-times"></i></a>
+                                                </div>
+                                            </div>
+                                            <button ng-click="vm.searchTeacher()" class="btn cm-cmBtn cm-bdBtn cm-btnSm" type="submit">Search</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-if="!vm.teacherSearching" class="cm-partiWell cm-noBorder cm-pastExpParticipants cm-noPadding">
+                                <div class="cm-partiWellHdr">Teachers From Past Experiences</div>
+                                <div class="cm-partiWellBody">
+                                    <div class="clearfix cm-userPartiListing"  ng-scrollbars>
+                                        <div class="col-md-6 cm-column" ng-repeat="teacher in vm.teachers" ng-click="vm.connectionSelected(teacher,vm.teacherSelected)">
+                                            <div class="cm-userPartiCard cm-greyBorderCard  {{teacher.border}}" ng-disabled="teacher.disabled">
+                                                <div class="cm-userDpInfoBox">
+                                                    <figure class="cm-userImg">
+                                                        <img alt="" ng-src="{{teacher.avatar}}" class="cm-userImgDp cm-userImgSm">
+                                                    </figure>
+                                                    <div class="cm-userInfoArea">
+                                                        <div class="cm-userTitle">{{teacher.displayname}}</div>
+                                                        <div class="cm-userState">{{teacher.location}}</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cm-searchPartiResult">
+                                <strong>0 Possible Matches</strong> for "{{vm.teacherSearchText}}".  <a>Create New Account</a>
+                            </div>
+                        </tab>
+                        <tab heading="Add My Students" active="true">
+                            <div class="cm-partiWell cm-addPartiCreateAccWell" ng-if="vm.creatingAccount">
+                                <div class="cm-partiWellHdr">Create New Student’s Account</div>
+                                <div class="cm-partiWellBody">
+                                    <div class="cm-form cm-greyForm">
+                                        <form name="createAccount" novalidate>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>First Name</label>
+                                                        <input name="firstName" required type="text" class="form-control" id="cm-username" ng-model="vm.newStudent.firstName">
+                                                        <ng-messages for="createAccount.firstName.$error" ng-if="createAccount.firstName.$dirty">
+                                                            <div ng-message="required">A valid first name is required</div>
+                                                        </ng-messages>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>Last Name</label>
+                                                        <input name="lastName" required type="text" class="form-control" id="cm-username" ng-model="vm.newStudent.lastName">
+                                                        <ng-messages for="createAccount.lastName.$error" ng-if="createAccount.lastName.$dirty">
+                                                            <div ng-message="required">A valid last name is required</div>
+                                                        </ng-messages>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group cm-singleLabelMultiInput">
+                                                <label>Date of Birth</label>
+                                                <div class="row cm-row">
+                                                    <div class="col-sm-4 cm-column">
+                                                            <cm-gray-drop-down model="vm.newStudent.dob.month"  order-by-id="true" place-holder="{{vm.months[0].name}}" values="vm.months"></cm-gray-drop-down>
+                                                    </div>
+                                                    <div class="col-sm-4 cm-column">
+                                                            <cm-gray-drop-down model="vm.newStudent.dob.date"  place-holder="{{vm.days[0].name}}" values="vm.days"></cm-gray-drop-down>
+                                                    </div>
+                                                    <div class="col-sm-4 cm-column">
+                                                            <cm-gray-drop-down model="vm.newStudent.dob.year" place-holder="{{vm.years[0].name}}" values="vm.years"></cm-gray-drop-down>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Students EMAIL (optional)</label>
+                                                <div class="cm-formControlWrap">
+                                                    <input name="userEmail" required ng-pattern='/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i' class="form-control" ng-maxlength="254" id="cm-Email" ng-model="vm.newStudent.email" cm-field-valid>
+                                                    <ng-messages for="createAccount.userEmail.$error" ng-if="createAccount.userEmail.$dirty">
+                                                        <div ng-message="pattern">Please provide a valid email</div>
+                                                        <div ng-message="required">A valid email is required</div>
+                                                    </ng-messages>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>CREATE USERNAME</label>
+                                                <div class="cm-formControlWrap">
+                                                    <input name="username" required type="text" class="form-control" id="cm-username" ng-model="vm.newStudent.username" ng-minlength="6" cm-field-valid>
+                                                    <ng-messages for="createAccount.username.$error" ng-if="createAccount.username.$dirty">
+                                                        <div ng-message="minlength">Your username is too short</div>
+                                                        <div ng-message="required">A valid username is required</div>
+                                                    </ng-messages>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>CREATE PASSWORD</label>
+                                                <div class="cm-formControlWrap">
+                                                    <input name="password" required type="password" class="form-control" id="cm-password" ng-model="vm.newStudent.password" ng-minlength="6" cm-field-valid>
+                                                    <ng-messages for="createAccount.password.$error" ng-if="createAccount.password.$dirty">
+                                                        <div ng-message="minlength">Your password is too short</div>
+                                                        <div ng-message="required">A valid password is required</div>
+                                                    </ng-messages>
+                                                </div>
+                                            </div>
+                                            <div class="text-right">
+                                                <button type="submit" ng-click="vm.createStudentAccount()" class="btn cm-btn">Create Account</button>
+                                                <button type="button" class="btn cm-btn cm-cancelBtn" ng-click="vm.creatingAccount = false">Cancel</button>
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cm-connecListingActionBar" ng-if="!vm.creatingAccount">
+                                <div class="cm-actionSelectStatus">
+                                    <div class="cm-selectCount"><strong>{{(vm.studentSelected.length > 0) ? vm.studentSelected.length : 0 }} Students</strong> Selected</div>
+                                    <a class="btn cm-cmBtn cm-ActionBtn" ng-click="vm.addSelected(vm.studentSelected, vm.studentInviteList)" ng-disabled="(vm.studentSelected.length <= 0) ">Add Selected<i class="cm-arrowGlyph"></i></a>
+                                </div>
+                                <div class="cm-partiWell cm-partiFilterPanel" ng-if="!vm.creatingAccount">
+                                    <div class="cm-partiWellHdr">Find/Add a Student</div>
+                                    <div class="cm-partiWellBody">
+                                        <div class="cm-form cm-greyForm">
+                                            <div class="form-group">
+                                                <label class="sr-only">Enter Name or Username</label>
+                                                <div class="cm-formControlWrap">
+                                                    <input ng-model="vm.studentSearchText" type="text" class="form-control" placeholder="Enter Name or Username">
+                                                    <a ng-click="vm.stopSearchStudent()" ng-if="vm.studentSearchText.length>0" class="cm-removeSearch"><i class="fa fa-times"></i></a>
+                                                </div>
+                                            </div>
+                                            <button ng-click="vm.searchStudent()" class="btn cm-cmBtn cm-bdBtn cm-btnSm" ng-class="{'defaultCursor':(vm.studentSearchText.length===0)}" type="submit">Search</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cm-accountCreatedMsg" ng-if="vm.accountCreated && !vm.creatingAccount">
+                                An account for <strong>{{vm.accountCreatedTitle}}</strong> has successfully been created and has been <strong>added to your invite list.</strong>
+                                <a ng-click="vm.accountCreated = false" class="cm-removeSearch"><i class="fa fa-times"></i></a>
+                            </div>
+                            <div ng-if="!vm.studentSearching && !vm.creatingAccount" class="cm-partiWell cm-noBorder cm-pastExpParticipants cm-noPadding" ng-class="{'cm-createAccMsgOpen': vm.accountCreated}">
+                                <div class="cm-partiWellHdr">Students From Past Experiences</div>
+                                <div class="cm-partiWellBody" ng-scrollbars>
+                                    <div class="clearfix cm-userPartiListing" ng-scrollbars>
+                                        <div class="col-md-6 cm-column" ng-repeat="student in vm.students" ng-click="vm.connectionSelected(student,vm.studentSelected)">
+                                            <div class="cm-userPartiCard cm-greyBorderCard  {{student.border}}" ng-disabled="student.disabled">
+                                                <div class="cm-userDpInfoBox">
+                                                    <figure class="cm-userImg">
+                                                        <img alt="" ng-src="{{student.avatar}}" class="cm-userImgDp cm-userImgSm">
+                                                    </figure>
+                                                    <div class="cm-userInfoArea">
+                                                        <div class="cm-userTitle">{{student.displayname}}</div>
+                                                        <div class="cm-userState">{{student.location}}</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cm-searchPartiResult" ng-if="!vm.creatingAccount">
+                                <strong>{{(vm.matchedStudent.length > 0) ? vm.matchedStudent.length : 0}} Possible Matches</strong> for "{{vm.studentSearchText}}".
+                                <div ng-if="(vm.matchedStudent.length > 0) && vm.studentSearching"  ng-repeat="student in vm.matchedStudent" class="cm-userPartiDetailCard {{student.border}}"  ng-click="vm.connectionSelected(student,vm.studentSelected)" ng-disabled="student.disabled">
+                                    <div class="cm-userDpInfoBox cm-userPartiClip">
+                                        <figure class="cm-userImg">
+                                            <img class="cm-userImgDp cm-userImgSm" ng-src="{{student.avatar}}" alt="">
+                                        </figure>
+                                        <div class="cm-userInfoArea">
+                                            <div class="cm-userTitle">{{student.username}}</div>
+                                            <div class="cm-userState">{{student.location}}</div>
+                                        </div>
+                                    </div>
+                                    <div class="cm-singleDetailClip cm-userPartiClip">
+                                        <span>USERNAME</span>{{student.displayname}}
+                                    </div>
+                                    <div class="cm-singleDetailClip cm-userPartiClip">
+                                        <span>BIRTHDATE</span>{{student.birthdate  | date:'MMM d, yyyy'}}
+                                    </div>
+                                    <div class="cm-countryFlagClip cm-userPartiClip">
+                                        <img ng-src="{{student.flag}}" class="cm-flag" alt="">
+                                    </div>
+                                </div>
+                                <em  ng-if="(vm.matchedStudent.length > 0) && vm.studentSearching" >or</em>
+                                <a  class="cm-createNewAcc" ng-click="vm.creatingAccount=true">Create New Account</a>
+                            </div>
+
+                        </tab>
+                    </tabset>
+                </div>
+                <div class="cm-column">
+                    <div class="cm-connecListingPanel">
+                        <div class="cm-connecListingPanelHeader">
+                            <div class="cm-connecListingPanelTitle">The Invite List</div>
+                            <div class="cm-connecListingActionBar">
+                                <div class="cm-actionSelectStatus">
+                                    <div class="cm-selectCount"><strong>{{(vm.teacherInviteList.length > 0) ? vm.teacherInviteList.length : 0 }} Teachers, {{(vm.studentInviteList.length > 0) ? vm.studentInviteList.length : 0 }} Students</strong> on the invite list.</div>
+                                    <a ng-click="vm.sendInviteClick()" class="btn cm-cmBtn cm-ActionBtn" ng-disabled="(vm.studentInviteList.length <= 0) &&(vm.teacherInviteList.length <= 0)">Send Invites</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cm-connecListingBody" ng-scrollbars>
+                        <div class="cm-partiWell cm-noBorder">
+                            <div class="cm-partiWellHdr">Teachers</div>
+                            <div class="cm-partiWellBody">
+                                <div class="clearfix cm-userPartiListing">
+                                    <div class="col-md-6 cm-column" ng-repeat="teacher in vm.teacherInviteList">
+                                        <div class="cm-userPartiCard cm-greyBorderCard">
+                                            <div class="cm-userDpInfoBox">
+                                                <figure class="cm-userImg">
+                                                    <img alt="" ng-src="{{teacher.avatar}}" class="cm-userImgDp cm-userImgSm">
+                                                </figure>
+                                                <div class="cm-userInfoArea">
+                                                    <div class="cm-userTitle">{{teacher.displayname}}</div>
+                                                    <div class="cm-userState">{{teacher.location}}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cm-partiWell cm-noBorder">
+                            <div class="cm-partiWellHdr">Students</div>
+                            <div class="cm-partiWellBody">
+                                <div class="clearfix cm-userPartiListing">
+                                    <div class="col-md-6 cm-column" ng-repeat="student in vm.studentInviteList">
+                                        <div class="cm-userPartiCard cm-greyBorderCard">
+                                            <div class="cm-userDpInfoBox">
+                                                <figure class="cm-userImg">
+                                                    <img alt="" ng-src="{{student.avatar}}" class="cm-userImgDp cm-userImgSm">
+                                                </figure>
+                                                <div class="cm-userInfoArea">
+                                                    <div class="cm-userTitle">{{student.displayname}}</div>
+                                                    <div class="cm-userState">{{student.location}}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,92 @@
+<div class="cm-modalTitle">
+    <span>Registro</span>
+</div>
+<div class="clearfix cm-doublePanelModalSection">
+    <!--div class="cm-left">
+      <a class="cm-signInSocialBtn cm-twitter"><i
+        class="fa fa-twitter"></i><span>Sign in with Twitter</span></a>
+      <a class="cm-signInSocialBtn cm-facebook"><i
+        class="fa fa-facebook"></i><span>Sign in with Facebook</span></a>
+      <a class="cm-signInSocialBtn cm-googlePlus"><i
+        class="fa fa-google-plus"></i><span>Sign in with Google+</span></a>
+    </div-->
+    <div class="">
+        <!--div class="cm-orSeperator">OR</div-->
+        <form name="signUp" novalidate>
+            <div class="cm-form">
+                <div class="form-group">
+                    <label for="cm-ci">Cedula</label>
+                    <div class="cm-formControlWrap">
+                        <div class="input-group">
+                            <div class="input-group-btn">
+                                <ui-select name="idType" on-select="" ng-model="vm.idType" class="cm-customSelectFilter">
+                                    <ui-select-match >{{$select.selected.name}}</ui-select-match>
+                                    <ui-select-choices repeat="list in vm.idTypeCollection | orderBy: 'name' | filter: {name: $select.search}">
+                                        <div  ng-bind="list.name"></div>
+                                    </ui-select-choices>
+                                </ui-select>
+                            </div>
+                            <input name="id" required type="text" pattern="[0-9]*" class="form-control" id="cm-username" ng-model="vm.idNumber" ng-minlength="6" cm-field-valid>
+                            <ng-messages for="signUp.id.$error" ng-if="signUp.id.$dirty">
+                                <div ng-message="minlength">Cédula muy corta</div>
+                                <div ng-message="required">Ingrese su Cédula</div>
+                                <div ng-message="pattern">Cédula Inválida</div>
+                            </ng-messages>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="cm-firstName">Nombres</label>
+                    <div class="cm-formControlWrap">
+                        <input name="firstName" required type="text" class="form-control" id="cm-firstName" ng-model="vm.user.firstName" ng-minlength="6" cm-field-valid>
+                        <ng-messages for="signUp.firstName.$error" ng-if="signUp.firstName.$dirty">
+                            <div ng-message="minlength">Nombre muy corto</div>
+                            <div ng-message="required">Ingrese su Nombre</div>
+                        </ng-messages>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="cm-lastName">Apellidos</label>
+                    <div class="cm-formControlWrap">
+                        <input name="lastName" required type="text" class="form-control" id="cm-lastName" ng-model="vm.user.lastName" ng-minlength="6" cm-field-valid>
+                        <ng-messages for="signUp.lastName.$error" ng-if="signUp.lastName.$dirty">
+                            <div ng-message="minlength">Apellido muy corto</div>
+                            <div ng-message="required">Ingrese su Apellido</div>
+                        </ng-messages>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="cm-Email">Correo</label>
+                    <div class="cm-formControlWrap">
+                        <input name="userEmail" required ng-pattern='/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i' class="form-control" ng-maxlength="254" id="cm-Email" ng-model="vm.user.email" cm-field-valid>
+                        <ng-messages for="signUp.userEmail.$error" ng-if="signUp.userEmail.$dirty">
+                            <div ng-message="pattern">Correo Electrónico inválido</div>
+                            <div ng-message="required">Ingrese su Correo Electrónico</div>
+                        </ng-messages>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="cm-password">Contraseña</label>
+                    <div class="cm-formControlWrap">
+                        <input name="password" required type="password" class="form-control" id="cm-password" ng-model="vm.user.password" ng-minlength="6" cm-field-valid>
+                        <ng-messages for="signUp.password.$error" ng-if="signUp.password.$dirty">
+                            <div ng-message="minlength">Contraseña demasiado corta</div>
+                            <div ng-message="required">Ingrese una Contraseña</div>
+                        </ng-messages>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="cm-passwordconfirm">Confirmar Contraseña</label>
+                    <div class="cm-formControlWrap">
+                        <input name="confirmPassword"  required type="password"  ui-validate="'$value===vm.user.password'" ui-validate-watch="'vm.user.password'" class="form-control" id="cm-passwordconfirm" ng-model="vm.user.confirmPassword" cm-field-valid>
+                        <ng-messages for="signUp.confirmPassword.$error" ng-if="signUp.confirmPassword.$dirty">
+                            <div ng-message="validator">Las contraseñas no coinciden</div>
+                        </ng-messages>
+                    </div>
+                </div>
+                <br>
+                <button type="submit" class="btn cm-cmBtn cm-btnMd" ng-click="vm.signUp()">Registrarse</button>
+            </div>
+        </form>
+    </div>
+</div>

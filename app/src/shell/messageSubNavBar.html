@@ -1,0 +1,17 @@
+<section class="cm-pageActionBar">
+  <div class="clearfix">
+    <h1 class="cm-mainPageTitle">{{vm.title}}</h1>
+    <ul class="cm-bdBtnGroup clearfix">
+      <li><a ng-click="vm.logout()" class="cm-cmBtn cm-bdBtn cm-btnSm">Salir</a></li>
+    </ul>
+    <nav class="cm-tabGroup">
+      <ul class="clearfix">
+        <li ng-class="{'cm-active':state.isActiveTab}" ng-repeat="state in vm.navStates | orderBy: 'navOrder'" ng-if="!vm.hidetabs" >
+            <div ng-if="!state.isActiveTab && (state.notification>0)" class="cm-notificationCounter"><span class="cm-countBubble">{{state.notification}}</span></div>
+            <a ui-sref="{{state.name}}">{{state.title}}</a>
+            <span ng-if="state.isActiveTab" class="glyphicon glyphicon-triangle-top cm-selectedArrow"></span>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</section>

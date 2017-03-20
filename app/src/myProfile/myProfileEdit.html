@@ -1,0 +1,137 @@
+<div class="container cm-height100" ng-scrollbars>
+    <div class="cm-profileLayout clearfix">
+        <div class="cm-profileDPColumn">
+            <figure class="cm-userImg"><img class="cm-userImgDp cm-userImgLg" ng-src="{{vm.profile.avatar}}" alt=""></figure>
+            <a class="cm-editLink">Change Avatar</a>
+            <a class="cm-editLink">Change Password</a>
+        </div>
+        <div class="cm-profileBio cm-editProfile cm-greyForm cm-form">
+            <div class="cm-editProfileHeader">
+                <div class="cm-editProfileTitle">Edit My Profile</div>
+                <a class="cm-cmBtn btn cm-profileSaveBtn" ng-click="vm.saveProfile()">Save</a>
+            </div>
+            <div class="row">
+                <form name="myProfile" novalidate>
+                    <div class="col-sm-6 col-xs-6">
+                        <div class="row">
+                            <div class="col-sm-6 col-xs-6">
+                                <div class="form-group">
+                                    <label >Nombres</label>
+                                    <input required name="firstName" ng-model="vm.profile.firstname" ng-pattern="/^(\D)+$/" type="text" class="form-control">
+                                    <ng-messages for="myProfile.firstName.$error" ng-if="myProfile.firstName.$dirty">
+                                        <div ng-message="pattern">El Nombre debe contener solo texto</div>
+                                        <div ng-message="minlength">El Nombre es muy corto</div>
+                                        <div ng-message="required">Ingrese su Nombre</div>
+                                    </ng-messages>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-xs-6">
+                                <div class="form-group">
+                                    <label>Apellidos</label>
+                                    <input required name="lastName" ng-model="vm.profile.lastname" ng-pattern="/^(\D)+$/" type="text" class="form-control">
+                                    <ng-messages for="myProfile.lastName.$error" ng-if="myProfile.lastName.$dirty">
+                                        <div ng-message="pattern">El Apellido debe contener solo texto</div>
+                                        <div ng-message="minlength">El Apellido es muy corto</div>
+                                        <div ng-message="required">Ingrese su Apellido</div>
+                                    </ng-messages>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Ubicación</label>
+                            <input required ng-model="vm.profile.location" name="userLocation" type="text" class="form-control">
+                            <ng-messages for="myProfile.userLocation.$error" ng-if="myProfile.userLocation.$dirty">
+                                <div ng-message="required">Please provide your location</div>
+                            </ng-messages>
+                        </div>
+                        <div class="form-group">
+                            <label>Pais</label>
+                            <cm-gray-drop-down place-holder="{{vm.profile.country}}" values="vm.filterCriteria[0].allValues"></cm-gray-drop-down>
+                        </div>
+                        <div class="form-group">
+                            <label>Correo electrónico</label>
+                            <input ng-model="vm.profile.email" name="userEmail" required ng-pattern='/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i' class="form-control" ng-maxlength="254" id="cm-Email" />
+                            <ng-messages for="myProfile.userEmail.$error" ng-if="myProfile.userEmail.$dirty">
+                                <div ng-message="pattern">Please provide a valid email</div>
+                                <div ng-message="required">A valid email is required</div>
+                            </ng-messages>
+                        </div>
+                        <div class="form-group">
+                            <label>Age of Students</label>
+                            <div class="cm-customValueSlider">
+                                <div class="cm-sliderBar">
+                                    <input ng-model="vm.profile.ages"  type="text" slider options="vm.ageGroupOptions" ng-disabled="disabled" />
+                                </div>
+                                <div class="cm-sliderText">{{vm.profile.ages.replace(';', ' - ')}}</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Type of School</label>
+                            <cm-gray-drop-down place-holder="{{vm.profile.schooltype}}" values="vm.filterCriteria[7].allValues"></cm-gray-drop-down>
+                        </div>
+                        <div class="form-group">
+                            <label>Name of School</label>
+                            <input required name="schoolName" ng-model="vm.profile.schoolname" type="text" class="form-control">
+                            <ng-messages for="myProfile.schoolName.$error" ng-if="myProfile.schoolName.$dirty">
+                                <div ng-message="required">Please provide your school name</div>
+                            </ng-messages>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xs-6">
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input required name="userName" ng-model="vm.profile.username" type="text" class="form-control">
+                            <ng-messages for="myProfile.userName.$error" ng-if="myProfile.userName.$dirty">
+                                <div ng-message="required">Please provide a valid username</div>
+                            </ng-messages>
+                        </div>
+                        <div class="form-group">
+                            <label>Subject(s) Taught</label>
+                            <div class="cm-checkboxGroup clearfix">
+                                <div class="checkbox" ng-repeat="sub in vm.profile.subjects | orderBy: 'name'">
+                                    <label>
+                                        <input type="checkbox" checked="true"> {{sub.name}}
+                                        <span class="glyphicon glyphicon-ok"></span>
+                                    </label>
+                                </div>
+                                <a ng-click="vm.addSubject()" ng-if="!vm.subjectFinished && !vm.addingSubject" class="cm-checkBoxAddBtn"><span class="cm-addIcon"><i class="fa fa-plus"></i></span>Add</a>
+                            </div>
+                            <cm-gray-drop-down ng-if="vm.addingSubject" model="vm.selectedSubject" place-holder="{{vm.filterCriteria[4].placeHolder}}" values="vm.filterCriteria[4].allValues" onselect="vm.subjectAdded(val)"></cm-gray-drop-down>
+                        </div>
+                        <div class="form-group">
+                            <label>Language(s) Spoken</label>
+                            <div class="cm-checkboxGroup clearfix">
+                                <div class="checkbox" ng-repeat="lang in vm.profile.languages  | orderBy: 'name'">
+                                    <label>
+                                        <input type="checkbox" checked="true"> {{lang.name}}
+                                        <span class="glyphicon glyphicon-ok"></span>
+                                    </label>
+                                </div>
+                                <a ng-click="vm.addLanguage()" ng-if="!vm.languageFinished && !vm.addingLanguage" class="cm-checkBoxAddBtn"><span class="cm-addIcon"><i class="fa fa-plus"></i></span>Add</a>
+                            </div>
+                            <cm-gray-drop-down ng-if="vm.addingLanguage" model="vm.selectedLanguage" place-holder="{{vm.filterCriteria[2].placeHolder}}" values="vm.filterCriteria[2].allValues" onselect="vm.languageAdded(val)"></cm-gray-drop-down>
+                        </div>
+                        <div class="form-group">
+                            <label>Class Size</label>
+                            <cm-gray-drop-down place-holder="{{vm.profile['class-size']}}" values="vm.filterCriteria[3].allValues"></cm-gray-drop-down>
+                        </div>
+                        <div class="form-group">
+                            <label>Interested In</label>
+                            <cm-gray-drop-down place-holder="{{vm.profile.interested_in}}" values="vm.filterCriteria[6].allValues"></cm-gray-drop-down>
+                        </div>
+                        <div class="form-group">
+                            <label>Looking for</label>
+                            <textarea required ng-model="vm.profile.looking_for" class="form-control cm-height100px"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-xs-12">
+                        <div class="form-group">
+                            <label>A summary about yourself and your classroom(s)</label>
+                            <textarea required ng-model="vm.profile.description" class="form-control cm-height172px"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

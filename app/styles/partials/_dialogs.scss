@@ -1,0 +1,100 @@
+/* Dialog PopUp */
+
+.cm-modalPopUp{
+  .modal-dialog{
+    max-width:502px;
+    margin:100px auto 0;
+    padding:0 10px;
+    .modal-content{
+      border-radius:4px;
+      background:$white;
+      padding:30px;
+      border:none;
+      position: relative;
+      .modal-header{
+        border:none;
+        padding:0;
+        margin:0;
+        min-height: 0;
+        .cm-closePopup{
+          background: url("/images/icons/light_cross_lg.png") no-repeat center center $Grey777;
+          background-size:14px;
+          display: block;
+          height: 100%;
+          margin: 0;
+          opacity: 1;
+          padding: 0;
+          border-radius:0 4px;
+          outline:none;
+          position:absolute;
+          top:0;
+          right:0;
+          @include sameWidthHeight(40px);
+          @include transition($transitionValue);
+        }
+        .cm-closePopup:hover{
+          background-color:$Grey777 - 10;
+        }
+      }
+      .modal-body{
+        padding:0;
+        .modal-title{
+          text-align:center;
+          font-size:24px;
+          font-weight: 600;
+          margin:0 0 27px 0;
+        }
+        .cm-popupForm{
+          .form-group{
+            label{
+              font-size:14px;
+              font-weight: 600;
+              color:$black;
+              margin-bottom:6px;
+              span{
+                color:$Grey777;
+              }
+            }
+            .form-control{
+              border-radius:4px;
+              border:1px solid #cccccc;
+              height:42px;
+              @include boxShadow(none);
+            }
+            textarea.form-control{
+              resize:none;
+              height:92px;
+            }
+          }
+          .cm-btn{
+            height:40px;
+            padding:0 30px;
+            font-size:16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            display: inline-block;
+            background:$blue;
+            border:none;
+            color:$white;
+            @include transition($transitionValue);
+            margin:35px 0 10px 0;
+          }
+          .cm-btn.cm-cancelBtn, .cm-btn.cm-cancelBtn:hover{
+            color:$black333;
+            border:1px solid $Grey777;
+            background:none;
+          }
+          .cm-btn:hover{
+            background:$blue - 20;
+          }
+        }
+        .cm-expCard{
+          max-width:250px;
+          margin:0 auto;
+          height:auto;
+          @include boxShadow(none);
+        }
+      }
+    }
+  }
+}

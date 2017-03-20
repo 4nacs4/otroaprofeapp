@@ -1,0 +1,8 @@
+<div>
+  <div class="cm-saveSearchPresetTitle">{{heading}}</div>
+  <ul>
+    <li ng-repeat="search in searches">{{(showCharacters === "")? search.name : (search.name.substr(0,showCharacters)+'...')}}
+      <a class="cm-removeSearch" ng-click="removeSearch(search)"><i class="fa fa-times"></i></a>
+    </li>
+  </ul>
+</div>

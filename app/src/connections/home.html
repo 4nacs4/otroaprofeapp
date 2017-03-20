@@ -1,0 +1,61 @@
+<div class="container cm-mainContainer">
+  <article class="cm-sideBarContentWrapper">
+    <side-bar-container sidebar-open="vm.sideFilterOpen" sidebar-closed="vm.sideFilterClosed">
+      <div class="cm-sideBarHeader">
+        <div class="cm-sideBarTitle" ng-click="vm.invertSavedSearchDisplay()">
+          Filter <i class="fa fa-angle-down"></i>
+          <span ng-if="vm.showSavedSearches" class="glyphicon glyphicon-triangle-top cm-saveSearchPresetsArrow"></span>
+        </div>
+        <div class="cm-filterOptions">
+          <a class="cm-filterOptionsBtn" ng-click="vm.saveFilter()">Save</a>
+          <a class="cm-filterOptionsBtn" ng-click="vm.clearAllFilter()">Clear All</a>
+        </div>
+      </div>
+      <div class="cm-saveSearchMain" ng-scrollbars ng-if="vm.showSavedSearches && vm.sideFilterOpen">
+        <div class="cm-saveSearchPresetsWrapper">
+          <cm-search ng-repeat="search in vm.searches" heading="{{search.heading}}" searches="search.list" show-characters="{{search.showCharacters}}"></cm-search>
+        </div>
+      </div>
+      <div class="cm-sideBarBody" ng-scrollbars>
+        <cm-filter ng-repeat="filter in vm.filterCriteria" heading="{{filter.heading}}"
+                   ng-if="filter.inSideBar" filter-selected="filter.selectedValues" filter-all="filter.allValues" place-holder="{{filter.placeHolder}}">
+        </cm-filter>
+          <div style="height:150px;"></div>
+      </div>
+    </side-bar-container>
+    <div class="cm-mainContentArea cm-bubblesBg cm-bgDGreen" ng-class="{'cm-sideBarOpen': vm.sideFilterOpen }">
+      <section class="cm-contentActionBar">
+        <div class="cm-miniLabel"><span class="totalCount">{{vm.totalCount}} Results </span>// Filter or Search to Refine Results</div>
+        <div class="cm-changeViewOptions">
+          <div class="btn-group">
+            <a class="cm-listView" ng-model="vm.connectionLayout" btn-radio="'list'"
+              ng-change="vm.setConnectionsLayout(vm.connectionLayout)">
+              <span class="glyphicon glyphicon-th-list"></span>
+            </a>
+            <a class="cm-GridView" ng-model="vm.connectionLayout" btn-radio="'grid'"
+              ng-change="vm.setConnectionsLayout(vm.connectionLayout)">
+              <span class="glyphicon glyphicon-th-large"></span>
+            </a>
+          </div>
+        </div>
+        <div class="cm-sortByOptions form-inline clearfix">
+          <div class="form-group">
+            <label for="cm-sortSelect">Sort by</label>
+            <ui-select id="cm-sortSelect" class="cm-customSelectActionBar" ng-model="vm.selectedSort"
+              on-select="vm.onSort($select.selected.value)">
+              <ui-select-match>{{$select.selected.name}}</ui-select-match>
+              <ui-select-choices repeat="criteria in vm.sortCriteria">
+                <span ng-bind="criteria.name"></span>
+              </ui-select-choices>
+            </ui-select>
+          </div>
+          <a class="cm-sortBtn" ng-click="vm.toggleSortDirection()" ng-class="{'cm-ascBtn': !vm.sortDirDesc,'cm-dscBtn': vm.sortDirDesc }"></a>
+        </div>
+      </section>
+      <section class="clearfix cm-cardListing"  ng-scrollbars>
+        <cm-connection ng-repeat="connection in vm.connections" to-Profile="vm.toProfile(connection.id)" profile="connection" connect="vm.connect(connection.id,connection.displayname)" view-profile="vm.toProfile(connection.id)" type="vm.connectionCardType" col-size="(vm.cardPerCol - !vm.sideFilterClosed) === 0 ? 1 : (vm.cardPerCol - !vm.sideFilterClosed)"></cm-connection>
+      </section>
+    </div>
+  </article>
+</div>
+
