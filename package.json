@@ -3,11 +3,9 @@
     "version": "0.1.0",
     "description": "aprofeServicesApp",
     "main": "server.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
     "author": "Neomar Colmenares",
     "license": "MIT",
+    "cacheDirectories": ["app/bower_components"],
     "dependencies": {
         "mongoose": "^4.8.4",
         "express": "^4.7.1",
