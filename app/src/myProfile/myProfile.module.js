@@ -40,7 +40,7 @@
                     controller: 'messageSubNavBar as vm'
                 },
                 'topNavBar@shell': {
-                    templateUrl: 'src/shell/TopNavBar.html',
+                    templateUrl: 'src/shell/topNavBar.html',
                     controller: 'TopNavBar as vm'
                 }
             }
