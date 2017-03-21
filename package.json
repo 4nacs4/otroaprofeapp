@@ -5,6 +5,9 @@
     "main": "server.js",
     "author": "Neomar Colmenares",
     "license": "MIT",
+    "engines": {
+        "node": "6.9.4"
+    },
     "dependencies": {
         "mongoose": "^4.8.4",
         "express": "^4.7.1",
