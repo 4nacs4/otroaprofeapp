@@ -2,6 +2,7 @@ var AppconfigModel = require('../models/Appconfig');
 var mongoose = require('mongoose');
 var Appconfig = mongoose.model('Appconfig');
 var Utils = require('../services/utils');
+var config = require('../config');
 
 var appConfig = {
     getAppconfig: function(req, res) {
