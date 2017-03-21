@@ -3,6 +3,6 @@
 # Dependency directory
 /node_modules/
 /app/bower_components/
-/nbpoject/
+/nbproject/
 #css
 app/styles/css/

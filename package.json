@@ -52,8 +52,5 @@
         "karma-phantomjs-launcher": "^0.1.4",
         "matchdep": "~0.3.0",
         "proxy-middleware": "~0.5.1"
-    },
-    "scripts": {
-        "postinstall": "bower install"
     }
 }
