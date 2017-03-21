@@ -6,3 +6,6 @@
 /nbproject/
 #css
 #app/styles/css/
+#tmp directory
+/.tmp/
+/.sass-cache/
